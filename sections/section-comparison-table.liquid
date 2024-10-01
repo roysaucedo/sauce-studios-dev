@@ -1,64 +1,64 @@
 {%- style -%}
-#shopify-section-{{ section.id }} .comparison-chart {
+.comparison-table--{{ section.id }} {
     padding: 20px;
     max-width: 800px;
     margin: auto;
   }
-  #shopify-section-{{ section.id }} .comparison-chart h2 {
+  .comparison-table--{{ section.id }} h2 {
     text-align: center;
     padding-bottom: 40px;
   }
 
-  #shopify-section-{{ section.id }} .comparison-chart table {
+  .comparison-table--{{ section.id }} table {
     width: 100%;
     border-collapse: collapse;
   }
-  #shopify-section-{{ section.id }} .comparision-chart-logo {
+  .comparision-table-logo--{{ section.id }} {
     max-width: {{ section.settings.logo_size }}px;
     width: 100%;
     height: auto;
   }
-  #shopify-section-{{ section.id }} .comparison-chart th, .comparison-chart td {
+  .comparison-table--{{ section.id }} th, .comparison-table--{{ section.id }} td {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
     vertical-align: middle;
   }
-  #shopify-section-{{ section.id }} .comparison-chart th {
+  .comparison-table--{{ section.id }} th {
     background-color: #f8f8f8;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
   }
-  #shopify-section-{{ section.id }} .comparison-chart th:nth-child(1), 
-  .comparison-chart td:nth-child(1) {
+  .comparison-table--{{ section.id }} th:nth-child(1), 
+  .comparison-table--{{ section.id }} td:nth-child(1) {
     width: 60%;
   }
-  #shopify-section-{{ section.id }} .comparison-chart th:nth-child(2),
-  .comparison-chart td:nth-child(2),
-  .comparison-chart th:nth-child(3),
-  .comparison-chart td:nth-child(3) {
+  .comparison-table--{{ section.id }} th:nth-child(2),
+  .comparison-table--{{ section.id }} td:nth-child(2),
+  .comparison-table--{{ section.id }} th:nth-child(3),
+  .comparison-table--{{ section.id }} td:nth-child(3) {
     width: 20%;
     text-align: center;
   }
   
-  #shopify-section-{{ section.id }} .comparison-chart table tr:nth-child(odd) {
+  .comparison-table--{{ section.id }} table tr:nth-child(odd) {
   background-color: #ffffff; /* Odd rows - white */
   }
-  #shopify-section-{{ section.id }} .comparison-chart table tr:nth-child(odd):hover {
+  .comparison-table--{{ section.id }} table tr:nth-child(odd):hover {
     background-color: #cbcbcb; /* Change this color to whatever you prefer */
     transition: background-color 0.3s ease; /* Optional: Smooth transition */
   }
 
-  #shopify-section-{{ section.id }} .comparison-chart table tr:nth-child(even) {
+  .comparison-table--{{ section.id }} table tr:nth-child(even) {
     background-color: #fafafa; /* Even rows - light grey */
   }
-  #shopify-section-{{ section.id }} .comparison-chart table tr:nth-child(even):hover {
+  .comparison-table--{{ section.id }} table tr:nth-child(even):hover {
     background-color: #cbcbcb; /* Change this color to whatever you prefer */
     transition: background-color 0.3s ease; /* Optional: Smooth transition */
   }
 
-  #shopify-section-{{ section.id }} .comparision-chart-tr > td > p {
+  .comparision-table-tr--{{ section.id }} > td > p {
     margin-bottom: 0px;
   }
   
@@ -74,11 +74,11 @@
     }
   }
 
-  #shopify-section-{{ section.id }} .green-icon {
+  .green-icon--{{ section.id }} {
     color: green; 
     fill: green; 
   }
-  #shopify-section-{{ section.id }} .red-icon {
+  .red-icon--{{ section.id }} {
     color: red; 
     fill: red; 
   }
@@ -87,43 +87,42 @@
 
 
 
-<div id="shopify-section-{{ section.id }}" class="section-{{ section.id }}-padding">
-    <div id="shopify-section-{{ section.id }}" class="comparison-chart">
-        <h2 id="shopify-section-{{ section.id }}" class="h2">{{ section.settings.heading }}</h2>
-    <table id="shopify-section-{{ section.id }}">
-      <thead id="shopify-section-{{ section.id }}">
-        <tr id="shopify-section-{{ section.id }}">
-          <th id="shopify-section-{{ section.id }}">{{ section.settings.column_1_heading }}</th>
-          <th id="shopify-section-{{ section.id }}">
+<div class="section-{{ section.id }}-padding">
+    <div class="comparison-table--{{ section.id }}">
+        <h2 class="h2">{{ section.settings.heading }}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>{{ section.settings.column_1_heading }}</th>
+          <th>
             <img
               src="{{ section.settings.image | image_url: height: 640 }}"
               alt="{{ section.settings.image.alt | escape }}"
               loading="lazy"
               width="{{ section.settings.image.width }}"
               height="{{ section.settings.image.height }}"
-              class="comparision-chart-logo"
-              id="shopify-section-{{ section.id }}"
+              class="comparision-table-logo--{{ section.id }}"
             >
           </th>
-          <th id="shopify-section-{{ section.id }}">{{ section.settings.column_3_heading }}</th>
+          <th>{{ section.settings.column_3_heading }}</th>
         </tr>
       </thead>
-      <tbody id="shopify-section-{{ section.id }}">
+      <tbody>
         {% for block in section.blocks %}
-        <tr id="shopify-section-{{ section.id }}" class="comparision-chart-tr">
-          <td id="shopify-section-{{ section.id }}">{{ block.settings.feature }}</td>
+        <tr class="comparision-table-tr--{{ section.id }}">
+          <td>{{ block.settings.feature }}</td>
           <td>
             {% if block.settings.icon_type_1 == 'check' %}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="shopify-section-{{ section.id }}" class="icon green-icon" style="transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon green-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>
             {% else %}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="shopify-section-{{ section.id }}" class="icon red-icon" style="transform: ;msFilter:;"><path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path><path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon red-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path><path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path></svg>
             {% endif %}
           </td>
           <td>
             {% if block.settings.icon_type_2 == 'check' %}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="shopify-section-{{ section.id }}" class="icon green-icon" style="transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon green-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>
             {% else %}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="shopify-section-{{ section.id }}" class="icon red-icon" style="transform: ;msFilter:;"><path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path><path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon red-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path><path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path></svg>
             {% endif %}
           </td>
         </tr>
