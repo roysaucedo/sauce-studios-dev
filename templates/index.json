@@ -157,7 +157,7 @@
         "text_color": "#000000",
         "border_width": 1,
         "border_color": "#000000",
-        "show_desktop": false,
+        "show_desktop": true,
         "show_mobile": true,
         "padding_top": 0,
         "padding_bottom": 0
