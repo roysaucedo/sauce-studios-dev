@@ -75,7 +75,7 @@
   }
 </style>
 
-<div class="section-{{ section.id }}-padding {% if section.settings.show_mobile %}show_mobile{% endif %} {% if section.settings.show_mobile == false %}hide_mobile{% endif %} {% if section.settings.show_desktop %}show_desktop{% endif %} {% if section.settings.show_desktop == false %}hide_desktop{% endif %}">
+<div data-sticky-type="{{ section.settings.sticky_header_type }}" class="section-{{ section.id }}-padding {% if section.settings.show_mobile %}show_mobile{% endif %} {% if section.settings.show_mobile == false %}hide_mobile{% endif %} {% if section.settings.show_desktop %}show_desktop{% endif %} {% if section.settings.show_desktop == false %}hide_desktop{% endif %}">
   <div class="ig-story-section-ctr">
     {% for block in section.blocks %}
       {% if block.settings.collection_img != blank %}
