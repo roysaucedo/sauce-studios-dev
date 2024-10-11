@@ -7,9 +7,8 @@
     overflow-x: scroll;
   }
   
-
+/* For mobile phones hide scrollbar */
   @media only screen and (max-width: 768px) {
-  /* For mobile phones: */
     #shopify-section-{{ section.id }} .ig-story-section-ctr {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
@@ -19,6 +18,7 @@
   }
   
 }
+  
   #shopify-section-{{ section.id }} .ig-story-section-ctr:last-child {
     padding-right: 10px;
   }
