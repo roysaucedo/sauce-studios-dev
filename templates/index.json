@@ -19,6 +19,55 @@
             "collection_title": "TITLE GOES HERE"
           }
         },
+        "story_TcmbAr": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_ULq6qx": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_N8Nyb6": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_bm9FcA": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_AYjxDK": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_xdVDQd": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_w9k4DA": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
         "story_37cjDg": {
           "type": "story",
           "settings": {
@@ -85,6 +134,13 @@
       },
       "block_order": [
         "story_TMgKV4",
+        "story_TcmbAr",
+        "story_ULq6qx",
+        "story_N8Nyb6",
+        "story_bm9FcA",
+        "story_AYjxDK",
+        "story_xdVDQd",
+        "story_w9k4DA",
         "story_37cjDg",
         "story_jEj9FG",
         "story_cKPWJe",
