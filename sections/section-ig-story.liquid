@@ -1,4 +1,20 @@
 <style>
+  /* Show the scrollbar on desktop */
+@media only screen and (min-width: 768px) {
+    #shopify-section-{{ section.id }} .ig-story-section-ctr::-webkit-scrollbar {
+        display: block !important; /* Show scrollbar for Chrome, Safari, and Opera */
+        height: 8px; /* Adjust scrollbar height */
+    }
+
+    #shopify-section-{{ section.id }} .ig-story-section-ctr::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.5); /* Custom thumb color */
+        border-radius: 4px; /* Rounded edges for scrollbar thumb */
+    }
+
+    #shopify-section-{{ section.id }} .ig-story-section-ctr::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0.1); /* Custom track color */
+    }
+}
   #shopify-section-{{ section.id }} .ig-story-section-ctr {
     padding: 15px 0px 10px 10px;
     display: flex;
@@ -18,22 +34,7 @@
     padding-right: 10px;
 }
 
-/* Show the scrollbar on desktop */
-@media only screen and (min-width: 768px) {
-    #shopify-section-{{ section.id }} .ig-story-section-ctr::-webkit-scrollbar {
-        display: block !important; /* Show scrollbar for Chrome, Safari, and Opera */
-        height: 8px; /* Adjust scrollbar height */
-    }
 
-    #shopify-section-{{ section.id }} .ig-story-section-ctr::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.5); /* Custom thumb color */
-        border-radius: 4px; /* Rounded edges for scrollbar thumb */
-    }
-
-    #shopify-section-{{ section.id }} .ig-story-section-ctr::-webkit-scrollbar-track {
-        background-color: rgba(0, 0, 0, 0.1); /* Custom track color */
-    }
-}
 
 #shopify-section-{{ section.id }} .story-link {
     text-decoration: none;
