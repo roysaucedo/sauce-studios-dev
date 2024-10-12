@@ -1,6 +1,6 @@
 <style>
 #shopify-section-{{ section.id }} {
-  {%  if section.settings.sticky %} 
+  {% if section.settings.sticky %}
   position: sticky;
   top: 0px;
   z-index: 999999;
@@ -8,85 +8,90 @@
   background-color: {{ section.settings.background_color }};
 }
   
-  #shopify-section-{{ section.id }} .ig-story-section-ctr {
-    padding: 15px 0px 10px 10px;
-    display: flex;
-    align-items: start;
-    gap: 10px;
-    overflow-x: scroll;
-  }
-  
-/* For mobile phones hide scrollbar */
-  @media only screen and (max-width: 768px) {
-    #shopify-section-{{ section.id }} .ig-story-section-ctr {
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-  }
-    #shopify-section-{{ section.id }} .ig-story-section-ctr::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
-  }
-  
+#shopify-section-{{ section.id }} .ig-story-section-ctr {
+  padding: 15px 0px 10px 10px;
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  overflow-x: scroll;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
-  
-  #shopify-section-{{ section.id }} .ig-story-section-ctr:last-child {
-    padding-right: 10px;
-  }
-  #shopify-section-{{ section.id }} .story-link {
-    text-decoration: none;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    text-align: center;
-    color: {{ section.settings.text_color }};
-  }
-  #shopify-section-{{ section.id }} .story-collection-title {
-    line-height: 15px;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    font-size: {{ section.settings.text_size }}px;
-  }
 
-  #shopify-section-{{ section.id }} .show_mobile {
-      display: block;
-    }
-  #shopify-section-{{ section.id }} .hide_mobile {
-      display: none;
-    }
-  
+#shopify-section-{{ section.id }} .ig-story-section-ctr:active {
+  cursor: grabbing;
+}
 
-  @media only screen and (min-width: 500px) {
-    /* For desktop: */
+#shopify-section-{{ section.id }} .ig-story-section-ctr {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
-    #shopify-section-{{ section.id }} .show_desktop {
-      display: block;
-    }
-    #shopify-section-{{ section.id }} .hide_desktop {
-      display: none;
-    }
+#shopify-section-{{ section.id }} .ig-story-section-ctr::-webkit-scrollbar {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .ig-story-section-ctr:last-child {
+  padding-right: 10px;
+}
+
+#shopify-section-{{ section.id }} .story-link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+  color: {{ section.settings.text_color }};
+}
+
+#shopify-section-{{ section.id }} .story-collection-title {
+  line-height: 15px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-size: {{ section.settings.text_size }}px;
+}
+
+#shopify-section-{{ section.id }} .show_mobile {
+  display: block;
+}
+
+#shopify-section-{{ section.id }} .hide_mobile {
+  display: none;
+}
+
+@media only screen and (min-width: 500px) {
+  #shopify-section-{{ section.id }} .show_desktop {
+    display: block;
   }
+  #shopify-section-{{ section.id }} .hide_desktop {
+    display: none;
+  }
+}
 
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+@media screen and (min-width: 750px) {
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
   }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
+}
 </style>
-
 
 <div class="section-{{ section.id }}-padding {% if section.settings.show_mobile %}show_mobile{% endif %} {% if section.settings.show_mobile == false %}hide_mobile{% endif %} {% if section.settings.show_desktop %}show_desktop{% endif %} {% if section.settings.show_desktop == false %}hide_desktop{% endif %}">
   <div class="ig-story-section-ctr">
     {% for block in section.blocks %}
       {% if block.settings.collection_img != blank %}
         <a href="{{ block.settings.collection_link }}" class="story-link">
-          <div  class="story-img" style="display: block; background-image: url('{{ block.settings.collection_img | image_url: width: 1000 }}');"></div>
+          <div class="story-img" style="display: block; background-image: url('{{ block.settings.collection_img | image_url: width: 1000 }}');"></div>
           <p class="story-collection-title">{{ block.settings.collection_title }}</p>
         </a>
         <style>
@@ -123,157 +128,188 @@
       {% endif %}
     {% endfor %}
   </div>
-
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('#shopify-section-{{ section.id }} .ig-story-section-ctr');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll speed
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  });
+</script>
 
 {% schema %}
+{
+  "name": "IG Stories | 🌶️",
+  "tag": "section",
+  "class": "section",
+  "settings": [
   {
-    "name": "IG Stories | 🌶️",
-    "tag": "section",
-    "class": "section",
-    "settings": [
+    "type": "header",
+    "content": "Need Support for this section?",
+    "info": "Feel free to reach out here: [Support form](https://tally.so/r/npWopV)"
+  },
+  {
+    "type": "color",
+    "id": "background_color",
+    "label": "Background Color",
+    "default": "#ffffff"
+  },
+  {
+    "type": "checkbox",
+    "id": "sticky",
+    "label": "Section Sticky",
+    "default": false
+  },
+  {
+    "type": "range",
+    "id": "image_size",
+    "min": 50,
+    "max": 200,
+    "step": 10,
+    "unit": "px",
+    "label": "Block Width",
+    "default": 100
+  },
+  {
+    "type": "range",
+    "id": "text_size",
+    "min": 5,
+    "max": 16,
+    "step": 1,
+    "unit": "px",
+    "label": "Text Size",
+    "default": 10
+  },
+  {
+    "type": "color",
+    "id": "text_color",
+    "label": "Text Color",
+    "default": "#000000"
+  },
+  {
+    "type": "range",
+    "id": "border_width",
+    "min": 0,
+    "max": 5,
+    "step": 1,
+    "unit": "px",
+    "label": "Border Width",
+    "default": 1
+  },
+  {
+    "type": "color",
+    "id": "border_color",
+    "label": "Border Color",
+    "default": "#000000"
+  },
+  {
+    "type": "checkbox",
+    "id": "show_desktop",
+    "label": "Show Desktop",
+    "default": true
+  },
+  {
+    "type": "checkbox",
+    "id": "show_mobile",
+    "label": "Show Mobile",
+    "default": true
+  },
+  {
+    "type": "range",
+    "id": "padding_top",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "Section Padding Top",
+    "default": 0
+  },
+  {
+    "type": "range",
+    "id": "padding_bottom",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "Section Padding Bottom",
+    "default": 0
+  }
+],
+  "blocks": [
     {
-      "type": "header",
-      "content": "Need Support for this section?",
-      "info": "Feel free to reach out here: [Support form](https://tally.so/r/npWopV)"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background Color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "checkbox",
-      "id": "sticky",
-      "label": "Section Sticky",
-      "default": false
-    },
-    {
-      "type": "range",
-      "id": "image_size",
-      "min": 50,
-      "max": 200,
-      "step": 10,
-      "unit": "px",
-      "label": "Block Width",
-      "default": 100
-    },
-    {
-      "type": "range",
-      "id": "text_size",
-      "min": 5,
-      "max": 16,
-      "step": 1,
-      "unit": "px",
-      "label": "Text Size",
-      "default": 10
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#000000"
-    },
-    {
-      "type": "range",
-      "id": "border_width",
-      "min": 0,
-      "max": 5,
-      "step": 1,
-      "unit": "px",
-      "label": "Border Width",
-      "default": 1
-    },
-    {
-      "type": "color",
-      "id": "border_color",
-      "label": "Border Color",
-      "default": "#000000"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_desktop",
-      "label": "Show Desktop",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_mobile",
-      "label": "Show Mobile",
-      "default": true
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Section Padding Top",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Section Padding Bottom",
-      "default": 0
-    }
-  ],
-    "blocks": [
-      {
-        "type": "story",
-        "name": "Collection",
-        "settings": [
-          {
-            "type": "url",
-            "id": "collection_link",
-            "label": "Collection Link"
-          },
-          {
-            "type": "image_picker",
-            "id": "collection_img",
-            "label": "Collection Image"
-          },
-          {
-            "type": "text",
-            "id": "collection_title",
-            "label": "Collection Title",
-            "default": "TITLE GOES HERE"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-      "name": "IG Stories | 🌶️",
-      "blocks": [
+      "type": "story",
+      "name": "Collection",
+      "settings": [
         {
-          "type": "story"
+          "type": "url",
+          "id": "collection_link",
+          "label": "Collection Link"
         },
         {
-          "type": "story"
+          "type": "image_picker",
+          "id": "collection_img",
+          "label": "Collection Image"
         },
         {
-          "type": "story"
-        },
-        {
-          "type": "story"
-        },
-        {
-          "type": "story"
-        },
-        {
-          "type": "story"
+          "type": "text",
+          "id": "collection_title",
+          "label": "Collection Title",
+          "default": "TITLE GOES HERE"
         }
       ]
+    }
+  ],
+  "presets": [
+    {
+    "name": "IG Stories | 🌶️",
+    "blocks": [
+      {
+        "type": "story"
+      },
+      {
+        "type": "story"
+      },
+      {
+        "type": "story"
+      },
+      {
+        "type": "story"
+      },
+      {
+        "type": "story"
+      },
+      {
+        "type": "story"
       }
     ]
-  }
+    }
+  ]
+}
 {% endschema %}
