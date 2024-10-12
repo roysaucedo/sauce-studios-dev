@@ -170,43 +170,11 @@
     },
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b": {
       "type": "image-banner",
-      "blocks": {
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "JOHNNY TSUNAMI FAN PAGE",
-            "heading_size": "h1"
-          }
-        },
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-1": {
-          "type": "text",
-          "settings": {
-            "text": "From surf to snow, ride the ultimate adventure with Johnny as he carves his way through life on land and sea. Join the journey and get stoked for an epic ride!",
-            "text_style": "body"
-          }
-        },
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-2": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-0",
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-1",
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-2"
-      ],
       "custom_css": [
 
       ],
       "settings": {
-        "image": "shopify://shop_images/theme_cover_image.jpg",
+        "image": "shopify://shop_images/MV5BYzdiMmIyZWYtMjdjOS00M2M2LTgyYjctODViZWQ3Njg2NTdjXkEyXkFqcGc_._V1.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "desktop_content_position": "middle-left",
@@ -217,6 +185,36 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": true
+      }
+    },
+    "rich_text_rLHJCd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kbjQDi": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOHNNY TSUNAMI FAN PAGE",
+            "heading_size": "h1"
+          }
+        },
+        "text_wYUBMK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From surf to snow, ride the ultimate adventure with Johnny as he carves his way through life on land and sea. Join the journey and get stoked for an epic ride!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kbjQDi",
+        "text_wYUBMK"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "featured_collection": {
@@ -373,6 +371,7 @@
   "order": [
     "section_ig_story_bXdHNV",
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b",
+    "rich_text_rLHJCd",
     "featured_collection",
     "f1552b18-6017-4231-810d-74e61da22c37",
     "image_with_text_zz7VDR",
