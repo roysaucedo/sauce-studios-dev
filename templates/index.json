@@ -157,7 +157,7 @@
       "settings": {
         "background_color": "#ffffff",
         "sticky": false,
-        "image_size": 100,
+        "image_size": 80,
         "text_size": 10,
         "text_color": "#000000",
         "border_width": 1,
@@ -176,7 +176,7 @@
       "settings": {
         "image": "shopify://shop_images/MV5BYzdiMmIyZWYtMjdjOS00M2M2LTgyYjctODViZWQ3Njg2NTdjXkEyXkFqcGc_._V1.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "adapt",
         "desktop_content_position": "middle-left",
         "show_text_box": true,
         "desktop_content_alignment": "left",
