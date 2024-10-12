@@ -1,0 +1,209 @@
+<style>
+      .responsive-carousel-section {
+        padding: 40px 0;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .carousel-container {
+        position: relative;
+        overflow: hidden;
+      }
+      .carousel {
+        display: flex;
+        transition: transform 0.3s ease;
+      }
+      .carousel-item {
+        flex: 0 0 calc(33.333% - 20px);
+        margin: 0 10px;
+        text-align: center;
+      }
+      .carousel-item img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+      }
+      .carousel-controls {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .carousel-controls button {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+    
+      @media (max-width: 768px) {
+        .carousel-item {
+          flex: 0 0 100%;
+          margin: 0;
+        }
+      }
+    </style>
+    
+    <div class="responsive-carousel-section" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};">
+      <div class="container">
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+        
+        <div class="carousel-container">
+            <div class="carousel-controls">
+          <button class="prev-btn">&lt;</button>
+          <button class="next-btn">&gt;</button>
+        </div>
+          <div class="carousel">
+            {% for block in section.blocks %}
+              <div class="carousel-item">
+                {% if block.settings.image %}
+                  <img src="{{ block.settings.image | img_url: '300x300', crop: 'center' }}" alt="{{ block.settings.title }}">
+                {% endif %}
+                <h3>{{ block.settings.title }}</h3>
+                <p>{{ block.settings.description }}</p>
+                {% if block.settings.link %}
+                  <a href="{{ block.settings.link }}" class="btn">Learn More</a>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.querySelector('.carousel');
+        const items = carousel.querySelectorAll('.carousel-item');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentIndex = 0;
+        const itemsPerSlide = window.innerWidth > 768 ? 3 : 1;
+    
+        function updateCarousel() {
+          const itemWidth = carousel.offsetWidth / itemsPerSlide;
+          carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+    
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % (items.length - itemsPerSlide + 1);
+          updateCarousel();
+        }
+    
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + items.length) % items.length;
+          updateCarousel();
+        }
+    
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+    
+        window.addEventListener('resize', function() {
+          const newItemsPerSlide = window.innerWidth > 768 ? 3 : 1;
+          if (newItemsPerSlide !== itemsPerSlide) {
+            itemsPerSlide = newItemsPerSlide;
+            currentIndex = 0;
+            updateCarousel();
+          }
+        });
+    
+        updateCarousel();
+      });
+    </script>
+
+    {% schema %}
+        {
+          "name": "Sauce Responsive Carousel",
+          "tag": "section",
+          "class": "responsive-carousel-section",
+          "settings": [
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Section Title",
+              "default": "Featured Items"
+            },
+            {
+              "type": "color",
+              "id": "background_color",
+              "label": "Background Color",
+              "default": "#ffffff"
+            },
+            {
+              "type": "color",
+              "id": "text_color",
+              "label": "Text Color",
+              "default": "#000000"
+            }
+          ],
+          "blocks": [
+            {
+              "type": "carousel_item",
+              "name": "Carousel Item",
+              "settings": [
+                {
+                  "type": "image_picker",
+                  "id": "image",
+                  "label": "Image"
+                },
+                {
+                  "type": "text",
+                  "id": "title",
+                  "label": "Title",
+                  "default": "Item Title"
+                },
+                {
+                  "type": "text",
+                  "id": "description",
+                  "label": "Description",
+                  "default": "Item description goes here"
+                },
+                {
+                  "type": "url",
+                  "id": "link",
+                  "label": "Link"
+                }
+              ]
+            }
+          ],
+          "presets": [
+            {
+              "name": "Sauce Responsive Carousel",
+              "blocks": [
+                {
+                  "type": "carousel_item"
+                },
+                {
+                  "type": "carousel_item"
+                },
+                {
+                  "type": "carousel_item"
+                },
+                {
+                  "type": "carousel_item"
+                },
+                {
+                  "type": "carousel_item"
+                }
+              ]
+            }
+          ]
+        }
+        {% endschema %}
