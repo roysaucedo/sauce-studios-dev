@@ -64,6 +64,18 @@
   display: none;
 }
 
+#shopify-section-{{ section.id }} .ig-story-section-ctr * {
+  pointer-events: none;
+}
+
+#shopify-section-{{ section.id }} .ig-story-section-ctr a {
+  pointer-events: auto;
+}
+
+#shopify-section-{{ section.id }} .ig-story-section-ctr.dragging a {
+  pointer-events: none;
+}
+
 @media only screen and (min-width: 500px) {
   #shopify-section-{{ section.id }} .show_desktop {
     display: block;
@@ -131,37 +143,62 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('#shopify-section-{{ section.id }} .ig-story-section-ctr');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelector('#shopify-section-{{ section.id }} .ig-story-section-ctr');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  let isDragging = false;
 
-    slider.addEventListener('mousedown', (e) => {
-      isDown = true;
-      slider.classList.add('active');
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-    });
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+    isDragging = false;
+  });
 
-    slider.addEventListener('mouseleave', () => {
-      isDown = false;
-      slider.classList.remove('active');
-    });
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+    slider.classList.remove('dragging');
+  });
 
-    slider.addEventListener('mouseup', () => {
-      isDown = false;
-      slider.classList.remove('active');
-    });
+  slider.addEventListener('mouseup', (event) => {
+    isDown = false;
+    slider.classList.remove('active');
+    slider.classList.remove('dragging');
+    
+    // If we didn't drag, it's a click
+    if (!isDragging) {
+      const clickedElement = event.target.closest('a');
+      if (clickedElement) {
+        clickedElement.click();
+      }
+    }
+  });
 
-    slider.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed
+    slider.scrollLeft = scrollLeft - walk;
+    
+    // If we've moved more than a few pixels, consider it a drag
+    if (Math.abs(walk) > 5) {
+      isDragging = true;
+      slider.classList.add('dragging');
+    }
+  });
+
+  // Prevent default link behavior on mousedown
+  slider.querySelectorAll('a').forEach(link => {
+    link.addEventListener('mousedown', (e) => {
       e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2; // Scroll speed
-      slider.scrollLeft = scrollLeft - walk;
     });
   });
+});
 </script>
 
 {% schema %}
