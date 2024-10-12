@@ -8,13 +8,19 @@
   background-color: {{ section.settings.background_color }};
 }
   
-  #shopify-section-{{ section.id }} .ig-story-section-ctr {
+#shopify-section-{{ section.id }} .ig-story-section-ctr {
     padding: 15px 0px 10px 10px;
     display: flex;
     align-items: start;
     gap: 10px;
     overflow-x: scroll;
+    cursor: grab; /* Shows the grabbing cursor */
   }
+  
+#shopify-section-{{ section.id }} .ig-story-section-ctr.active {
+  cursor: grabbing; /* Changes the cursor when dragging */
+}
+
   
 /* For mobile phones hide scrollbar */
   @media only screen and (max-width: 768px) {
