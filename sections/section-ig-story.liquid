@@ -1,8 +1,10 @@
 <style>
 #shopify-section-{{ section.id }} {
+  {%  if section.settings.sticky %} 
   position: sticky;
   top: 0px;
   z-index: 999999;
+  {% endif %}
   background-color: {{ section.settings.background_color }};
 }
   
