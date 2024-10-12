@@ -79,6 +79,44 @@
     }
   }
 </style>
+<script>
+  // Select the container with the IG story section
+const storySection = document.querySelector('#shopify-section-{{ section.id }} .ig-story-section-ctr');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+// Mouse down event
+storySection.addEventListener('mousedown', (e) => {
+  isDown = true;
+  storySection.classList.add('active');
+  startX = e.pageX - storySection.offsetLeft;
+  scrollLeft = storySection.scrollLeft;
+});
+
+// Mouse leave event
+storySection.addEventListener('mouseleave', () => {
+  isDown = false;
+  storySection.classList.remove('active');
+});
+
+// Mouse up event
+storySection.addEventListener('mouseup', () => {
+  isDown = false;
+  storySection.classList.remove('active');
+});
+
+// Mouse move event for dragging
+storySection.addEventListener('mousemove', (e) => {
+  if (!isDown) return; // Stop the function if the mouse is not down
+  e.preventDefault();
+  const x = e.pageX - storySection.offsetLeft;
+  const walk = (x - startX) * 2; // Adjust the scroll speed here (2x faster)
+  storySection.scrollLeft = scrollLeft - walk;
+});
+
+</script>
 
 <div class="section-{{ section.id }}-padding {% if section.settings.show_mobile %}show_mobile{% endif %} {% if section.settings.show_mobile == false %}hide_mobile{% endif %} {% if section.settings.show_desktop %}show_desktop{% endif %} {% if section.settings.show_desktop == false %}hide_desktop{% endif %}">
   <div class="ig-story-section-ctr">
