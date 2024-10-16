@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -83,7 +92,7 @@
         "row_xyimfL": {
           "type": "row",
           "settings": {
-            "feature": "<p><strong>Flex Rating<\/strong>: Measures the board's stiffness, from soft (for flexibility and easy turning) to stiff (for stability at high speeds).<\/p>",
+            "feature": "<p><strong>Flex Rating</strong>: Measures the board's stiffness, from soft (for flexibility and easy turning) to stiff (for stability at high speeds).</p>",
             "icon_type_1": "x",
             "icon_type_2": "check"
           }
@@ -91,7 +100,7 @@
         "row_rNjftF": {
           "type": "row",
           "settings": {
-            "feature": "<p><strong>Shape<\/strong>: Highlights whether the board is directional (best for carving) or twin (ideal for freestyle and riding switch).<\/p>",
+            "feature": "<p><strong>Shape</strong>: Highlights whether the board is directional (best for carving) or twin (ideal for freestyle and riding switch).</p>",
             "icon_type_1": "x",
             "icon_type_2": "check"
           }
@@ -99,7 +108,7 @@
         "row_JnhXrE": {
           "type": "row",
           "settings": {
-            "feature": "<p><strong>Camber Profile<\/strong>: Compares camber (precision and power) versus rocker (more float in powder and playful feel).<\/p>",
+            "feature": "<p><strong>Camber Profile</strong>: Compares camber (precision and power) versus rocker (more float in powder and playful feel).</p>",
             "icon_type_1": "check",
             "icon_type_2": "x"
           }
@@ -107,7 +116,7 @@
         "row_KyMKKK": {
           "type": "row",
           "settings": {
-            "feature": "<p><strong>Terrain<\/strong>: Indicates whether the board is optimized for park, all-mountain, or powder, based on your riding style.<\/p>",
+            "feature": "<p><strong>Terrain</strong>: Indicates whether the board is optimized for park, all-mountain, or powder, based on your riding style.</p>",
             "icon_type_1": "check",
             "icon_type_2": "x"
           }
@@ -122,8 +131,8 @@
       "settings": {
         "heading": "How do we compare?",
         "column_1_heading": "Features and benefits",
-        "image": "shopify:\/\/shop_images\/Sauce-Chile_5.png",
-        "logo_size": 40,
+        "image": "shopify://shop_images/970581489-A1C1.webp",
+        "logo_size": 100,
         "column_3_heading": "The other guys",
         "padding_top": 36,
         "padding_bottom": 36
