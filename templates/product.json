@@ -89,51 +89,24 @@
     "section_comparison_table_A6nQy4": {
       "type": "section-comparison-table",
       "blocks": {
-        "row_xyimfL": {
+        "row_ziYKmi": {
           "type": "row",
           "settings": {
-            "feature": "<p><strong>Flex Rating</strong>: Measures the board's stiffness, from soft (for flexibility and easy turning) to stiff (for stability at high speeds).</p>",
+            "feature": "<p><em><strong>Tastes amazing!!!!</strong></em></p><ul><li><em><strong>1</strong></em></li><li><em><strong>2</strong></em></li><li><em><strong>434</strong></em></li></ul>",
             "icon_type_1": "x",
             "icon_type_2": "check"
-          }
-        },
-        "row_rNjftF": {
-          "type": "row",
-          "settings": {
-            "feature": "<p><strong>Shape</strong>: Highlights whether the board is directional (best for carving) or twin (ideal for freestyle and riding switch).</p>",
-            "icon_type_1": "x",
-            "icon_type_2": "check"
-          }
-        },
-        "row_JnhXrE": {
-          "type": "row",
-          "settings": {
-            "feature": "<p><strong>Camber Profile</strong>: Compares camber (precision and power) versus rocker (more float in powder and playful feel).</p>",
-            "icon_type_1": "check",
-            "icon_type_2": "x"
-          }
-        },
-        "row_KyMKKK": {
-          "type": "row",
-          "settings": {
-            "feature": "<p><strong>Terrain</strong>: Indicates whether the board is optimized for park, all-mountain, or powder, based on your riding style.</p>",
-            "icon_type_1": "check",
-            "icon_type_2": "x"
           }
         }
       },
       "block_order": [
-        "row_xyimfL",
-        "row_rNjftF",
-        "row_JnhXrE",
-        "row_KyMKKK"
+        "row_ziYKmi"
       ],
       "settings": {
-        "heading": "How do we compare?",
-        "column_1_heading": "Features and benefits",
-        "image": "shopify://shop_images/Sauce-Chile_5.png",
+        "heading": "WHY WE ROCK...AND THEY DON'T",
+        "column_1_heading": "REASONS WHY",
+        "image": "shopify://shop_images/970581489-A1C1.webp",
         "logo_size": 100,
-        "column_3_heading": "The other guys",
+        "column_3_heading": "H20",
         "padding_top": 36,
         "padding_bottom": 36
       }
