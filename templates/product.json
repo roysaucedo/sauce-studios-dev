@@ -96,10 +96,19 @@
             "icon_type_1": "x",
             "icon_type_2": "check"
           }
+        },
+        "row_KDpqgK": {
+          "type": "row",
+          "settings": {
+            "feature": "<p>wckjbck</p>",
+            "icon_type_1": "x",
+            "icon_type_2": "x"
+          }
         }
       },
       "block_order": [
-        "row_ziYKmi"
+        "row_ziYKmi",
+        "row_KDpqgK"
       ],
       "settings": {
         "heading": "WHY WE ROCK...AND THEY DON'T",
