@@ -151,9 +151,7 @@
         "story_whXkHW",
         "story_fx4BJQ"
       ],
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "background_color": "#ffffff",
         "sticky": false,
@@ -168,11 +166,49 @@
         "padding_bottom": 0
       }
     },
+    "reviews_slider_aNUjDJ": {
+      "type": "reviews-slider",
+      "blocks": {
+        "review_dYdMFh": {
+          "type": "review",
+          "settings": {
+            "review_text": "",
+            "author": "",
+            "location": "Author"
+          }
+        },
+        "review_p7TAqa": {
+          "type": "review",
+          "settings": {
+            "review_text": "",
+            "author": "",
+            "location": "Author"
+          }
+        },
+        "review_UD6Ktt": {
+          "type": "review",
+          "settings": {
+            "review_text": "",
+            "author": "",
+            "location": "Author"
+          }
+        }
+      },
+      "block_order": [
+        "review_dYdMFh",
+        "review_p7TAqa",
+        "review_UD6Ktt"
+      ],
+      "settings": {
+        "heading": "Customer Reviews",
+        "subheading": "",
+        "desktop_slides_to_show": 3,
+        "mobile_slides_to_show": 1
+      }
+    },
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b": {
       "type": "image-banner",
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/MV5BYzdiMmIyZWYtMjdjOS00M2M2LTgyYjctODViZWQ3Njg2NTdjXkEyXkFqcGc_._V1.jpg",
         "image_overlay_opacity": 0,
@@ -235,8 +271,7 @@
         },
         "price_3jBhCJ": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "variant_picker_qb6e9c": {
           "type": "variant_picker",
@@ -246,8 +281,7 @@
         },
         "quantity_selector_UyKthc": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons_FjtBbA": {
           "type": "buy_buttons",
@@ -439,6 +473,7 @@
   },
   "order": [
     "section_ig_story_bXdHNV",
+    "reviews_slider_aNUjDJ",
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b",
     "rich_text_rLHJCd",
     "featured_product_wr8JTK",
