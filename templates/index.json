@@ -180,6 +180,39 @@
             "cta_text": "Shop now →"
           }
         },
+        "review_xp8J4q": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
+            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
+            "author": "Name Here",
+            "location": "Los Angeles, CA",
+            "cta_link": "",
+            "cta_text": "Shop now →"
+          }
+        },
+        "review_L84Mck": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
+            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
+            "author": "Name Here",
+            "location": "Los Angeles, CA",
+            "cta_link": "",
+            "cta_text": "Shop now →"
+          }
+        },
+        "review_BhiThQ": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
+            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
+            "author": "Name Here",
+            "location": "Los Angeles, CA",
+            "cta_link": "",
+            "cta_text": "Shop now →"
+          }
+        },
         "review_X6UPCP": {
           "type": "review",
           "settings": {
@@ -205,6 +238,9 @@
       },
       "block_order": [
         "review_dYdMFh",
+        "review_xp8J4q",
+        "review_L84Mck",
+        "review_BhiThQ",
         "review_X6UPCP",
         "review_aBUXdG"
       ],
