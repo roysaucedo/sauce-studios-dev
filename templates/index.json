@@ -173,32 +173,16 @@
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "review_text": "",
-            "author": "",
-            "location": "Author"
-          }
-        },
-        "review_p7TAqa": {
-          "type": "review",
-          "settings": {
-            "review_text": "",
-            "author": "",
-            "location": "Author"
-          }
-        },
-        "review_UD6Ktt": {
-          "type": "review",
-          "settings": {
-            "review_text": "",
-            "author": "",
-            "location": "Author"
+            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
+            "author": "Name Here",
+            "location": "Los Angeles, CA",
+            "cta_link": "",
+            "cta_text": "Shop now →"
           }
         }
       },
       "block_order": [
-        "review_dYdMFh",
-        "review_p7TAqa",
-        "review_UD6Ktt"
+        "review_dYdMFh"
       ],
       "settings": {
         "heading": "Customer Reviews",
