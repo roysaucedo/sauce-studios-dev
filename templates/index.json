@@ -179,10 +179,34 @@
             "cta_link": "",
             "cta_text": "Shop now →"
           }
+        },
+        "review_X6UPCP": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
+            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
+            "author": "Name Here",
+            "location": "Los Angeles, CA",
+            "cta_link": "",
+            "cta_text": "Shop now →"
+          }
+        },
+        "review_aBUXdG": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
+            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
+            "author": "Name Here",
+            "location": "Los Angeles, CA",
+            "cta_link": "",
+            "cta_text": "Shop now →"
+          }
         }
       },
       "block_order": [
-        "review_dYdMFh"
+        "review_dYdMFh",
+        "review_X6UPCP",
+        "review_aBUXdG"
       ],
       "settings": {
         "heading": "Customer Reviews",
