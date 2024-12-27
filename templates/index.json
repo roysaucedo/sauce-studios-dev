@@ -169,6 +169,16 @@
     "reviews_slider_aNUjDJ": {
       "type": "reviews-slider",
       "blocks": {
+        "review_faa9Wk": {
+          "type": "review",
+          "settings": {
+            "review_text": "",
+            "author": "",
+            "location": "Author",
+            "cta_link": "",
+            "cta_text": "Shop now →"
+          }
+        },
         "review_dYdMFh": {
           "type": "review",
           "settings": {
@@ -237,6 +247,7 @@
         }
       },
       "block_order": [
+        "review_faa9Wk",
         "review_dYdMFh",
         "review_xp8J4q",
         "review_L84Mck",

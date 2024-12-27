@@ -165,6 +165,10 @@
             	height="{{ block.settings.image.height }}"
             	class="review-image"
             >
+          {% else %}
+            <div class="review-image">
+              {{ 'product-1' | placeholder_svg_tag }}
+            </div>
           {% endif %}
             
             
