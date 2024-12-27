@@ -169,10 +169,10 @@
     "reviews_slider_aNUjDJ": {
       "type": "reviews-slider",
       "blocks": {
-        "review_faa9Wk": {
+        "review_7qLgcQ": {
           "type": "review",
           "settings": {
-            "review_text": "",
+            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
             "author": "",
             "location": "Author",
             "cta_link": "",
@@ -247,7 +247,7 @@
         }
       },
       "block_order": [
-        "review_faa9Wk",
+        "review_7qLgcQ",
         "review_dYdMFh",
         "review_xp8J4q",
         "review_L84Mck",
