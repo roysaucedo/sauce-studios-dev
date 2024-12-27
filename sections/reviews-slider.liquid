@@ -223,7 +223,7 @@ class ReviewSlider {
     
     this.isMobile = window.innerWidth <= 767;
     this.slidesPerView = this.isMobile ? 
-      {{ section.settings.mobile_slides_to_show }} : 
+      1 : 
       {{ section.settings.desktop_slides_to_show }};
     
     this.init();
@@ -334,7 +334,7 @@ class ReviewSlider {
     
     if (wasMobile !== this.isMobile) {
       this.slidesPerView = this.isMobile ? 
-        {{ section.settings.mobile_slides_to_show }} : 
+        1 : 
         {{ section.settings.desktop_slides_to_show }};
       
       this.currentIndex = 0;
