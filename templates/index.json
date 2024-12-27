@@ -169,11 +169,11 @@
     "reviews_slider_aNUjDJ": {
       "type": "reviews-slider",
       "blocks": {
-        "review_7qLgcQ": {
+        "review_7X7xnp": {
           "type": "review",
           "settings": {
             "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
-            "author": "",
+            "author": "Roy Sauce",
             "location": "Author",
             "cta_link": "",
             "cta_text": "Shop now →"
@@ -247,7 +247,7 @@
         }
       },
       "block_order": [
-        "review_7qLgcQ",
+        "review_7X7xnp",
         "review_dYdMFh",
         "review_xp8J4q",
         "review_L84Mck",
