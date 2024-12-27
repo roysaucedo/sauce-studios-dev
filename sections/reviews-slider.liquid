@@ -13,54 +13,54 @@
 {%- endstyle -%}
 
 <style>
-.review-slider {
+.review-slider-{{ section.id }} {
   position: relative;
   padding: 40px 0;
 }
 
-.review-slider__heading {
+.review-slider__heading-{{ section.id }} {
   text-align: center;
   margin-bottom: 30px;
 }
 
-.review-slider__container {
+.review-slider__container-{{ section.id }} {
   position: relative;
   overflow: hidden;
   padding: 0 40px;
 }
 
-.review-slider__track {
+.review-slider__track-{{ section.id }} {
   display: flex;
   transition: transform 0.3s ease-in-out;
 }
 
-.review-slider__slide {
+.review-slider__slide-{{ section.id }} {
   flex: 0 0 calc(100% / {{ section.settings.desktop_slides_to_show }});
   padding: 0 15px;
   box-sizing: border-box;
 }
 
-.review-slider__content {
+.review-slider__content-{{ section.id }} {
   background: #f7f7f7;
   padding: 20px;
   border-radius: 8px;
   height: 100%;
 }
 
-.review-slider__text {
+.review-slider__text-{{ section.id }} {
   margin-bottom: 15px;
 }
 
-.review-slider__author {
+.review-slider__author-{{ section.id }} {
   font-weight: bold;
 }
 
-.review-slider__location {
+.review-slider__location-{{ section.id }} {
   color: #666;
   font-size: 0.9em;
 }
 
-.review-slider__button {
+.review-slider__button-{{ section.id }} {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -76,29 +76,29 @@
   z-index: 1;
 }
 
-.review-slider__button:hover {
+.review-slider__button-{{ section.id }}:hover {
   background: #f5f5f5;
 }
 
-.review-slider__button--prev {
+.review-slider__button--prev-{{ section.id }} {
   left: 1%;
 }
 
-.review-slider__button--next {
+.review-slider__button--next-{{ section.id }} {
   right: 1%;
 }
 
-.review-slider__button svg {
+.review-slider__button-{{ section.id }} svg {
   width: 20px;
   height: 20px;
   fill: currentColor;
 }
 
-.5-star-rating-icon {
+.5-star-rating-icon-{{ section.id }} {
   max-width: 80px;
 }
 
-.review-image {
+.review-image-{{ section.id }} {
   width: 100%;
   height: auto;
   aspect-ratio: 3 / 2.5;
@@ -107,55 +107,55 @@
   border-radius: 10px;
 }
   
-.review-cta {
+.review-cta-{{ section.id }} {
   padding-top: 20px;
   
 }
 
 @media screen and (max-width: 767px) {
-  .review-slider__slide {
+  .review-slider__slide-{{ section.id }} {
     flex: 0 0 calc(100% / {{ section.settings.mobile_slides_to_show }});
   }
   
-  .review-slider__container {
+  .review-slider__container-{{ section.id }} {
     padding: 0 30px;
   }
   
-  .review-slider__button {
+  .review-slider__button-{{ section.id }} {
     width: 30px;
     height: 30px;
   }
 }
 </style>
 
-<section class="review-slider section-{{ section.id }}-padding" data-review-slider>
+<section class="review-slider-{{ section.id }} section-{{ section.id }}-padding" data-review-slider>
   {% if section.settings.heading != blank %}
-    <h2 class="review-slider__heading majortitle in-content h1">{{ section.settings.heading }}</h2>
+    <h2 class="review-slider__heading-{{ section.id }} h1">{{ section.settings.heading }}</h2>
   {% endif %}
   {% if section.settings.subheading != blank %}
-    <div class="rte lightly-spaced-row large-text text-center">
+    <div class="rte">
       <p>{{ section.settings.subheading }}</p>  
     </div>
     
   {% endif %}
   
-  <div class="review-slider__container">
-    <button class="review-slider__button review-slider__button--prev" data-slider-prev>
+  <div class="review-slider__container-{{ section.id }}">
+    <button class="review-slider__button-{{ section.id }} review-slider__button--prev-{{ section.id }}" data-slider-prev>
       <svg viewBox="0 0 24 24">
         <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
       </svg>
     </button>
     
-    <button class="review-slider__button review-slider__button--next" data-slider-next>
+    <button class="review-slider__button-{{ section.id }} review-slider__button--nex-{{ section.id }}" data-slider-next>
       <svg viewBox="0 0 24 24">
         <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
       </svg>
     </button>
     
-    <div class="review-slider__track" data-slider-track>
+    <div class="review-slider__track-{{ section.id }}" data-slider-track>
       {% for block in section.blocks %}
-        <div class="review-slider__slide" {{ block.shopify_attributes }}>
-          <div class="review-slider__content">
+        <div class="review-slider__slide-{{ section.id }}" {{ block.shopify_attributes }}>
+          <div class="review-slider__content-{{ section.id }}">
           {% if block.settings.image != blank %}
             <img
             	src="{{ block.settings.image | image_url: height: 800 }}"
@@ -163,31 +163,31 @@
             	loading="lazy"
             	width="{{ block.settings.image.width }}"
             	height="{{ block.settings.image.height }}"
-            	class="review-image"
+            	class="review-image-{{ section.id }}"
             >
           {% else %}
-            <div class="review-image">
+            <div class="review-image-{{ section.id }}">
               {{ 'product-1' | placeholder_svg_tag }}
             </div>
           {% endif %}
             
              <img src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402" width="100" height="20">
-            <div class="review-slider__text">
+            <div class="review-slider__text-{{ section.id }}">
               {{ block.settings.review_text }}
             </div>
            
             {% if block.settings.author != blank %}
-              <div class="review-slider__author">
+              <div class="review-slider__author-{{ section.id }}">
                 {{ block.settings.author }}
               </div>
             {% endif %}
             {% if block.settings.location != blank %}
-              <div class="review-slider__location">
+              <div class="review-slider__location-{{ section.id }}">
                 {{ block.settings.location }}
               </div>
             {% endif %}
             {% if block.settings.cta_text != blank %}
-              <div class="review-cta">
+              <div class="review-cta-{{ section.id }}">
                 <a href="{{ block.settings.cta_link }}">
                   {{ block.settings.cta_text }}
                 </a>
