@@ -116,7 +116,7 @@
 
 @media screen and (max-width: 767px) {
   .review-slider__slide {
-    flex: 0 0 calc(100% / 1;
+    flex: 0 0 calc(100% / {{ section.settings.mobile_slides_to_show }});
   }
   
   .review-slider__container {
@@ -223,7 +223,7 @@ class ReviewSlider {
     
     this.isMobile = window.innerWidth <= 767;
     this.slidesPerView = this.isMobile ? 
-      1 : 
+      {{ section.settings.mobile_slides_to_show }} : 
       {{ section.settings.desktop_slides_to_show }};
     
     this.init();
@@ -334,7 +334,7 @@ class ReviewSlider {
     
     if (wasMobile !== this.isMobile) {
       this.slidesPerView = this.isMobile ? 
-        1 : 
+        {{ section.settings.mobile_slides_to_show }} : 
         {{ section.settings.desktop_slides_to_show }};
       
       this.currentIndex = 0;
@@ -415,6 +415,15 @@ document.addEventListener('DOMContentLoaded', () => {
       "step": 1,
       "label": "Reviews to show on desktop",
       "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_slides_to_show",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Reviews to show on mobile",
+      "default": 1
     }
   ],
   "blocks": [
