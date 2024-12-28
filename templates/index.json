@@ -169,9 +169,10 @@
     "reviews_slider_aNUjDJ": {
       "type": "reviews-slider",
       "blocks": {
-        "review_zjaeMG": {
-          "type": "review",
+        "video_a9CMx9": {
+          "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Square CMC AD EVERGREEN.mp4",
             "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
             "author": "Roy Sauce",
             "location": "Los Angeles, CA",
@@ -179,67 +180,45 @@
             "cta_text": "Shop now →"
           }
         },
-        "review_dYdMFh": {
-          "type": "review",
+        "video_hytF7K": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
-            "author": "Name Here",
+            "video": "shopify://files/videos/Square CMC AD EVERGREEN.mp4",
+            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
+            "author": "Roy Sauce",
             "location": "Los Angeles, CA",
             "cta_link": "",
             "cta_text": "Shop now →"
           }
         },
-        "review_xp8J4q": {
-          "type": "review",
+        "video_rLLAk6": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
-            "author": "Name Here",
+            "video": "shopify://files/videos/Square CMC AD EVERGREEN.mp4",
+            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
+            "author": "Roy Sauce",
             "location": "Los Angeles, CA",
             "cta_link": "",
             "cta_text": "Shop now →"
           }
         },
-        "review_L84Mck": {
-          "type": "review",
+        "video_yHcTEX": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
-            "author": "Name Here",
+            "video": "shopify://files/videos/Square CMC AD EVERGREEN.mp4",
+            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
+            "author": "Roy Sauce",
             "location": "Los Angeles, CA",
             "cta_link": "",
             "cta_text": "Shop now →"
           }
         },
-        "review_BhiThQ": {
-          "type": "review",
+        "video_NALFVN": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
-            "author": "Name Here",
-            "location": "Los Angeles, CA",
-            "cta_link": "",
-            "cta_text": "Shop now →"
-          }
-        },
-        "review_X6UPCP": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
-            "author": "Name Here",
-            "location": "Los Angeles, CA",
-            "cta_link": "",
-            "cta_text": "Shop now →"
-          }
-        },
-        "review_aBUXdG": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "review_text": "<h2>Love it!</h2><p>Add Review here</p>",
-            "author": "Name Here",
+            "video": "shopify://files/videos/Square CMC AD EVERGREEN.mp4",
+            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
+            "author": "Roy Sauce",
             "location": "Los Angeles, CA",
             "cta_link": "",
             "cta_text": "Shop now →"
@@ -247,19 +226,16 @@
         }
       },
       "block_order": [
-        "review_zjaeMG",
-        "review_dYdMFh",
-        "review_xp8J4q",
-        "review_L84Mck",
-        "review_BhiThQ",
-        "review_X6UPCP",
-        "review_aBUXdG"
+        "video_a9CMx9",
+        "video_hytF7K",
+        "video_rLLAk6",
+        "video_yHcTEX",
+        "video_NALFVN"
       ],
       "settings": {
         "heading": "Customer Reviews",
         "subheading": "500+ Reviews",
-        "desktop_slides_to_show": 3,
-        "mobile_slides_to_show": 1
+        "desktop_slides_to_show": 3
       }
     },
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b": {
