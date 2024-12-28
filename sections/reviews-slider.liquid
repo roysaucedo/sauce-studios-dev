@@ -1,3 +1,5 @@
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 {%- style -%}
 .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -100,6 +102,14 @@
   max-width: 80px;
 }
 
+.video-wrapper video {
+  width: 100%;
+  max-width: 100%;
+}
+.video-wrapper {
+  margin-bottom: 20px;
+}
+
 .review-image {
   width: 100%;
   height: auto;
@@ -132,62 +142,195 @@
 
 <section class="review-slider section-{{ section.id }}-padding" data-review-slider>
   {% if section.settings.heading != blank %}
-    <h2 class="review-slider__heading h1">{{ section.settings.heading }}</h2>
+  <h2 class="review-slider__heading h1">{{ section.settings.heading }}</h2>
   {% endif %}
   {% if section.settings.subheading != blank %}
-    <div class="review-slider__subheading">
-      <p>{{ section.settings.subheading }}</p>  
-    </div>
-    
+  <div class="review-slider__subheading">
+    <p>{{ section.settings.subheading }}</p>
+  </div>
+
   {% endif %}
-  
+
   <div class="review-slider__container">
     <button class="review-slider__button review-slider__button--prev" data-slider-prev>
       <svg viewBox="0 0 24 24">
-        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
       </svg>
     </button>
-    
+
     <button class="review-slider__button review-slider__button--next" data-slider-next>
       <svg viewBox="0 0 24 24">
-        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
       </svg>
     </button>
-    
+
     <div class="review-slider__track" data-slider-track>
       {% for block in section.blocks %}
+      {% case block.type %}
+
+      {% when 'image' %}
+      <div class="review-slider__slide" {{ block.shopify_attributes }}>
+        <div class="review-slider__content">
+          {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | image_url: height: 800 }}" alt="{{ block.settings.image.alt | escape }}"
+            loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}"
+            class="review-image">
+          {% else %}
+          <div class="review-image">
+            {{ 'product-1' | placeholder_svg_tag }}
+          </div>
+          {% endif %}
+
+          <img src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402" width="100"
+            height="20">
+          <div class="review-slider__text">
+            {{ block.settings.review_text }}
+          </div>
+
+          {% if block.settings.author != blank %}
+          <div class="review-slider__author">
+            {{ block.settings.author }}
+          </div>
+          {% endif %}
+          {% if block.settings.location != blank %}
+          <div class="review-slider__location">
+            {{ block.settings.location }}
+          </div>
+          {% endif %}
+          {% if block.settings.cta_text != blank %}
+          <div class="review-cta">
+            <a href="{{ block.settings.cta_link }}">
+              {{ block.settings.cta_text }}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% when 'video' %}
         <div class="review-slider__slide" {{ block.shopify_attributes }}>
           <div class="review-slider__content">
-          {% if block.settings.image != blank %}
-            <img
-            	src="{{ block.settings.image | image_url: height: 800 }}"
-            	alt="{{ block.settings.image.alt | escape }}"
-            	loading="lazy"
-            	width="{{ block.settings.image.width }}"
-            	height="{{ block.settings.image.height }}"
-            	class="review-image"
-            >
-          {% else %}
-            <div class="review-image">
-              {{ 'product-1' | placeholder_svg_tag }}
+            <div class="video-wrapper" data-autoplay="{{ block.settings.autoplay }}">
+              {%- liquid 
+                assign video_url = block.settings.video_url
+                assign video = block.settings.video
+                assign poster = block.settings.video.preview_image
+                assign video_id = ""
+                
+                if video_url != blank
+                  if video_url.type == 'youtube'
+                    assign video_id = video_url.id
+                  elsif video_url.type == 'vimeo'
+                    assign video_id = video_url.id
+                  endif
+                endif
+              -%}
+      
+              <noscript>
+                <div class="video-section__media"
+                  {% if poster != blank %}
+                    style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
+                  {% endif %}
+                >
+                  {%- if video == null and video_url != blank -%}
+                    <a href="{{ video_url }}" class="video-section__poster media media--transparent">
+                      {%- if poster != blank -%}
+                        {{ poster | image_url: width: 1100 | image_tag: 
+                          loading: 'lazy',
+                          sizes: "100vw",
+                          widths: '375, 750, 1100'
+                        }}
+                      {%- endif -%}
+                    </a>
+                  {%- else -%}
+                    {{ video | video_tag:
+                      image_size: "1100x",
+                      loop: block.settings.enable_video_looping,
+                      controls: true,
+                      muted: false
+                    }}
+                  {%- endif -%}
+                </div>
+              </noscript>
+      
+              <deferred-media class="video-section__media deferred-media no-js-hidden"
+                data-media-id="{{ video_id }}"
+                {% if poster != blank %}
+                  style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
+                {% endif %}
+              >
+                <button
+                  id="Deferred-Poster-Modal-{{ video_id }}"
+                  class="video-section__poster media deferred-media__poster media--landscape"
+                  type="button"
+                >
+                  {%- if poster != blank -%}
+                    {{ poster | image_url: width: 1100 | image_tag:
+                      loading: 'lazy',
+                      sizes: "100vw",
+                      widths: '375, 750, 1100'
+                    }}
+                  {%- endif -%}
+                  <span class="deferred-media__poster-button motion-reduce">
+                    {%- render 'icon-play' -%}
+                  </span>
+                </button>
+                
+                <template>
+                  {%- if video == null and video_url != blank -%}
+                    {%- liquid
+                      assign loop = ''
+                      if block.settings.enable_video_looping
+                        assign loop = '&loop=1&playlist=' | append: video_id
+                      endif
+                    -%}
+                    
+                    {%- if video_url.type == 'youtube' -%}
+                      <iframe
+                        src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1{{ loop }}"
+                        class="js-youtube"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen
+                      ></iframe>
+                    {%- else -%}
+                      <iframe
+                        src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1{{ loop }}"
+                        class="js-vimeo"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen
+                      ></iframe>
+                    {%- endif -%}
+                  {%- else -%}
+                    {{ video | video_tag:
+                      image_size: "1100x",
+                      autoplay: true,
+                      loop: block.settings.enable_video_looping,
+                      controls: true,
+                      muted: false
+                    }}
+                  {%- endif -%}
+                </template>
+              </deferred-media>
             </div>
-          {% endif %}
+      
+            <img src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402" width="100" height="20">
             
-             <img src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402" width="100" height="20">
             <div class="review-slider__text">
               {{ block.settings.review_text }}
             </div>
-           
+      
             {% if block.settings.author != blank %}
               <div class="review-slider__author">
                 {{ block.settings.author }}
               </div>
             {% endif %}
+            
             {% if block.settings.location != blank %}
               <div class="review-slider__location">
                 {{ block.settings.location }}
               </div>
             {% endif %}
+            
             {% if block.settings.cta_text != blank %}
               <div class="review-cta">
                 <a href="{{ block.settings.cta_link }}">
@@ -197,6 +340,13 @@
             {% endif %}
           </div>
         </div>
+
+      {% else %}
+
+      {% endcase %}
+
+      {% comment %} IMAGE {% endcomment %}
+
       {% endfor %}
     </div>
   </div>
@@ -419,8 +569,48 @@ document.addEventListener('DOMContentLoaded', () => {
   ],
   "blocks": [
     {
-      "type": "review",
-      "name": "Review",
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "A Shopify-hosted video"
+        },
+        {
+          "type": "richtext",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author Name",
+          "default": "Roy Sauce"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Author Location",
+          "default": "Los Angeles, CA"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "CTA Link"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Shop now →"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
       "settings": [
         
         {
@@ -465,13 +655,13 @@ document.addEventListener('DOMContentLoaded', () => {
       "name": "Review Slider",
       "blocks": [
         {
-          "type": "review"
+          "type": "image"
         },
         {
-          "type": "review"
+          "type": "image"
         },
         {
-          "type": "review"
+          "type": "image"
         }
       ]
     }
