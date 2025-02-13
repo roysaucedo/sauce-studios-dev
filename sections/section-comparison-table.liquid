@@ -1,256 +1,256 @@
 {%- style -%}
-.comparison-table--{{ section.id }} {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-  }
-  .comparison-table--{{ section.id }} h2 {
-    text-align: center;
-    padding-bottom: 40px;
-  }
-
-  .comparison-table--{{ section.id }} table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .comparision-table-logo--{{ section.id }} {
-    max-width: {{ section.settings.logo_size }}px;
-    width: 100%;
-    height: auto;
-  }
-  .comparison-table--{{ section.id }} th, .comparison-table--{{ section.id }} td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-    vertical-align: middle;
-  }
-  .comparison-table--{{ section.id }} th {
-    background-color: #f8f8f8;
-    font-weight: bold;
-    text-align: center;
-    vertical-align: middle;
-  }
-  .comparison-table--{{ section.id }} th:nth-child(1), 
-  .comparison-table--{{ section.id }} td:nth-child(1) {
-    width: 60%;
-  }
-  .comparison-table--{{ section.id }} th:nth-child(2),
-  .comparison-table--{{ section.id }} td:nth-child(2),
-  .comparison-table--{{ section.id }} th:nth-child(3),
-  .comparison-table--{{ section.id }} td:nth-child(3) {
-    width: 20%;
-    text-align: center;
-  }
-  
-  .comparison-table--{{ section.id }} table tr:nth-child(odd) {
-  background-color: #ffffff; /* Odd rows - white */
-  }
-  .comparison-table--{{ section.id }} table tr:nth-child(odd):hover {
-    background-color: #cbcbcb; /* Change this color to whatever you prefer */
-    transition: background-color 0.3s ease; /* Optional: Smooth transition */
-  }
-
-  .comparison-table--{{ section.id }} table tr:nth-child(even) {
-    background-color: #fafafa; /* Even rows - light grey */
-  }
-  .comparison-table--{{ section.id }} table tr:nth-child(even):hover {
-    background-color: #cbcbcb; /* Change this color to whatever you prefer */
-    transition: background-color 0.3s ease; /* Optional: Smooth transition */
-  }
-
-  .comparision-table-tr--{{ section.id }} > td > p {
-    margin-bottom: 0px;
-  }
-  
-.section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+  .comparison-table--{{ section.id }} {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
     }
-  }
-
-  .green-icon--{{ section.id }} {
-    color: green; 
-    fill: green; 
-  }
-  .red-icon--{{ section.id }} {
-    color: red; 
-    fill: red; 
-  }
-
-{%- endstyle -%}
-
-
-
-<div class="section-{{ section.id }}-padding">
-    <div class="comparison-table--{{ section.id }}">
-        <h2 class="h2">{{ section.settings.heading }}</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>{{ section.settings.column_1_heading }}</th>
-          <th>
-            <img
-              src="{{ section.settings.image | image_url: height: 640 }}"
-              alt="{{ section.settings.image.alt | escape }}"
-              loading="lazy"
-              width="{{ section.settings.image.width }}"
-              height="{{ section.settings.image.height }}"
-              class="comparision-table-logo--{{ section.id }}"
-            >
-          </th>
-          <th>{{ section.settings.column_3_heading }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for block in section.blocks %}
-        <tr class="comparision-table-tr--{{ section.id }}">
-          <td>{{ block.settings.feature }}</td>
-          <td>
-            {% if block.settings.icon_type_1 == 'check' %}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon green-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>
-            {% else %}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon red-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path><path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path></svg>
-            {% endif %}
-          </td>
-          <td>
-            {% if block.settings.icon_type_2 == 'check' %}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon green-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>
-            {% else %}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon red-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path><path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path></svg>
-            {% endif %}
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+    .comparison-table--{{ section.id }} h2 {
+      text-align: center;
+      padding-bottom: 40px;
+    }
+  
+    .comparison-table--{{ section.id }} table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .comparision-table-logo--{{ section.id }} {
+      max-width: {{ section.settings.logo_size }}px;
+      width: 100%;
+      height: auto;
+    }
+    .comparison-table--{{ section.id }} th, .comparison-table--{{ section.id }} td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .comparison-table--{{ section.id }} th {
+      background-color: #f8f8f8;
+      font-weight: bold;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .comparison-table--{{ section.id }} th:nth-child(1), 
+    .comparison-table--{{ section.id }} td:nth-child(1) {
+      width: 60%;
+    }
+    .comparison-table--{{ section.id }} th:nth-child(2),
+    .comparison-table--{{ section.id }} td:nth-child(2),
+    .comparison-table--{{ section.id }} th:nth-child(3),
+    .comparison-table--{{ section.id }} td:nth-child(3) {
+      width: 20%;
+      text-align: center;
+    }
     
-</div>
-
-
-{% schema %}
-{
-  "name": "Comparision Table",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-    "type": "header",
-    "content": "Need Support for this section?",
-    "info": "Feel free to reach out here: [Support form](https://tally.so/r/npWopV)"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "default": "Heading",
-      "label": "Section Heading"
-    },
-    {
-      "type": "text",
-      "id": "column_1_heading",
-      "default": "Heading",
-      "label": "Column 1 Heading"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Logo/Image"
-    },
-    {
-      "type": "range",
-      "id": "logo_size",
-      "min": 10,
-      "max": 100,
-      "step": 10,
-      "unit": "px",
-      "label": "Logo Size",
-      "default": 50
-    },
-    {
-      "type": "text",
-      "id": "column_3_heading",
-      "default": "Heading",
-      "label": "Column 3 Heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Section Padding Top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Section Padding Bottom",
-      "default": 36
+    .comparison-table--{{ section.id }} table tr:nth-child(odd) {
+    background-color: #ffffff; /* Odd rows - white */
     }
-  ],
-  "blocks": [
-    {
-      "type": "row",
-      "name": "Comparison Row",
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "feature",
-          "label": "Feature",
-          "default": "<p></p>"
-        },
-        {
-        "type": "select",
-        "id": "icon_type_1",
-        "label": "Icon Type Left",
-        "options": [
-          {
-            "value": "check",
-            "label": "Check"
-          },
-          {
-            "value": "x",
-            "label": "X"
-          }
-        ],
-        "default": "check"
+    .comparison-table--{{ section.id }} table tr:nth-child(odd):hover {
+      background-color: #cbcbcb; /* Change this color to whatever you prefer */
+      transition: background-color 0.3s ease; /* Optional: Smooth transition */
+    }
+  
+    .comparison-table--{{ section.id }} table tr:nth-child(even) {
+      background-color: #fafafa; /* Even rows - light grey */
+    }
+    .comparison-table--{{ section.id }} table tr:nth-child(even):hover {
+      background-color: #cbcbcb; /* Change this color to whatever you prefer */
+      transition: background-color 0.3s ease; /* Optional: Smooth transition */
+    }
+  
+    .comparision-table-tr--{{ section.id }} > td > p {
+      margin-bottom: 0px;
+    }
+    
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+  
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  
+    .green-icon--{{ section.id }} {
+      color: green; 
+      fill: green; 
+    }
+    .red-icon--{{ section.id }} {
+      color: red; 
+      fill: red; 
+    }
+  
+  {%- endstyle -%}
+  
+  
+  
+  <div class="section-{{ section.id }}-padding">
+      <div class="comparison-table--{{ section.id }}">
+          <h2 class="h2">{{ section.settings.heading }}</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>{{ section.settings.column_1_heading }}</th>
+            <th>
+              <img
+                src="{{ section.settings.image | image_url: height: 640 }}"
+                alt="{{ section.settings.image.alt | escape }}"
+                loading="lazy"
+                width="{{ section.settings.image.width }}"
+                height="{{ section.settings.image.height }}"
+                class="comparision-table-logo--{{ section.id }}"
+              >
+            </th>
+            <th>{{ section.settings.column_3_heading }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for block in section.blocks %}
+          <tr class="comparision-table-tr--{{ section.id }}">
+            <td>{{ block.settings.feature }}</td>
+            <td>
+              {% if block.settings.icon_type_1 == 'check' %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon green-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>
+              {% else %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon red-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path><path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path></svg>
+              {% endif %}
+            </td>
+            <td>
+              {% if block.settings.icon_type_2 == 'check' %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon green-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>
+              {% else %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon red-icon--{{ section.id }}" style="transform: ;msFilter:;"><path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path><path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path></svg>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+      
+  </div>
+  
+  
+  {% schema %}
+  {
+    "name": "Comparision Table",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+      "type": "header",
+      "content": "Need Support for this section?",
+      "info": "Feel free to reach out here: [Support form](https://tally.so/r/npWopV)"
       },
       {
-        "type": "select",
-        "id": "icon_type_2",
-        "label": "Icon Type Right",
-        "options": [
+        "type": "text",
+        "id": "heading",
+        "default": "Heading",
+        "label": "Section Heading"
+      },
+      {
+        "type": "text",
+        "id": "column_1_heading",
+        "default": "Heading",
+        "label": "Column 1 Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Logo/Image"
+      },
+      {
+        "type": "range",
+        "id": "logo_size",
+        "min": 10,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "Logo Size",
+        "default": 50
+      },
+      {
+        "type": "text",
+        "id": "column_3_heading",
+        "default": "Heading",
+        "label": "Column 3 Heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Section Padding Top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Section Padding Bottom",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "type": "row",
+        "name": "Comparison Row",
+        "settings": [
           {
-            "value": "check",
-            "label": "Check"
+            "type": "richtext",
+            "id": "feature",
+            "label": "Feature",
+            "default": "<p></p>"
           },
           {
-            "value": "x",
-            "label": "X"
-          }
-        ],
-        "default": "x"
+          "type": "select",
+          "id": "icon_type_1",
+          "label": "Icon Type Left",
+          "options": [
+            {
+              "value": "check",
+              "label": "Check"
+            },
+            {
+              "value": "x",
+              "label": "X"
+            }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "select",
+          "id": "icon_type_2",
+          "label": "Icon Type Right",
+          "options": [
+            {
+              "value": "check",
+              "label": "Check"
+            },
+            {
+              "value": "x",
+              "label": "X"
+            }
+          ],
+          "default": "x"
+        }
+  
+  
+        ]
       }
-
-
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Comparision Table"
-    }
-  ]
-}
-{% endschema %}
+    ],
+    "presets": [
+      {
+        "name": "Comparision Table"
+      }
+    ]
+  }
+  {% endschema %}
