@@ -12,6 +12,12 @@
     .comparison-table--{{ section.id }} table {
       width: 100%;
       border-collapse: collapse;
+      {% if section.settings.show_table_border %}
+      border: 1px solid #ccc;
+      {% else %}
+      border: none;
+      box-shadow: none;
+      {% endif %}
     }
     .comparision-table-logo--{{ section.id }} {
       max-width: {{ section.settings.logo_size }}px;
@@ -19,13 +25,17 @@
       height: auto;
     }
     .comparison-table--{{ section.id }} th, .comparison-table--{{ section.id }} td {
+      {% if section.settings.show_table_border %}
       border: 1px solid #ccc;
+    {% else %}
+      border: none;
+    {% endif %}
       padding: 10px;
       text-align: left;
       vertical-align: middle;
     }
     .comparison-table--{{ section.id }} th {
-      background-color: #f8f8f8;
+      background-color: {{ section.settings.table_header_bg_color }};
       font-weight: bold;
       text-align: center;
       vertical-align: middle;
@@ -41,12 +51,19 @@
       width: 20%;
       text-align: center;
     }
+
+    .comparison-table--{{ section.id }} th:nth-child(2), 
+    .comparison-table--{{ section.id }} td:nth-child(2) {
+      {% if section.settings.second_column_bg_color %}
+      background-color: {{ section.settings.second_column_bg_color }};
+      {% endif %}
+    }
     
     .comparison-table--{{ section.id }} table tr:nth-child(odd) {
     background-color: #ffffff; /* Odd rows - white */
     }
     .comparison-table--{{ section.id }} table tr:nth-child(odd):hover {
-      background-color: #cbcbcb; /* Change this color to whatever you prefer */
+      background-color: {{ section.settings.row_hover_bg_color }}; /* Change this color to whatever you prefer */
       transition: background-color 0.3s ease; /* Optional: Smooth transition */
     }
   
@@ -54,12 +71,13 @@
       background-color: #fafafa; /* Even rows - light grey */
     }
     .comparison-table--{{ section.id }} table tr:nth-child(even):hover {
-      background-color: #cbcbcb; /* Change this color to whatever you prefer */
+      background-color: {{ section.settings.row_hover_bg_color }}; /* Change this color to whatever you prefer */
       transition: background-color 0.3s ease; /* Optional: Smooth transition */
     }
   
     .comparision-table-tr--{{ section.id }} > td > p {
       margin-bottom: 0px;
+      margin-block-start: 0px;
     }
     
   .section-{{ section.id }}-padding {
@@ -75,12 +93,12 @@
     }
   
     .green-icon--{{ section.id }} {
-      color: green; 
-      fill: green; 
+      color: {{ section.settings.check_icon_color }}; 
+      fill: {{ section.settings.check_icon_color }}; 
     }
     .red-icon--{{ section.id }} {
-      color: red; 
-      fill: red; 
+      color: {{ section.settings.x_icon_color }}; 
+      fill: {{ section.settings.x_icon_color }}; 
     }
   
   {%- endstyle -%}
@@ -129,8 +147,7 @@
           {% endfor %}
         </tbody>
       </table>
-    </div>
-      
+    </div>  
   </div>
   
   
@@ -144,6 +161,10 @@
       "type": "header",
       "content": "Need Support for this section?",
       "info": "Feel free to reach out here: [Support form](https://tally.so/r/npWopV)"
+      },
+      {
+        "type": "header",
+        "content": "Content Settings",
       },
       {
         "type": "text",
@@ -177,6 +198,46 @@
         "id": "column_3_heading",
         "default": "Heading",
         "label": "Column 3 Heading"
+      },
+      {
+        "type": "header",
+        "content": "Color Settings",
+      },
+      {
+        "type": "checkbox",
+        "id": "show_table_border",
+        "label": "Show Table Border",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "check_icon_color",
+        "label": "Check Icon Color Color",
+        "default": "#209720"
+      },
+      {
+        "type": "color",
+        "id": "x_icon_color",
+        "label": "X Icon Color Color",
+        "default": "#DD2222"
+      },
+      {
+        "type": "color",
+        "id": "second_column_bg_color",
+        "label": "2nd Column Background Color",
+        "default": "#fafafa"
+      },
+      {
+        "type": "color",
+        "id": "table_header_bg_color",
+        "label": "Table Header Background Color",
+        "default": "#fafafa"
+      },
+      {
+        "type": "color",
+        "id": "row_hover_bg_color",
+        "label": "Hover: Row Background Color",
+        "default": "#fafafa"
       },
       {
         "type": "range",
@@ -249,7 +310,18 @@
     ],
     "presets": [
       {
-        "name": "Comparision Table"
+        "name": "Comparision Table",
+        "blocks": [
+      {
+        "type": "row"
+      },
+      {
+        "type": "row"
+      },
+      {
+        "type": "row"
+      }
+    ]
       }
     ]
   }
