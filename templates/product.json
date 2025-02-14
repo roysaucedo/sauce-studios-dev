@@ -138,24 +138,11 @@
         "padding_top": 48,
         "padding_bottom": 28
       }
-    },
-    "custom_liquid_8RtjLd": {
-      "type": "custom-liquid",
-      "custom_css": [
-        ".cbb-frequently-bought-total-price-box {display: flex; flex-wrap: wrap;}"
-      ],
-      "settings": {
-        "custom_liquid": "",
-        "color_scheme": "background-1",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
     "main",
     "section_comparison_table_A6nQy4",
-    "related-products",
-    "custom_liquid_8RtjLd"
+    "related-products"
   ]
 }
