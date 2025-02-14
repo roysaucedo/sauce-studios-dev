@@ -14,8 +14,7 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "vendor": {
           "type": "text",
@@ -33,13 +32,11 @@
         "quantity_selector": {
           "type": "quantity_selector",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -50,8 +47,7 @@
         },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "share": {
           "type": "share",
@@ -116,6 +112,12 @@
         "image": "shopify://shop_images/970581489-A1C1.webp",
         "logo_size": 100,
         "column_3_heading": "H20",
+        "show_table_border": true,
+        "check_icon_color": "#209720",
+        "x_icon_color": "#DD2222",
+        "second_column_bg_color": "#fafafa",
+        "table_header_bg_color": "#fafafa",
+        "row_hover_bg_color": "#fafafa",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -136,11 +138,24 @@
         "padding_top": 48,
         "padding_bottom": 28
       }
+    },
+    "custom_liquid_8RtjLd": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".cbb-frequently-bought-total-price-box {display: flex; flex-wrap: wrap;}"
+      ],
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
     "section_comparison_table_A6nQy4",
-    "related-products"
+    "related-products",
+    "custom_liquid_8RtjLd"
   ]
 }
