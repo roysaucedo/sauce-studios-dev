@@ -552,7 +552,7 @@
                                   {% render block %}
                               {%- when 'image' -%}
                                 {% if block.settings.image != blank %}
-                                  <li>
+                                  <li style="order: {{ block.settings.order }};">
                                 <img
                                 	src="{{ block.settings.image | image_url: height: 640 }}"
                                 	alt="{{ block.settings.image.alt | escape }}"
@@ -560,7 +560,7 @@
                                 	width="{{ block.settings.image.width }}"
                                 	height="{{ block.settings.image.height }}"
                                 	class=""
-                                    style="width: 200px; height: auto; aspect-ratio: 1 / 1; object-fit: cover; order: {{ block.settings.order }};"
+                                    style="width: 200px; height: auto; aspect-ratio: 1 / 1; object-fit: cover;"
                                 >
                                     </li>
                                 {% else %}
