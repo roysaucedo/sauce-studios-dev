@@ -717,6 +717,7 @@
           {%- when '@app' -%}
             {% render block %}
         {%- when 'image' -%}
+          {% if block.settings.image != blank %}
           <img
           	src="{{ block.settings.image | image_url: height: 640 }}"
           	alt="{{ block.settings.image.alt | escape }}"
@@ -725,6 +726,9 @@
           	height="{{ block.settings.image.height }}"
           	class=""
           >
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {% endif %}
         {%- endcase -%}
       {%- endfor -%}
 
