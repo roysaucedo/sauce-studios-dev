@@ -32,6 +32,15 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "image_CUeeVQ": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image_CUeeVQ"
+      ],
       "custom_css": [
         ".header__heading-link .h2 {font-size: 16px;}"
       ],
