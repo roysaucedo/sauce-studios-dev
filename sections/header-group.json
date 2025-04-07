@@ -38,10 +38,17 @@
           "settings": {
             "image": "shopify://shop_images/chrome-engine-close-up.jpg"
           }
+        },
+        "image_a9Lwwt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/chrome-engine-close-up.jpg"
+          }
         }
       },
       "block_order": [
-        "image_CUeeVQ"
+        "image_CUeeVQ",
+        "image_a9Lwwt"
       ],
       "custom_css": [
         ".header__heading-link .h2 {font-size: 16px;}"
