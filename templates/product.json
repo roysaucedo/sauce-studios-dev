@@ -82,6 +82,17 @@
         "padding_bottom": 0
       }
     },
+    "tabs_bUCQCg": {
+      "type": "tabs",
+      "settings": {
+        "h1": "Heading",
+        "p": "<p>Add your paragraph here</p>",
+        "btn_text": "Learn More",
+        "link": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "section_comparison_table_A6nQy4": {
       "type": "section-comparison-table",
       "blocks": {
@@ -114,7 +125,7 @@
         "column_3_heading": "H20",
         "show_table_border": true,
         "check_icon_color": "#209720",
-        "x_icon_color": "#DD2222",
+        "x_icon_color": "#dd2222",
         "second_column_bg_color": "#fafafa",
         "table_header_bg_color": "#fafafa",
         "row_hover_bg_color": "#fafafa",
@@ -142,6 +153,7 @@
   },
   "order": [
     "main",
+    "tabs_bUCQCg",
     "section_comparison_table_A6nQy4",
     "related-products"
   ]
