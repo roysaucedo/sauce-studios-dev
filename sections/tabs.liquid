@@ -7,33 +7,50 @@
 .section-{{ section.id }}-max-width {
   max-width: {{ section.settings.max_width }}px;
   margin: auto;
-  padding: 20px;
+  padding: 0 1.5rem;
 }
 
+/* Dawn-style tabs navigation */
 .section-{{ section.id }}-tabs-nav {
   display: flex;
-  border-bottom: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+  margin-bottom: 0;
 }
 
 .section-{{ section.id }}-tab-button {
-  padding: 0.5rem 1rem;
-  border-bottom: 2px solid transparent;
-  font-weight: 500;
+  position: relative;
+  padding: 1.2rem 0;
+  margin: 0 1.8rem 0 0;
+  letter-spacing: 0.1rem;
+  border: none;
+  border-bottom: 0.3rem solid transparent;
+  text-align: center;
   cursor: pointer;
+  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 0.75);
+  background-color: transparent;
+  transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.section-{{ section.id }}-tab-button:last-child {
+  margin-right: 0;
 }
 
 .section-{{ section.id }}-tab-button:hover {
-  color: #4b5563;
+  color: rgb(var(--color-foreground));
+  border-bottom-color: rgba(var(--color-foreground), 0.2);
 }
 
 .section-{{ section.id }}-tab-button-active {
-  border-bottom-color: #3b82f6;
-  color: #2563eb;
+  color: rgb(var(--color-foreground));
+  border-bottom-color: rgb(var(--color-foreground));
+  font-weight: 600;
 }
 
+/* Tab content styling */
 .section-{{ section.id }}-tab-content {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 3rem 0;
 }
 
 .section-{{ section.id }}-tab-content-hidden {
@@ -41,16 +58,19 @@
 }
 
 .section-{{ section.id }}-tab-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.06rem;
 }
 
 .section-{{ section.id }}-tab-grey-box {
-  margin-top: 0.75rem;
-  padding: 0.75rem;
-  background-color: #f3f4f6;
-  border-radius: 0.375rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(var(--color-foreground), 0.04);
+  border-radius: 0.8rem;
   display: block;
 }
 
@@ -61,19 +81,49 @@
   }
 
   .section-{{ section.id }}-max-width {
-    padding: 0px;
+    padding: 0 5rem;
+  }
+  
+  .section-{{ section.id }}-tab-button {
+    font-size: 1.6rem;
+    padding: 1.5rem 0;
+  }
+  
+  .section-{{ section.id }}-tab-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .section-{{ section.id }}-tabs-nav {
+    gap: 1rem;
+  }
+  
+  .section-{{ section.id }}-tab-button {
+    margin-right: 1rem;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+  }
+  
+  .section-{{ section.id }}-tab-content {
+    padding: 2rem 0;
   }
 }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding">
-  <div class="section-{{ section.id }}-max-width">
+<div class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="section-{{ section.id }}-max-width page-width">
     <!-- Tab Navigation -->
-    <div class="section-{{ section.id }}-tabs-nav">
+    <div class="section-{{ section.id }}-tabs-nav" role="tablist" aria-label="Product Information">
       {%- for block in section.blocks -%}
         <button 
           class="section-{{ section.id }}-tab-button {% if forloop.first %}section-{{ section.id }}-tab-button-active{% endif %}" 
           data-tab="tab-{{ section.id }}-{{ forloop.index }}"
+          role="tab"
+          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+          aria-controls="tab-{{ section.id }}-{{ forloop.index }}"
+          id="tab-button-{{ section.id }}-{{ forloop.index }}"
+          tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
           {{ block.shopify_attributes }}
         >
           {{ block.settings.tab_title }}
@@ -82,15 +132,20 @@
     </div>
     
     <!-- Tab Content -->
-    <div class="section-{{ section.id }}-tab-content">
+    <div class="section-{{ section.id }}-tab-content-container">
       {%- for block in section.blocks -%}
         <div 
           id="tab-{{ section.id }}-{{ forloop.index }}" 
           class="section-{{ section.id }}-tab-content {% unless forloop.first %}section-{{ section.id }}-tab-content-hidden{% endunless %}"
+          role="tabpanel"
+          aria-labelledby="tab-button-{{ section.id }}-{{ forloop.index }}"
+          tabindex="0"
           {{ block.shopify_attributes }}
         >
-          <h2 class="section-{{ section.id }}-tab-title">{{ block.settings.tab_title }}</h2>
-          <div>{{ block.settings.tab_content }}</div>
+          {% if block.settings.tab_title != blank %}
+            <h2 class="section-{{ section.id }}-tab-title">{{ block.settings.tab_title }}</h2>
+          {% endif %}
+          <div class="rte">{{ block.settings.tab_content }}</div>
         </div>
       {%- endfor -%}
     </div>
@@ -211,7 +266,7 @@
           "type": "tab",
           "settings": {
             "tab_title": "Tab 3",
-            "tab_content": "<p>Here's the content for the third tab.ponents as well.</p>"
+            "tab_content": "<p>Here's the content for the third tablude other components as well.</p>"
           }
         }
       ]
