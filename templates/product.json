@@ -186,6 +186,10 @@
         "padding_bottom": 36
       }
     },
+    "wc_hero_FHnbLG": {
+      "type": "wc-hero",
+      "settings": {}
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -209,6 +213,7 @@
     "countdown_6Vrw4T",
     "tabs_bUCQCg",
     "section_comparison_table_A6nQy4",
+    "wc_hero_FHnbLG",
     "related-products"
   ]
 }
