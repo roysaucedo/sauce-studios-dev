@@ -569,7 +569,7 @@
                                 	width="{{ block.settings.image.width }}"
                                 	height="{{ block.settings.image.height }}"
                                 	class=""
-                                    style="width: 100%; height: auto; aspect-ratio: 6 / 4; object-fit: cover;"
+                                    style="width: 100%; height: auto; aspect-ratio: {{ block.settings.aspect_ratio }}; object-fit: cover;"
                                 >
                                     </li>
                                     {% endif %}
@@ -1161,6 +1161,12 @@
           "id": "column_span",
           "label": "Column Span",
           "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "aspect_ratio",
+          "label": "Image Aspect Ratio",
+          "default": "1 / 1"
         }
       ]
     }
