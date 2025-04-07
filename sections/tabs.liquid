@@ -97,32 +97,37 @@
   </div>
 
   <script>
-    // Get all tab buttons and content for this specific section
-    const tabButtons{{ section.id }} = document.querySelectorAll('.section-{{ section.id }}-tab-button');
-    const tabContents{{ section.id }} = document.querySelectorAll('[id^="tab-{{ section.id }}"]');
-    
-    // Add click event to each tab button
-    tabButtons{{ section.id }}.forEach(button => {
-        button.addEventListener('click', () => {
+    document.addEventListener('DOMContentLoaded', function() {
+      // Use a unique function name with section ID to avoid conflicts
+      (function initTabs{{ section.id | replace: '-', '_' }}() {
+        // Get all tab buttons and content for this specific section
+        const tabButtons = document.querySelectorAll('.section-{{ section.id }}-tab-button');
+        const tabContents = document.querySelectorAll('[id^="tab-{{ section.id }}"]');
+        
+        // Add click event to each tab button
+        tabButtons.forEach(button => {
+          button.addEventListener('click', () => {
             // Get the tab to activate
             const tabToActivate = button.dataset.tab;
             
             // Hide all tab contents
-            tabContents{{ section.id }}.forEach(content => {
-                content.classList.add('section-{{ section.id }}-tab-content-hidden');
+            tabContents.forEach(content => {
+              content.classList.add('section-{{ section.id }}-tab-content-hidden');
             });
             
             // Show the selected tab content
             document.getElementById(tabToActivate).classList.remove('section-{{ section.id }}-tab-content-hidden');
             
             // Reset all button styles
-            tabButtons{{ section.id }}.forEach(btn => {
-                btn.classList.remove('section-{{ section.id }}-tab-button-active');
+            tabButtons.forEach(btn => {
+              btn.classList.remove('section-{{ section.id }}-tab-button-active');
             });
             
             // Style the active button
             button.classList.add('section-{{ section.id }}-tab-button-active');
+          });
         });
+      })();
     });
   </script>
 </div>
@@ -206,7 +211,7 @@
           "type": "tab",
           "settings": {
             "tab_title": "Tab 3",
-            "tab_content": "<p>Here's the content.</p>"
+            "tab_content": "<p>Here's the content for the third tab.ponents as well.</p>"
           }
         }
       ]
