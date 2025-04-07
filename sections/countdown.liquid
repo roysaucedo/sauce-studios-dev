@@ -1,6 +1,580 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+{%- style -%}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+.section-{{ section.id }}-max-width {
+  max-width: {{ section.settings.max_width }}px;
+  margin: auto;
+  padding: 0 1.5rem;
+}
+
+.section-{{ section.id }}-container {
+  border-radius: 1.5rem;
+  padding: 2rem;
+  max-width: 100%;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 15px -3px rgba(var(--color-foreground), 0.1), 0 4px 6px -2px rgba(var(--color-foreground), 0.05);
+}
+
+.section-{{ section.id }}-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: rgba(var(--color-foreground), 0.9);
+}
+
+.section-{{ section.id }}-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 2rem 0;
+}
+
+@media screen and (max-width: 749px) {
+  .section-{{ section.id }}-countdown {
+    gap: 0.5rem;
+    font-size: 2.2rem;
   }
+}
+
+.section-{{ section.id }}-digit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-{{ section.id }}-digit {
+  background-color: rgba(var(--color-{{ section.settings.digit_color }}), 0.15);
+  color: rgb(var(--color-{{ section.settings.digit_color }}));
+  border-radius: 0.8rem;
+  padding: 1rem;
+  min-width: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 749px) {
+  .section-{{ section.id }}-digit {
+    min-width: 4rem;
+    padding: 0.8rem;
+  }
+}
+
+.section-{{ section.id }}-digit.pulse {
+  animation: section-{{ section.id }}-pulse 1s infinite alternate;
+}
+
+.section-{{ section.id }}-digit.expired {
+  animation: section-{{ section.id }}-shake 0.5s;
+}
+
+.section-{{ section.id }}-label {
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+.section-{{ section.id }}-separator {
+  font-size: 2.4rem;
+  align-self: center;
+  padding-bottom: 1.5rem;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+@media screen and (max-width: 749px) {
+  .section-{{ section.id }}-separator {
+    font-size: 2rem;
+  }
+}
+
+.section-{{ section.id }}-expired-message {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgb(var(--color-{{ section.settings.expired_message_color }}));
+  display: none;
+}
+
+.section-{{ section.id }}-message {
+  margin-top: 1.5rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.8);
+}
+
+@keyframes section-{{ section.id }}-pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes section-{{ section.id }}-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+}
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-max-width page-width">
+    <div class="section-{{ section.id }}-container">
+      {% if section.settings.title != blank %}
+        <h2 class="section-{{ section.id }}-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      
+      <div id="countdown-{{ section.id }}" class="section-{{ section.id }}-countdown">
+        {% if section.settings.show_days %}
+        <div class="section-{{ section.id }}-digit-container">
+          <div id="days-{{ section.id }}" class="section-{{ section.id }}-digit">00</div>
+          <p class="section-{{ section.id }}-label">{{ section.settings.days_label }}</p>
+        </div>
+        
+        <div class="section-{{ section.id }}-separator">:</div>
+        {% endif %}
+        
+        <div class="section-{{ section.id }}-digit-container">
+          <div id="hours-{{ section.id }}" class="section-{{ section.id }}-digit">00</div>
+          <p class="section-{{ section.id }}-label">{{ section.settings.hours_label }}</p>
+        </div>
+        
+        <div class="section-{{ section.id }}-separator">:</div>
+        
+        <div class="section-{{ section.id }}-digit-container">
+          <div id="minutes-{{ section.id }}" class="section-{{ section.id }}-digit">00</div>
+          <p class="section-{{ section.id }}-label">{{ section.settings.minutes_label }}</p>
+        </div>
+        
+        <div class="section-{{ section.id }}-separator">:</div>
+        
+        <div class="section-{{ section.id }}-digit-container">
+          <div id="seconds-{{ section.id }}" class="section-{{ section.id }}-digit">00</div>
+          <p class="section-{{ section.id }}-label">{{ section.settings.seconds_label }}</p>
+        </div>
+      </div>
+      
+      <div id="expired-message-{{ section.id }}" class="section-{{ section.id }}-expired-message">
+        {{ section.settings.expired_message }}
+      </div>
+      
+      {% if section.settings.countdown_message != blank %}
+        <div class="section-{{ section.id }}-message">{{ section.settings.countdown_message }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Use a unique function name with section ID to avoid conflicts
+      (function initCountdown{{ section.id | replace: '-', '_' }}() {
+        // Get DOM elements
+        const daysElement = document.getElementById('days-{{ section.id }}');
+        const hoursElement = document.getElementById('hours-{{ section.id }}');
+        const minutesElement = document.getElementById('minutes-{{ section.id }}');
+        const secondsElement = document.getElementById('seconds-{{ section.id }}');
+        const countdownElement = document.getElementById('countdown-{{ section.id }}');
+        const expiredMessage = document.getElementById('expired-message-{{ section.id }}');
+        
+        // Parse end date from settings
+        {% if section.settings.countdown_type == 'date' %}
+          const endDateStr = '{{ section.settings.end_date }}';
+          const endTimeStr = '{{ section.settings.end_time }}';
+          
+          // Validate date format (YYYY-MM-DD)
+          let endDate;
+          if (/^\d{4}-\d{2}-\d{2}$/.test(endDateStr) && /^\d{2}:\d{2}$/.test(endTimeStr)) {
+            // Parse date and time
+            const [year, month, day] = endDateStr.split('-').map(Number);
+            const [hours, minutes] = endTimeStr.split(':').map(Number);
+            
+            // Create Date object (months are 0-indexed in JavaScript)
+            endDate = new Date(year, month - 1, day, hours, minutes, 0);
+          } else {
+            // Fallback to current time + 1 hour if invalid format
+            endDate = new Date();
+            endDate.setHours(endDate.getHours() + 1);
+          }
+          
+          const endTime = endDate.getTime();
+        {% else %}
+          const duration = {{ section.settings.duration_hours }} * 60 * 60 * 1000 + 
+                         {{ section.settings.duration_minutes }} * 60 * 1000 + 
+                         {{ section.settings.duration_seconds }} * 1000;
+          const endTime = new Date().getTime() + duration;
+        {% endif %}
+        
+        // Update the countdown every second
+        const timer = setInterval(updateCountdown, 1000);
+        
+        // Initial countdown update
+        updateCountdown();
+        
+        // Function to update the countdown display
+        function updateCountdown() {
+          // Get the current time
+          const now = new Date().getTime();
+          
+          // Calculate the time remaining
+          {% if section.settings.countdown_type == 'date' %}
+            const timeRemaining = endTime - now;
+          {% else %}
+            const timeRemaining = endTime - now;
+          {% endif %}
+          
+          // If the countdown is over
+          if (timeRemaining <= 0) {
+            clearInterval(timer);
+            countdownElement.classList.add('section-{{ section.id }}-expired');
+            expiredMessage.style.display = 'block';
+            {% if section.settings.show_days %}
+              if (daysElement) daysElement.textContent = '00';
+            {% endif %}
+            hoursElement.textContent = '00';
+            minutesElement.textContent = '00';
+            secondsElement.textContent = '00';
+            return;
+          }
+          
+          // Calculate days, hours, minutes, and seconds
+          const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+          
+          // Add leading zeros if needed
+          const formattedDays = String(days).padStart(2, '0');
+          const formattedHours = String(hours).padStart(2, '0');
+          const formattedMinutes = String(minutes).padStart(2, '0');
+          const formattedSeconds = String(seconds).padStart(2, '0');
+          
+          // Update the display
+          {% if section.settings.show_days %}
+            if (daysElement) daysElement.textContent = formattedDays;
+          {% endif %}
+          hoursElement.textContent = formattedHours;
+          minutesElement.textContent = formattedMinutes;
+          secondsElement.textContent = formattedSeconds;
+          
+          // Add pulse effect to the seconds digit
+          secondsElement.classList.add('pulse');
+          setTimeout(() => {
+            secondsElement.classList.remove('pulse');
+          }, 100);
+          
+          // When approaching the end, change colors if enabled
+          {% if section.settings.show_warning_color %}
+            if (timeRemaining < {{ section.settings.warning_time }} * 1000) { // Convert to milliseconds
+              {% if section.settings.show_days %}
+                if (daysElement) {
+                  daysElement.style.backgroundColor = 'rgba(var(--color-{{ section.settings.warning_color }}), 0.15)';
+                  daysElement.style.color = 'rgb(var(--color-{{ section.settings.warning_color }}))';
+                }
+              {% endif %}
+              hoursElement.style.backgroundColor = 'rgba(var(--color-{{ section.settings.warning_color }}), 0.15)';
+              minutesElement.style.backgroundColor = 'rgba(var(--color-{{ section.settings.warning_color }}), 0.15)';
+              secondsElement.style.backgroundColor = 'rgba(var(--color-{{ section.settings.warning_color }}), 0.15)';
+              
+              hoursElement.style.color = 'rgb(var(--color-{{ section.settings.warning_color }}))';
+              minutesElement.style.color = 'rgb(var(--color-{{ section.settings.warning_color }}))';
+              secondsElement.style.color = 'rgb(var(--color-{{ section.settings.warning_color }}))';
+            }
+          {% endif %}
+        }
+      })();
+    });
+  </script>
+</div>
+
+{% schema %}
+{
+  "name": "Countdown Timer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Countdown Timer"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "background-1",
+          "label": "Background 1 / Text"
+        },
+        {
+          "value": "background-2", 
+          "label": "Background 2 / Text"
+        },
+        {
+          "value": "inverse",
+          "label": "Inverted"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        }
+      ],
+      "default": "background-1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Date and Time Settings"
+    },
+    {
+      "type": "select",
+      "id": "countdown_type",
+      "options": [
+        {
+          "value": "date",
+          "label": "Specific Date and Time"
+        },
+        {
+          "value": "duration",
+          "label": "Duration from Page Load"
+        }
+      ],
+      "default": "duration",
+      "label": "Countdown Type"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "End Date",
+      "info": "Format: YYYY-MM-DD (e.g., 2025-12-31)",
+      "default": "2025-12-31"
+    },
+    {
+      "type": "text",
+      "id": "end_time",
+      "label": "End Time (24-hour format)",
+      "info": "Format: HH:MM (e.g., 23:59)",
+      "default": "23:59"
+    },
+    {
+      "type": "range",
+      "id": "duration_hours",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "hr",
+      "label": "Duration Hours",
+      "default": 1,
+      "info": "Hours to count down from page load"
+    },
+    {
+      "type": "range",
+      "id": "duration_minutes",
+      "min": 0,
+      "max": 59,
+      "step": 1,
+      "unit": "min",
+      "label": "Duration Minutes",
+      "default": 0,
+      "info": "Minutes to count down from page load"
+    },
+    {
+      "type": "range",
+      "id": "duration_seconds",
+      "min": 0,
+      "max": 59,
+      "step": 1,
+      "unit": "sec",
+      "label": "Duration Seconds",
+      "default": 0,
+      "info": "Seconds to count down from page load"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_days",
+      "label": "Show Days",
+      "default": false,
+      "info": "Display days in the countdown"
+    },
+    {
+      "type": "text",
+      "id": "days_label",
+      "label": "Days Label",
+      "default": "Days"
+    },
+    {
+      "type": "text",
+      "id": "hours_label",
+      "label": "Hours Label",
+      "default": "Hours"
+    },
+    {
+      "type": "text",
+      "id": "minutes_label",
+      "label": "Minutes Label",
+      "default": "Minutes"
+    },
+    {
+      "type": "text",
+      "id": "seconds_label",
+      "label": "Seconds Label",
+      "default": "Seconds"
+    },
+    {
+      "type": "select",
+      "id": "digit_color",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        }
+      ],
+      "default": "primary",
+      "label": "Digit Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_warning_color",
+      "label": "Show Warning Color",
+      "default": true,
+      "info": "Change digit color when approaching deadline"
+    },
+    {
+      "type": "select",
+      "id": "warning_color",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        }
+      ],
+      "default": "accent-1",
+      "label": "Warning Color"
+    },
+    {
+      "type": "range",
+      "id": "warning_time",
+      "min": 10,
+      "max": 300,
+      "step": 10,
+      "unit": "sec",
+      "label": "Warning Time",
+      "default": 60,
+      "info": "When to show warning color (seconds before expiry)"
+    },
+    {
+      "type": "text",
+      "id": "expired_message",
+      "label": "Expired Message",
+      "default": "Time's Up!"
+    },
+    {
+      "type": "select",
+      "id": "expired_message_color",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        }
+      ],
+      "default": "accent-1",
+      "label": "Expired Message Color"
+    },
+    {
+      "type": "richtext",
+      "id": "countdown_message",
+      "label": "Countdown Message",
+      "default": "<p>Limited time offer! Act now before it's too late.</p>"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 400,
+      "max": 2000,
+      "step": 50,
+      "unit": "px",
+      "label": "Section Max Width",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Padding Bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown Timer",
+      "settings": {
+        "title": "Limited Time Offer",
+        "countdown_type": "duration",
+        "duration_hours": 1,
+        "duration_minutes": 0,
+        "duration_seconds": 0,
+        "show_days": false,
+        "countdown_message": "<p>Act fast! This special offer won't last long.</p>"
+      }
+    }
+  ]
+}
 {% endschema %}
