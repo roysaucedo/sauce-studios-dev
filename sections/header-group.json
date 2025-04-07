@@ -38,7 +38,8 @@
           "settings": {
             "image": "shopify://shop_images/chrome-engine-close-up.jpg",
             "menu_text": "Catalog",
-            "order": "-1"
+            "order": "-1",
+            "column_span": "2"
           }
         },
         "image_a9Lwwt": {
@@ -46,7 +47,8 @@
           "settings": {
             "image": "shopify://shop_images/chrome-engine-close-up.jpg",
             "menu_text": "Catalog",
-            "order": "1"
+            "order": "1",
+            "column_span": "2"
           }
         },
         "image_d87b7p": {
@@ -54,7 +56,8 @@
           "settings": {
             "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
             "menu_text": "Mega Menu",
-            "order": "4"
+            "order": "4",
+            "column_span": "2"
           }
         }
       },
