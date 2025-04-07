@@ -1,104 +1,131 @@
 {%- style -%}
 .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
 
 .section-{{ section.id }}-max-width {
-    max-width: {{ section.settings.max_width }}px;
-    margin: auto;
-    padding: 20px;
+  max-width: {{ section.settings.max_width }}px;
+  margin: auto;
+  padding: 20px;
+}
+
+.section-{{ section.id }}-tabs-nav {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section-{{ section.id }}-tab-button {
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.section-{{ section.id }}-tab-button:hover {
+  color: #4b5563;
+}
+
+.section-{{ section.id }}-tab-button-active {
+  border-bottom-color: #3b82f6;
+  color: #2563eb;
+}
+
+.section-{{ section.id }}-tab-content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.section-{{ section.id }}-tab-content-hidden {
+  display: none;
+}
+
+.section-{{ section.id }}-tab-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.section-{{ section.id }}-tab-grey-box {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background-color: #f3f4f6;
+  border-radius: 0.375rem;
+  display: block;
+}
+
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-
-    .section-{{ section.id }}-max-width {
+  .section-{{ section.id }}-max-width {
     padding: 0px;
   }
-  }
+}
 {%- endstyle -%}
 
-
-
 <div class="section-{{ section.id }}-padding">
-    <div class="section-{{ section.id }}-max-width">
-        <!-- Tab Navigation -->
-        <div class="flex border-b border-gray-200">
-            <button class="tab-button py-2 px-4 border-b-2 border-blue-500 text-blue-600 font-medium cursor-pointer hover:text-gray-700 hover:font-medium" 
-                    data-tab="tab1">
-                Tab 1
-            </button>
-            <button class="tab-button py-2 px-4 border-b-2 border-transparent text-gray-500 font-medium cursor-pointer hover:text-gray-700" 
-                    data-tab="tab2">
-                Tab 2
-            </button>
-            <button class="tab-button py-2 px-4 border-b-2 border-transparent text-gray-500 font-medium cursor-pointer hover:text-gray-700" 
-                    data-tab="tab3">
-                Tab 3
-            </button>
-        </div>
-        
-        <!-- Tab Content -->
-        <div class="py-4">
-            <div id="tab1" class="tab-content">
-                <h2 class="text-xl font-semibold mb-2">Tab 1 Content</h2>
-                <p>This is the content for the first tab. It's active by default.</p>
-            </div>
-            
-            <div id="tab2" class="tab-content hidden">
-                <h2 class="text-xl font-semibold mb-2">Tab 2 Content</h2>
-                <p>This is the content for the second tab.</p>
-                <p class="mt-2">It has some additional information.</p>
-            </div>
-            
-            <div id="tab3" class="tab-content hidden">
-                <h2 class="text-xl font-semibold mb-2">Tab 3 Content</h2>
-                <p>Here's the content for the third tab.</p>
-                <div class="mt-3 p-3 bg-gray-100 rounded-md">
-                    <p>It can include other components as well.</p>
-                </div>
-            </div>
-            
-        </div>
+  <div class="section-{{ section.id }}-max-width">
+    <!-- Tab Navigation -->
+    <div class="section-{{ section.id }}-tabs-nav">
+      {%- for block in section.blocks -%}
+        <button 
+          class="section-{{ section.id }}-tab-button {% if forloop.first %}section-{{ section.id }}-tab-button-active{% endif %}" 
+          data-tab="tab-{{ section.id }}-{{ forloop.index }}"
+          {{ block.shopify_attributes }}
+        >
+          {{ block.settings.tab_title }}
+        </button>
+      {%- endfor -%}
     </div>
+    
+    <!-- Tab Content -->
+    <div class="section-{{ section.id }}-tab-content">
+      {%- for block in section.blocks -%}
+        <div 
+          id="tab-{{ section.id }}-{{ forloop.index }}" 
+          class="section-{{ section.id }}-tab-content {% unless forloop.first %}section-{{ section.id }}-tab-content-hidden{% endunless %}"
+          {{ block.shopify_attributes }}
+        >
+          <h2 class="section-{{ section.id }}-tab-title">{{ block.settings.tab_title }}</h2>
+          <div>{{ block.settings.tab_content }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
 
-    <script>
-        // Get all tab buttons and content
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-        
-        // Add click event to each tab button
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Get the tab to activate
-                const tabToActivate = button.dataset.tab;
-                
-                // Hide all tab contents
-                tabContents.forEach(content => {
-                    content.classList.add('hidden');
-                });
-                
-                // Show the selected tab content
-                document.getElementById(tabToActivate).classList.remove('hidden');
-                
-                // Reset all button styles
-                tabButtons.forEach(btn => {
-                    btn.classList.remove('border-blue-500', 'text-blue-600');
-                    btn.classList.add('border-transparent', 'text-gray-500');
-                });
-                
-                // Style the active button
-                button.classList.remove('border-transparent', 'text-gray-500');
-                button.classList.add('border-blue-500', 'text-blue-600');
+  <script>
+    // Get all tab buttons and content for this specific section
+    const tabButtons{{ section.id }} = document.querySelectorAll('.section-{{ section.id }}-tab-button');
+    const tabContents{{ section.id }} = document.querySelectorAll('[id^="tab-{{ section.id }}"]');
+    
+    // Add click event to each tab button
+    tabButtons{{ section.id }}.forEach(button => {
+        button.addEventListener('click', () => {
+            // Get the tab to activate
+            const tabToActivate = button.dataset.tab;
+            
+            // Hide all tab contents
+            tabContents{{ section.id }}.forEach(content => {
+                content.classList.add('section-{{ section.id }}-tab-content-hidden');
             });
+            
+            // Show the selected tab content
+            document.getElementById(tabToActivate).classList.remove('section-{{ section.id }}-tab-content-hidden');
+            
+            // Reset all button styles
+            tabButtons{{ section.id }}.forEach(btn => {
+                btn.classList.remove('section-{{ section.id }}-tab-button-active');
+            });
+            
+            // Style the active button
+            button.classList.add('section-{{ section.id }}-tab-button-active');
         });
-    </script>
+    });
+  </script>
 </div>
-
 
 {% schema %}
 {
@@ -137,9 +164,52 @@
       "default": 36
     }
   ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Tab Title"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_content",
+          "label": "Tab Content",
+          "default": "<p>Tab content goes here.</p>"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Tabs"
+      "name": "Tabs",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Tab 1",
+            "tab_content": "<p>This is the content for the first tab. It's active by default.</p>"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Tab 2",
+            "tab_content": "<p>This is the content for the second tab.</p><p>It has some additional information.</p>"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Tab 3",
+            "tab_content": "<p>Here's the content.</p>"
+          }
+        }
+      ]
     }
   ]
 }
