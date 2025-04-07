@@ -35,7 +35,9 @@
       "blocks": {
         "image_CUeeVQ": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/chrome-engine-close-up.jpg"
+          }
         }
       },
       "block_order": [
