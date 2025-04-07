@@ -38,19 +38,19 @@
           "settings": {
             "image": "shopify://shop_images/chrome-engine-close-up.jpg",
             "menu_text": "Catalog",
-            "order": "-1",
+            "order": "2",
             "column_span": "2",
-            "aspect_ratio": "1 / 1"
+            "aspect_ratio": "3 / 1"
           }
         },
         "image_a9Lwwt": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/chrome-engine-close-up.jpg",
+            "image": "shopify://shop_images/snow-boarder-on-snowy-mountain.jpg",
             "menu_text": "Catalog",
-            "order": "1",
+            "order": "3",
             "column_span": "2",
-            "aspect_ratio": "1 / 1"
+            "aspect_ratio": "3 / 1"
           }
         },
         "image_d87b7p": {
