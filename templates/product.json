@@ -89,7 +89,7 @@
           "type": "tab",
           "settings": {
             "tab_title": "Description",
-            "tab_content": "<p>Tab conent here.</p>"
+            "tab_content": "{{ product.description }}"
           }
         },
         "tab_UFf84W": {
