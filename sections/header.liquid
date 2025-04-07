@@ -716,6 +716,15 @@
         {%- case block.type -%}
           {%- when '@app' -%}
             {% render block %}
+        {%- when 'image' -%}
+          <img
+          	src="{{ block.settings.image | image_url: height: 640 }}"
+          	alt="{{ block.settings.image.alt | escape }}"
+          	loading="lazy"
+          	width="{{ block.settings.image.width }}"
+          	height="{{ block.settings.image.height }}"
+          	class=""
+          >
         {%- endcase -%}
       {%- endfor -%}
 
