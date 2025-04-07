@@ -39,8 +39,8 @@
             "image": "shopify://shop_images/chrome-engine-close-up.jpg",
             "menu_text": "Catalog",
             "order": "2",
-            "column_span": "2",
-            "aspect_ratio": "3 / 1"
+            "column_span": "1",
+            "aspect_ratio": "1 / 1"
           }
         },
         "image_a9Lwwt": {
@@ -49,8 +49,8 @@
             "image": "shopify://shop_images/snow-boarder-on-snowy-mountain.jpg",
             "menu_text": "Catalog",
             "order": "3",
-            "column_span": "2",
-            "aspect_ratio": "3 / 1"
+            "column_span": "1",
+            "aspect_ratio": "1 / 1"
           }
         },
         "image_d87b7p": {
@@ -59,7 +59,7 @@
             "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
             "menu_text": "Mega Menu",
             "order": "4",
-            "column_span": "4",
+            "column_span": "3",
             "aspect_ratio": "20 / 6"
           }
         }
