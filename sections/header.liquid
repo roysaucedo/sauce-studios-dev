@@ -578,6 +578,33 @@
                                 {% endif %}
                               {%- endcase -%}
                             {%- endfor -%}
+                          <l1>
+                            {% if linklists['featured-links'] != blank %}
+                              <ul class="featured-links-menu">
+                                {% for link in linklists['featured-links'].links %}
+                                  <li>
+                                    <a href="{{ link.url }}">
+                                      {{ link.title }}
+                                      
+                                      {% comment %} If you need to check for active state {% endcomment %}
+                                      {% if link.active %}class="active"{% endif %}
+                                    </a>
+                                    
+                                    {% comment %} If you need to check for child links {% endcomment %}
+                                    {% if link.links.size > 0 %}
+                                      <ul class="submenu">
+                                        {% for child_link in link.links %}
+                                          <li>
+                                            <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    {% endif %}
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            {% endif %}
+                          </l1>
                             
                           
                         </ul>
