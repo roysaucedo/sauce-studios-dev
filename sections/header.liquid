@@ -561,7 +561,7 @@
 
 
                                   {% if menu_match %}
-                                  <li style="order: {{ block.settings.order }};">
+                                  <li style="order: {{ block.settings.order }}; grid-column: span {{ block.settings.span }};">
                                 <img
                                 	src="{{ block.settings.image | image_url: height: 640 }}"
                                 	alt="{{ block.settings.image.alt | escape }}"
@@ -1154,6 +1154,12 @@
           "type": "text",
           "id": "order",
           "label": "Item Order",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "span",
+          "label": "Column Span",
           "default": "1"
         }
       ]
