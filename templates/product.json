@@ -84,6 +84,26 @@
     },
     "tabs_bUCQCg": {
       "type": "tabs",
+      "blocks": {
+        "tab_DdRain": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Description",
+            "tab_content": "<p>Tab conent here.</p>"
+          }
+        },
+        "tab_BtNAmi": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Tab Title",
+            "tab_content": "<p>Tab content goes here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_DdRain",
+        "tab_BtNAmi"
+      ],
       "settings": {
         "max_width": 800,
         "padding_top": 36,
