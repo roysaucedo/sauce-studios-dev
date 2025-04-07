@@ -7,6 +7,7 @@
 .section-{{ section.id }}-max-width {
     max-width: {{ section.settings.max_width }}px;
     margin: auto;
+    padding: 0px;
   }
 
   @media screen and (min-width: 750px) {
@@ -14,6 +15,10 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+
+    .section-{{ section.id }}-max-width {
+    padding: 20px;
+  }
   }
 {%- endstyle -%}
 
