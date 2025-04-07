@@ -85,10 +85,7 @@
     "tabs_bUCQCg": {
       "type": "tabs",
       "settings": {
-        "h1": "Heading",
-        "p": "<p>Add your paragraph here</p>",
-        "btn_text": "Learn More",
-        "link": "",
+        "max_width": 800,
         "padding_top": 36,
         "padding_bottom": 36
       }
