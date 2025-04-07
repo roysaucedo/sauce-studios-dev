@@ -552,6 +552,15 @@
                                   {% render block %}
                               {%- when 'image' -%}
                                 {% if block.settings.image != blank %}
+                                  {% assign menu_match = false %}
+                                  
+                                  {% comment %} Check if current menu text matches the block setting {% endcomment %}
+                                  {% if block.settings.menu_text == link.title %}
+                                    {% assign menu_match = true %}
+                                  {% endif %}
+
+
+                                  {% if menu_match %}
                                   <li style="order: {{ block.settings.order }};">
                                 <img
                                 	src="{{ block.settings.image | image_url: height: 640 }}"
@@ -563,6 +572,7 @@
                                     style="width: 200px; height: auto; aspect-ratio: 1 / 1; object-fit: cover;"
                                 >
                                     </li>
+                                    {% endif %}
                                 {% else %}
                                   {{ 'product-1' | placeholder_svg_tag }}
                                 {% endif %}
