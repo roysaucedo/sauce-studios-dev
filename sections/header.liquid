@@ -562,16 +562,16 @@
 
                                   {% if menu_match %}
                                   <li style="order: {{ block.settings.order }}; grid-column: span {{ block.settings.column_span }} / span {{ block.settings.column_span }};"">
-                                <img
-                                	src="{{ block.settings.image | image_url: height: 640 }}"
-                                	alt="{{ block.settings.image.alt | escape }}"
-                                	loading="lazy"
-                                	width="{{ block.settings.image.width }}"
-                                	height="{{ block.settings.image.height }}"
-                                	class=""
-                                    style="width: 100%; height: auto; aspect-ratio: {{ block.settings.aspect_ratio }}; object-fit: cover;"
-                                >
-                                    </li>
+                                      <img
+                                      	src="{{ block.settings.image | image_url: height: 640 }}"
+                                      	alt="{{ block.settings.image.alt | escape }}"
+                                      	loading="lazy"
+                                      	width="{{ block.settings.image.width }}"
+                                      	height="{{ block.settings.image.height }}"
+                                      	class=""
+                                        style="width: 100%; height: auto; aspect-ratio: {{ block.settings.aspect_ratio }}; object-fit: cover;"
+                                      >
+                                  </li>
                                     {% endif %}
                                 {% else %}
                                   {{ 'product-1' | placeholder_svg_tag }}
