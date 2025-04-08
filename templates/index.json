@@ -9,43 +9,40 @@
  */
 {
   "sections": {
-    "features_showcase_WMRPMr": {
+    "features_showcase_HLFzJA": {
       "type": "features-showcase",
       "blocks": {
-        "feature_WB9Lzp": {
+        "feature_QbnEDt": {
           "type": "feature",
           "settings": {
             "block_content": "<h3>Easy to Use</h3><p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>",
-            "block_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
             "block_bg": "#f9f9f9"
           }
         },
-        "feature_LR4ftG": {
+        "feature_TrJtA9": {
           "type": "feature",
           "settings": {
             "block_content": "<h3>Highly Customizable</h3><p>Tailor every aspect to your specific needs with our flexible options.</p>",
-            "block_image": "shopify://shop_images/BN-HY280_0421my_HD_20150417133017.jpg",
             "block_bg": "#f9f9f9"
           }
         },
-        "feature_ytDqeE": {
+        "feature_yHkTqk": {
           "type": "feature",
           "settings": {
             "block_content": "<h3>Premium Support</h3><p>Get assistance whenever you need it with our responsive support team.</p>",
-            "block_image": "shopify://shop_images/chrome-engine-close-up.jpg",
             "block_bg": "#f9f9f9"
           }
         }
       },
       "block_order": [
-        "feature_WB9Lzp",
-        "feature_LR4ftG",
-        "feature_ytDqeE"
+        "feature_QbnEDt",
+        "feature_TrJtA9",
+        "feature_yHkTqk"
       ],
       "settings": {
         "heading": "Feature Highlights",
         "content": "<p>Showcase your product's key features with this section. Add as many feature blocks as you need in the right column.</p>",
-        "button_label": "Click Here",
+        "button_label": "",
         "button_link": "",
         "button_style": "button",
         "left_column_bg": "#f4f4f4",
@@ -699,7 +696,7 @@
     }
   },
   "order": [
-    "features_showcase_WMRPMr",
+    "features_showcase_HLFzJA",
     "flexible_grid_HgU9ab",
     "tabs_T98P8p",
     "section_ig_story_bXdHNV",
