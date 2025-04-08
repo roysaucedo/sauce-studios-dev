@@ -95,7 +95,7 @@
           </div>
 
           {% if block.settings.button_label != blank %}
-            <a href="{{ block.settings.button_link }}" class="section-{{ section.id }}-column-button">
+            <a href="{{ block.settings.button_link }}" class="section-{{ section.id }}-column-button btn">
               {{ block.settings.button_label }}
             </a>
           {% endif %}
@@ -123,12 +123,6 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    {
-     "type": "text",
-      "id": "heading",
-      "label": "Section Heading",
-      "default": "Section Heading"
-    },
     {
       "type": "richtext",
       "id": "content",
