@@ -12,6 +12,15 @@
     "features_showcase_HLFzJA": {
       "type": "features-showcase",
       "blocks": {
+        "feature_mpNrA9": {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Feature Title",
+            "block_content": "<p>Describe one of your product's key features here. Add an image to illustrate it.</p>",
+            "block_bg": "#f9f9f9",
+            "block_text_color": "#333333"
+          }
+        },
         "feature_QbnEDt": {
           "type": "feature",
           "settings": {
@@ -44,6 +53,7 @@
         }
       },
       "block_order": [
+        "feature_mpNrA9",
         "feature_QbnEDt",
         "feature_TrJtA9",
         "feature_yHkTqk"
