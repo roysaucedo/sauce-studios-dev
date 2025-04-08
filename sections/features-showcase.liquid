@@ -94,12 +94,14 @@
         <h2>{{ section.settings.heading }}</h2>
         <div>{{ section.settings.content }}</div>
         {% if section.settings.button_label != blank %}
-          <a
-            href="{{ section.settings.button_link }}"
-            class="{% if section.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
-          >
-            {{ section.settings.button_label }}
-          </a>
+          <div>
+            <a
+              href="{{ section.settings.button_link }}"
+              class="{% if section.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
+            >
+              {{ section.settings.button_label }}
+            </a>
+          </div>
         {% endif %}
       </div>
 
