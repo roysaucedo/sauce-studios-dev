@@ -20,17 +20,29 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
-            "col_span": "3"
+            "col_span": "6"
+          }
+        },
+        "grid_col_WxcTdU": {
+          "type": "grid-col",
+          "settings": {
+            "col_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "Button Link",
+            "button_link": "",
+            "col_span": "6"
           }
         }
       },
       "block_order": [
-        "grid_col_QjhYeg"
+        "grid_col_QjhYeg",
+        "grid_col_WxcTdU"
       ],
       "settings": {
         "heading": "Section Heading",
         "content": "<p>Section content goes here.</p>",
-        "background": "#fff",
+        "background": "#ffffff",
         "max_width": 1500,
         "padding_top": 36,
         "padding_bottom": 36,
