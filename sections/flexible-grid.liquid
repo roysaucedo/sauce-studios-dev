@@ -10,6 +10,15 @@
     padding: 0 1.5rem;
   }
 
+  .grid-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .grid-column {
+    grid-column: span {{ block.settings.column_span }} / span {{ block.settings.column_span }};
+  }
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -28,6 +37,15 @@
     {% comment %} COLUMN WITH WIDTH AND HEIGHT CONTROLLED BY SETTINGS. {% endcomment %}
     {% comment %} Each column has image, heading, text, and button {% endcomment %}
     {% comment %} Example: https://tinyurl.com/29ej9pc7 {% endcomment %}
+    <div>
+      <h2>{{ section.settings.heading }}</h2>
+      <div>{{ section.settings.text }}</div>
+    </div>
+    <div class="grid-container">
+      <div class="grid-column"></div>
+      <div class="grid-column"></div>
+      <div class="grid-column"></div>
+    </div>
   </div>
 </div>
 
