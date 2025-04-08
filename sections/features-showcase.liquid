@@ -135,9 +135,9 @@
           <div
             class="section-{{ section.id }}-block section-{{ section.id }}-block-{{ block.id }}"
             {{ block.shopify_attributes }}
-            style="background-color: {{ block.settings.block_bg }}; color: {{ block.settings.block_text_color }};"
+            style="background-color: {{ block.settings.block_bg }};"
           >
-            <div class="section-{{ section.id }}-block-content">
+            <div class="section-{{ section.id }}-block-content" style="color: {{ block.settings.block_text_color }};">
               {{ block.settings.block_content }}
             </div>
 
