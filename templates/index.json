@@ -45,6 +45,7 @@
         "grid_col_QjhYeg": {
           "type": "grid-col",
           "settings": {
+            "col_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
             "col_heading": "Col 1",
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
