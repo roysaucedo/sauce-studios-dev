@@ -22,8 +22,8 @@
   .section-{{ section.id }}-grid-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    column-gap: 20px;
-    row-gap: 40px;
+    column-gap: {{ section.settings.column_gap }}px;
+    row-gap: {{ section.settings.row_gap }}px;
   }
 
   .section-{{ section.id }}-grid-column {
@@ -36,7 +36,10 @@
     display: block;
   }
 
-
+  .section-{{ section.id }}-column-button {
+    display: inline-block;
+    margin-top: 10px;
+  }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -96,7 +99,7 @@
           {% if block.settings.button_label != blank %}
             <a
               href="{{ block.settings.button_link }}"
-              class="{% if block.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
+              class="section-{{ section.id }}-column-button {% if block.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
             >
               {{ block.settings.button_label }}
             </a>
@@ -172,6 +175,26 @@
       "unit": "px",
       "label": "Section Max Width",
       "default": 1500
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Gap",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Row Gap",
+      "default": 40
     },
     {
       "type": "range",
