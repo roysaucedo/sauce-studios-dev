@@ -123,7 +123,7 @@
               <div class="section-{{ section.id }}-block-image-wrapper">
                 <img
                   class="section-{{ section.id }}-block-image"
-                  src="{{ block.settings.block_image | img_url: 'master' }}"
+                  src="{{ block.settings.block_image | img_url: width: 600 }}"
                   alt="{{ block.settings.block_image.alt | escape }}"
                 >
               </div>
