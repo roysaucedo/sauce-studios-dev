@@ -16,6 +16,7 @@
           "type": "feature",
           "settings": {
             "block_content": "<h3>Easy to Use</h3><p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>",
+            "block_image": "shopify://shop_images/green-t-shirt_190b3fda-0569-4485-b875-751bf7254d08.jpg",
             "block_bg": "#f9f9f9"
           }
         },
@@ -23,6 +24,7 @@
           "type": "feature",
           "settings": {
             "block_content": "<h3>Highly Customizable</h3><p>Tailor every aspect to your specific needs with our flexible options.</p>",
+            "block_image": "shopify://shop_images/distressed-kids-jeans_f3d59e25-4ca0-403f-aca9-436b4ff3ad1d.jpg",
             "block_bg": "#f9f9f9"
           }
         },
@@ -30,6 +32,7 @@
           "type": "feature",
           "settings": {
             "block_content": "<h3>Premium Support</h3><p>Get assistance whenever you need it with our responsive support team.</p>",
+            "block_image": "shopify://shop_images/kids-beanie_9d2a6e34-ffa4-437e-b745-0665c84e1865.jpg",
             "block_bg": "#f9f9f9"
           }
         }
