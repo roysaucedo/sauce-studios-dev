@@ -16,7 +16,7 @@
   }
 
   .section-{{ section.id }}-header h2 {
-    font-size: 36px;
+    font-size: {{ section.settings.heading_size_mobile }}px;
   }
 
   .section-{{ section.id }}-grid-container {
@@ -54,6 +54,10 @@
 
     .section-{{ section.id }}-grid-container {
       grid-template-columns: repeat(12, 1fr);
+    }
+
+    .section-{{ section.id }}-header h2 {
+      font-size: {{ section.settings.heading_size_desktop }}px;
     }
   }
 {%- endstyle -%}
