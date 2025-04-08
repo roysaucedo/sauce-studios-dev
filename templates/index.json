@@ -24,6 +24,7 @@
           "type": "feature",
           "settings": {
             "block_content": "<h3>Highly Customizable</h3><p>Tailor every aspect to your specific needs with our flexible options.</p>",
+            "block_image": "shopify://shop_images/BN-HY280_0421my_HD_20150417133017.jpg",
             "block_bg": "#f9f9f9"
           }
         },
