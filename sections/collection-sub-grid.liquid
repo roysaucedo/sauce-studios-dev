@@ -25,6 +25,7 @@
     position: relative;
     border-radius: {{ section.settings.image_border_radius }}px;
     overflow: hidden;
+    height: 100%; /* Full height */
   }
 
   .section-{{ section.id }}-main-image {
@@ -33,6 +34,12 @@
     object-fit: cover;
     display: block;
     border-radius: {{ section.settings.image_border_radius }}px;
+  }
+
+  .section-{{ section.id }}-main-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
   }
 
   .section-{{ section.id }}-overlay {
@@ -143,10 +150,14 @@
     .section-{{ section.id }}-columns {
       flex-direction: {% if section.settings.desktop_order == 'reverse' %}row-reverse{% else %}row{% endif %};
       gap: {{ section.settings.column_gap }}px;
+      display: flex;
+      align-items: stretch;
+      min-height: 100%;
     }
 
     .section-{{ section.id }}-column-left {
       width: 50%;
+      display: flex;
     }
 
     .section-{{ section.id }}-column-right {
@@ -165,28 +176,30 @@
     <div class="section-{{ section.id }}-columns">
       <!-- Left Column - Image Card with Overlay -->
       <div class="section-{{ section.id }}-column-left">
-        {% if section.settings.main_image != blank %}
-          <img
-            class="section-{{ section.id }}-main-image"
-            src="{{ section.settings.main_image | img_url: 'master' }}"
-            alt="{{ section.settings.main_image.alt | escape }}"
-          >
-        {% else %}
-          <div class="section-{{ section.id }}-main-image" style="background-color: #f4f4f4; height: 300px;"></div>
-        {% endif %}
-
-        <div class="section-{{ section.id }}-overlay"></div>
-
-        <div class="section-{{ section.id }}-card-content">
-          <h2 class="section-{{ section.id }}-card-heading">{{ section.settings.card_heading }}</h2>
-          {% if section.settings.card_button_label != blank %}
-            <a
-              href="{{ section.settings.card_button_link }}"
-              class="button button--primary"
+        <div class="section-{{ section.id }}-main-image-wrapper">
+          {% if section.settings.main_image != blank %}
+            <img
+              class="section-{{ section.id }}-main-image"
+              src="{{ section.settings.main_image | img_url: 'master' }}"
+              alt="{{ section.settings.main_image.alt | escape }}"
             >
-              {{ section.settings.card_button_label }}
-            </a>
+          {% else %}
+            <div class="section-{{ section.id }}-main-image" style="background-color: #f4f4f4; height: 100%;"></div>
           {% endif %}
+
+          <div class="section-{{ section.id }}-overlay"></div>
+
+          <div class="section-{{ section.id }}-card-content">
+            <h2 class="section-{{ section.id }}-card-heading">{{ section.settings.card_heading }}</h2>
+            {% if section.settings.card_button_label != blank %}
+              <a
+                href="{{ section.settings.card_button_link }}"
+                class="button button--primary"
+              >
+                {{ section.settings.card_button_label }}
+              </a>
+            {% endif %}
+          </div>
         </div>
       </div>
 
