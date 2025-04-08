@@ -43,10 +43,6 @@
     margin-top: 1rem;
   }
 
-  .section-{{ section.id }}-column-button {
-    display: inline-block;
-    margin-top: 1.5rem;
-  }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -97,7 +93,7 @@
         {% if section.settings.button_label != blank %}
           <a
             href="{{ section.settings.button_link }}"
-            class="section-{{ section.id }}-column-button {% if section.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
+            class="{% if section.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
           >
             {{ section.settings.button_label }}
           </a>
