@@ -12,10 +12,26 @@
 
   .grid-container {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
   }
 
+  .grid-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 
+  .grid-column img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .column-button {
+    display: inline-block;
+    margin-top: 10px;
+  }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -29,20 +45,41 @@
   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+<div
+  class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}"
+  style="background: {{ section.settings.background }};"
+>
   <div class="section-{{ section.id }}-max-width page-width">
-    {% comment %} GRID DIV  {% endcomment %}
-    {% comment %} COLUMN WITH WIDTH AND HEIGHT CONTROLLED BY SETTINGS. {% endcomment %}
-    {% comment %} Each column has image, heading, text, and button {% endcomment %}
-    {% comment %} Example: https://tinyurl.com/29ej9pc7 {% endcomment %}
-    <div>
+    {% comment %} Section header {% endcomment %}
+    <div class="section-header">
       <h2>{{ section.settings.heading }}</h2>
-      <div>{{ section.settings.text }}</div>
+      <div>{{ section.settings.content }}</div>
     </div>
+
+    {% comment %} GRID DIV  {% endcomment %}
+    {% comment %} COLUMN WITH Grid span WIDTH AND HEIGHT CONTROLLED BY SETTINGS. {% endcomment %}
+    {% comment %} Each column has image, heading, text, and button {% endcomment %}
     <div class="grid-container">
       {% for block in section.blocks %}
-        <div class="grid-column-{{ block.id }}">
+        <div class="grid-column grid-column-{{ block.id }}" {{ block.shopify_attributes }}>
+          {% if block.settings.col_image != blank %}
+            <img
+              src="{{ block.settings.col_image | img_url: 'master' }}"
+              alt="{{ block.settings.col_heading | escape }}"
+            >
+          {% endif %}
+
           <h3>{{ block.settings.col_heading }}</h3>
+
+          <div class="column-content">
+            {{ block.settings.col_content }}
+          </div>
+
+          {% if block.settings.button_label != blank %}
+            <a href="{{ block.settings.button_link }}" class="column-button">
+              {{ block.settings.button_label }}
+            </a>
+          {% endif %}
         </div>
 
         <style>
@@ -54,12 +91,6 @@
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-
-  });
-</script>
 
 {% schema %}
 {
@@ -114,6 +145,30 @@
       "unit": "px",
       "label": "Section Padding Bottom",
       "default": 36
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "background-1",
+          "label": "Background 1"
+        },
+        {
+          "value": "background-2",
+          "label": "Background 2"
+        },
+        {
+          "value": "inverse",
+          "label": "Inverse"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        }
+      ],
+      "default": "background-1"
     }
   ],
   "blocks": [
@@ -138,11 +193,47 @@
           "label": "Column Content",
           "default": "<p>Column content goes here.</p>"
         },
-         {
+        {
           "type": "text",
+          "id": "button_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
           "id": "col_span",
           "label": "Column Span",
-          "default": "1"
+          "options": [
+            {
+              "value": "1",
+              "label": "1 Column"
+            },
+            {
+              "value": "2",
+              "label": "2 Columns"
+            },
+            {
+              "value": "3",
+              "label": "3 Columns"
+            },
+            {
+              "value": "4",
+              "label": "4 Columns"
+            },
+            {
+              "value": "6",
+              "label": "6 Columns"
+            },
+            {
+              "value": "12",
+              "label": "12 Columns (Full Width)"
+            }
+          ],
+          "default": "4"
         }
       ]
     }
@@ -155,21 +246,24 @@
           "type": "grid-col",
           "settings": {
             "col_heading": "Col 1",
-            "col_content": "<p>This is the content for the first tab. It's active by default.</p>"
+            "col_content": "<p>This is the content for the first column.</p>",
+            "col_span": "4"
           }
         },
         {
           "type": "grid-col",
           "settings": {
             "col_heading": "Col 2",
-            "col_content": "<p>This is the content for the second tab.</p><p>It has some additional information.</p>"
+            "col_content": "<p>This is the content for the second column.</p>",
+            "col_span": "4"
           }
         },
         {
           "type": "grid-col",
           "settings": {
             "col_heading": "Col 3",
-            "col_content": "<p>Here's the content for the third tablude other components as well.</p>"
+            "col_content": "<p>Here's the content for the third column.</p>",
+            "col_span": "4"
           }
         }
       ]
