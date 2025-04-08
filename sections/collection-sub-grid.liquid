@@ -217,7 +217,12 @@
               <div class="section-{{ section.id }}-grid-image" style="background-color: #f4f4f4;"></div>
             {% endif %}
 
-            <h3 class="section-{{ section.id }}-grid-heading">{{ block.settings.grid_heading }}</h3>
+            <h3
+              class="section-{{ section.id }}-grid-heading"
+              style="text-decoration: green {{ block.settings.squiggle_color }} underline; text-underline-offset: 8px;"
+            >
+              {{ block.settings.grid_heading }}
+            </h3>
           </a>
         {% endfor %}
       </div>
