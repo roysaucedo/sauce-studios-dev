@@ -19,7 +19,37 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "",
             "button_link": "",
-            "col_span": "4"
+            "col_span": "3"
+          }
+        },
+        "grid_col_8z7G9A": {
+          "type": "grid-col",
+          "settings": {
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "",
+            "button_link": "",
+            "col_span": "3"
+          }
+        },
+        "grid_col_QJmbMT": {
+          "type": "grid-col",
+          "settings": {
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "",
+            "button_link": "",
+            "col_span": "3"
+          }
+        },
+        "grid_col_QjhYeg": {
+          "type": "grid-col",
+          "settings": {
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "",
+            "button_link": "",
+            "col_span": "3"
           }
         },
         "grid_col_w3QNiB": {
@@ -41,12 +71,26 @@
             "button_link": "",
             "col_span": "4"
           }
+        },
+        "grid_col_DmcVjc": {
+          "type": "grid-col",
+          "settings": {
+            "col_heading": "Col 3",
+            "col_content": "<p>Here's the content for the third column.</p>",
+            "button_label": "",
+            "button_link": "",
+            "col_span": "4"
+          }
         }
       },
       "block_order": [
         "grid_col_CmibyG",
+        "grid_col_8z7G9A",
+        "grid_col_QJmbMT",
+        "grid_col_QjhYeg",
         "grid_col_w3QNiB",
-        "grid_col_B8F9GF"
+        "grid_col_B8F9GF",
+        "grid_col_DmcVjc"
       ],
       "settings": {
         "heading": "Section Heading",
