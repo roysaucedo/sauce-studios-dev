@@ -41,7 +41,9 @@
     </div>
     <div class="grid-container">
       {% for block in section.blocks %}
-        <div class="grid-column-{{ block.id }}"></div>
+        <div class="grid-column-{{ block.id }}">
+          <h3>{{ block.settings.col_heading }}</h3>
+        </div>
 
         <style>
           .grid-column-{{ block.id }} {
