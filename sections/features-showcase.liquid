@@ -22,6 +22,7 @@
 
   .section-{{ section.id }}-column-left {
     background-color: {{ section.settings.left_column_bg }};
+    color: {{ section.settings.left_column_text_color }};
     padding: 2rem;
     display: flex;
     justify-content: start;
@@ -37,8 +38,6 @@
     height: auto;
     margin-top: 2rem;
     display: block;
-    aspect-ratio: 3 / 5;
-    object-fit: cover;
   }
 
   .section-{{ section.id }}-column-right {
@@ -57,7 +56,7 @@
     width: 100%;
     height: auto;
     margin-top: 1rem;
-    aspect-ratio: 6 / 4;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
   }
 
@@ -136,7 +135,7 @@
           <div
             class="section-{{ section.id }}-block section-{{ section.id }}-block-{{ block.id }}"
             {{ block.shopify_attributes }}
-            style="background-color: {{ block.settings.block_bg }};"
+            style="background-color: {{ block.settings.block_bg }}; color: {{ block.settings.block_text_color }};"
           >
             <div class="section-{{ section.id }}-block-content">
               {{ block.settings.block_content }}
@@ -212,6 +211,12 @@
       "id": "left_column_bg",
       "label": "Left Column Background",
       "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "left_column_text_color",
+      "label": "Left Column Text Color",
+      "default": "#333333"
     },
     {
       "type": "select",
@@ -333,6 +338,12 @@
           "id": "block_bg",
           "label": "Block Background",
           "default": "#f9f9f9"
+        },
+        {
+          "type": "color",
+          "id": "block_text_color",
+          "label": "Block Text Color",
+          "default": "#333333"
         }
       ]
     }
