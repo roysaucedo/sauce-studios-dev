@@ -126,6 +126,8 @@
       "settings": {
         "heading": "Section Heading",
         "content": "<p>Section content goes here.</p>",
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 32,
         "background": "#ffffff",
         "max_width": 1500,
         "padding_top": 36,
