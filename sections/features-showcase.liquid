@@ -28,6 +28,17 @@
     flex-direction: column;
   }
 
+  .section-{{ section.id }}-left-content {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-{{ section.id }}-left-image {
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+    display: block;
+  }
+
   .section-{{ section.id }}-column-right {
     display: flex;
     flex-direction: column;
@@ -93,17 +104,27 @@
     <div class="section-{{ section.id }}-columns">
       <!-- Left Column -->
       <div class="section-{{ section.id }}-column-left">
-        <h2>{{ section.settings.heading }}</h2>
-        <div>{{ section.settings.content }}</div>
-        {% if section.settings.button_label != blank %}
-          <div>
-            <a
-              href="{{ section.settings.button_link }}"
-              class="{% if section.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
-            >
-              {{ section.settings.button_label }}
-            </a>
-          </div>
+        <div class="section-{{ section.id }}-left-content">
+          <h2>{{ section.settings.heading }}</h2>
+          <div>{{ section.settings.content }}</div>
+          {% if section.settings.button_label != blank %}
+            <div style="margin-top: 1.5rem;">
+              <a
+                href="{{ section.settings.button_link }}"
+                class="{% if section.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
+              >
+                {{ section.settings.button_label }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+
+        {% if section.settings.left_column_image != blank %}
+          <img
+            class="section-{{ section.id }}-left-image"
+            src="{{ section.settings.left_column_image | img_url: 'large' }}"
+            alt="{{ section.settings.left_column_image.alt | escape }}"
+          >
         {% endif %}
       </div>
 
@@ -178,6 +199,11 @@
         }
       ],
       "default": "button"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_column_image",
+      "label": "Left Column Image"
     },
     {
       "type": "color",
