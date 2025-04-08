@@ -9,6 +9,61 @@
  */
 {
   "sections": {
+    "collection_sub_grid_MhWVcL": {
+      "type": "collection-sub-grid",
+      "blocks": {
+        "feature_LA8373": {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Easy to Use",
+            "block_content": "<p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>",
+            "block_bg": "#f9f9f9",
+            "block_text_color": "#333333"
+          }
+        },
+        "feature_qQUmVf": {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Highly Customizable",
+            "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>",
+            "block_bg": "#f9f9f9",
+            "block_text_color": "#333333"
+          }
+        },
+        "feature_EFNFRn": {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Premium Support",
+            "block_content": "<p>Get assistance whenever you need it with our responsive support team.</p>",
+            "block_bg": "#f9f9f9",
+            "block_text_color": "#333333"
+          }
+        }
+      },
+      "block_order": [
+        "feature_LA8373",
+        "feature_qQUmVf",
+        "feature_EFNFRn"
+      ],
+      "settings": {
+        "heading": "Feature Highlights",
+        "content": "<p>Showcase your product's key features with this section. Add as many feature blocks as you need in the right column.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button",
+        "left_column_bg": "#f4f4f4",
+        "left_column_text_color": "#333333",
+        "desktop_order": "normal",
+        "mobile_order": "normal",
+        "max_width": 1500,
+        "background": "#ffffff",
+        "column_gap": 40,
+        "row_gap": 40,
+        "block_gap": 30,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "features_showcase_BViKyN": {
       "type": "features-showcase",
       "blocks": {
@@ -703,6 +758,7 @@
     }
   },
   "order": [
+    "collection_sub_grid_MhWVcL",
     "features_showcase_BViKyN",
     "flexible_grid_HgU9ab",
     "tabs_T98P8p",
