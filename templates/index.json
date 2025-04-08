@@ -127,7 +127,7 @@
         "heading": "",
         "content": "<h2>Section Heading</h2><p>Section content goes here.</p>",
         "heading_size_desktop": 36,
-        "heading_size_mobile": 32,
+        "heading_size_mobile": 24,
         "background": "#ffffff",
         "max_width": 1500,
         "padding_top": 36,
