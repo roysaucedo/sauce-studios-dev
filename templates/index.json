@@ -26,7 +26,7 @@
           "type": "feature",
           "settings": {
             "block_heading": "Feature Title",
-            "block_content": "<h3>Highly Customizable</h3><p>Tailor every aspect to your specific needs with our flexible options.</p>",
+            "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>",
             "block_image": "shopify://shop_images/distressed-kids-jeans_f3d59e25-4ca0-403f-aca9-436b4ff3ad1d.jpg",
             "block_bg": "#f9f9f9",
             "block_text_color": "#333333"
@@ -36,7 +36,7 @@
           "type": "feature",
           "settings": {
             "block_heading": "Feature Title",
-            "block_content": "<h3>Premium Support</h3><p>Get assistance whenever you need it with our responsive support team.</p>",
+            "block_content": "<p>Get assistance whenever you need it with our responsive support team.</p>",
             "block_image": "shopify://shop_images/kids-beanie_9d2a6e34-ffa4-437e-b745-0665c84e1865.jpg",
             "block_bg": "#f9f9f9",
             "block_text_color": "#333333"
