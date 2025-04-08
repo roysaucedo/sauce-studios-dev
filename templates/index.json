@@ -124,8 +124,8 @@
         "grid_col_RFH4Xy"
       ],
       "settings": {
-        "heading": "Section Heading",
-        "content": "<p>Section content goes here.</p>",
+        "heading": "",
+        "content": "<h2>Section Heading</h2><p>Section content goes here.</p>",
         "heading_size_desktop": 36,
         "heading_size_mobile": 32,
         "background": "#ffffff",
