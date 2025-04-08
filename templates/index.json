@@ -47,7 +47,7 @@
           "settings": {
             "col_heading": "Col 1",
             "col_content": "<p>This is the content for the first column.</p>",
-            "button_label": "",
+            "button_label": "Button Link",
             "button_link": "",
             "col_span": "3"
           }
