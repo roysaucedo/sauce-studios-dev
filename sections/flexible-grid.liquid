@@ -10,34 +10,35 @@
     padding: 0 1.5rem;
   }
 
-  .section-header {
+  .section-{{ section.id }}-header {
     text-align: center;
     padding-bottom: 40px;
   }
 
-  .section-header h2 {
+  .section-{{ section.id }}-header h2 {
     font-size: 36px;
   }
 
-  .grid-container {
+  .section-{{ section.id }}-grid-container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     column-gap: 20px;
     row-gap: 40px;
   }
 
-  .grid-column {
+  .section-{{ section.id }}-grid-column {
     display: flex;
     flex-direction: column;
+    gap: 15px;
   }
 
-  .grid-column img {
+  .section-{{ section.id }}-grid-column img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  .column-button {
+  .section-{{ section.id }}-column-button {
     display: inline-block;
     margin-top: 10px;
   }
@@ -50,6 +51,10 @@
 
     .section-{{ section.id }}-max-width {
       padding: 0 5rem;
+    }
+
+    .section-{{ section.id }}-grid-container {
+      grid-template-columns: repeat(12, 1fr);
     }
   }
 {%- endstyle -%}
@@ -120,10 +125,10 @@
       "default": "<p>Section content goes here.</p>"
     },
     {
-      "type": "color",
+      "type": "color_background",
       "id": "background",
       "label": "Background",
-      "default": "#fff"
+      "default": "linear-gradient(#ffffff, #000000)"
     },
     {
       "type": "range",
