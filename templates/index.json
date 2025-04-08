@@ -9,49 +9,49 @@
  */
 {
   "sections": {
-    "flexible_grid_YHakE7": {
+    "flexible_grid_HgU9ab": {
       "type": "flexible-grid",
       "blocks": {
-        "grid_col_YwXaAW": {
+        "grid_col_CmibyG": {
           "type": "grid-col",
           "settings": {
             "col_heading": "Col 1",
-            "col_content": "<p>This is the content for the first tab. It's active by default.</p>",
+            "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "",
             "button_link": "",
-            "col_span": "1"
+            "col_span": "4"
           }
         },
-        "grid_col_Dm3F9d": {
+        "grid_col_w3QNiB": {
           "type": "grid-col",
           "settings": {
             "col_heading": "Col 2",
-            "col_content": "<p>This is the content for the second tab.</p><p>It has some additional information.</p>",
+            "col_content": "<p>This is the content for the second column.</p>",
             "button_label": "",
             "button_link": "",
-            "col_span": "1"
+            "col_span": "4"
           }
         },
-        "grid_col_AKUHUP": {
+        "grid_col_B8F9GF": {
           "type": "grid-col",
           "settings": {
             "col_heading": "Col 3",
-            "col_content": "<p>Here's the content for the third tablude other components as well.</p>",
+            "col_content": "<p>Here's the content for the third column.</p>",
             "button_label": "",
             "button_link": "",
-            "col_span": "1"
+            "col_span": "4"
           }
         }
       },
       "block_order": [
-        "grid_col_YwXaAW",
-        "grid_col_Dm3F9d",
-        "grid_col_AKUHUP"
+        "grid_col_CmibyG",
+        "grid_col_w3QNiB",
+        "grid_col_B8F9GF"
       ],
       "settings": {
         "heading": "Section Heading",
         "content": "<p>Section content goes here.</p>",
-        "background": "radial-gradient(rgba(255, 255, 255, 1), rgba(255, 204, 75, 1) 100%)",
+        "background": "#fff",
         "max_width": 1500,
         "padding_top": 36,
         "padding_bottom": 36,
@@ -561,7 +561,7 @@
     }
   },
   "order": [
-    "flexible_grid_YHakE7",
+    "flexible_grid_HgU9ab",
     "tabs_T98P8p",
     "section_ig_story_bXdHNV",
     "reviews_slider_aNUjDJ",
