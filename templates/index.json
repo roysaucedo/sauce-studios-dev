@@ -9,6 +9,55 @@
  */
 {
   "sections": {
+    "features_showcase_WMRPMr": {
+      "type": "features-showcase",
+      "blocks": {
+        "feature_WB9Lzp": {
+          "type": "feature",
+          "settings": {
+            "block_content": "<h3>Easy to Use</h3><p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>",
+            "block_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
+            "block_bg": "#f9f9f9"
+          }
+        },
+        "feature_LR4ftG": {
+          "type": "feature",
+          "settings": {
+            "block_content": "<h3>Highly Customizable</h3><p>Tailor every aspect to your specific needs with our flexible options.</p>",
+            "block_bg": "#f9f9f9"
+          }
+        },
+        "feature_ytDqeE": {
+          "type": "feature",
+          "settings": {
+            "block_content": "<h3>Premium Support</h3><p>Get assistance whenever you need it with our responsive support team.</p>",
+            "block_bg": "#f9f9f9"
+          }
+        }
+      },
+      "block_order": [
+        "feature_WB9Lzp",
+        "feature_LR4ftG",
+        "feature_ytDqeE"
+      ],
+      "settings": {
+        "heading": "Feature Highlights",
+        "content": "<p>Showcase your product's key features with this section. Add as many feature blocks as you need in the right column.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button",
+        "left_column_bg": "#f4f4f4",
+        "desktop_order": "normal",
+        "mobile_order": "normal",
+        "max_width": 1500,
+        "background": "#ffffff",
+        "column_gap": 40,
+        "row_gap": 40,
+        "block_gap": 30,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "flexible_grid_HgU9ab": {
       "type": "flexible-grid",
       "blocks": {
@@ -648,6 +697,7 @@
     }
   },
   "order": [
+    "features_showcase_WMRPMr",
     "flexible_grid_HgU9ab",
     "tabs_T98P8p",
     "section_ig_story_bXdHNV",
