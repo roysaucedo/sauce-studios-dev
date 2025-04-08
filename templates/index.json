@@ -9,44 +9,41 @@
  */
 {
   "sections": {
-    "features_showcase_HLFzJA": {
+    "features_showcase_BViKyN": {
       "type": "features-showcase",
       "blocks": {
-        "feature_QbnEDt": {
+        "feature_etHxyC": {
           "type": "feature",
           "settings": {
-            "block_heading": "Feature Title",
+            "block_heading": "Easy to Use",
             "block_content": "<p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>",
-            "block_image": "shopify://shop_images/green-t-shirt_190b3fda-0569-4485-b875-751bf7254d08.jpg",
-            "block_bg": "#6b6b6b",
-            "block_text_color": "#fafaf9"
-          }
-        },
-        "feature_TrJtA9": {
-          "type": "feature",
-          "settings": {
-            "block_heading": "Feature Title",
-            "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>",
-            "block_image": "shopify://shop_images/distressed-kids-jeans_f3d59e25-4ca0-403f-aca9-436b4ff3ad1d.jpg",
             "block_bg": "#f9f9f9",
             "block_text_color": "#333333"
           }
         },
-        "feature_yHkTqk": {
+        "feature_tJhi7i": {
           "type": "feature",
           "settings": {
-            "block_heading": "Feature Title",
+            "block_heading": "Highly Customizable",
+            "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>",
+            "block_bg": "#f9f9f9",
+            "block_text_color": "#333333"
+          }
+        },
+        "feature_8XQktU": {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Premium Support",
             "block_content": "<p>Get assistance whenever you need it with our responsive support team.</p>",
-            "block_image": "shopify://shop_images/kids-beanie_9d2a6e34-ffa4-437e-b745-0665c84e1865.jpg",
             "block_bg": "#f9f9f9",
             "block_text_color": "#333333"
           }
         }
       },
       "block_order": [
-        "feature_QbnEDt",
-        "feature_TrJtA9",
-        "feature_yHkTqk"
+        "feature_etHxyC",
+        "feature_tJhi7i",
+        "feature_8XQktU"
       ],
       "settings": {
         "heading": "Feature Highlights",
@@ -54,7 +51,6 @@
         "button_label": "",
         "button_link": "",
         "button_style": "button",
-        "left_column_image": "shopify://shop_images/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
         "left_column_bg": "#f4f4f4",
         "left_column_text_color": "#333333",
         "desktop_order": "normal",
@@ -707,7 +703,7 @@
     }
   },
   "order": [
-    "features_showcase_HLFzJA",
+    "features_showcase_BViKyN",
     "flexible_grid_HgU9ab",
     "tabs_T98P8p",
     "section_ig_story_bXdHNV",
