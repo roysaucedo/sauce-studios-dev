@@ -15,9 +15,7 @@
     grid-template-rows: 1fr 1fr 1fr;
   }
 
-  .grid-column {
-    grid-column: span {{ block.settings.column_span }} / span {{ block.settings.column_span }};
-  }
+
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -42,9 +40,15 @@
       <div>{{ section.settings.text }}</div>
     </div>
     <div class="grid-container">
-      <div class="grid-column"></div>
-      <div class="grid-column"></div>
-      <div class="grid-column"></div>
+      {% for blocks in section.blocks %}
+        <div class="grid-column-{{ block.id }}"></div>
+
+        <style>
+          .grid-column-{{ block.id }} {
+            grid-column: span {{ block.settings.col_span }} / span {{ block.settings.col_span }};
+          }
+        </style>
+      {% endfor %}
     </div>
   </div>
 </div>
@@ -131,6 +135,12 @@
           "id": "col_content",
           "label": "Column Content",
           "default": "<p>Column content goes here.</p>"
+        },
+         {
+          "type": "text",
+          "id": "col_span",
+          "label": "Column Span",
+          "default": "1"
         }
       ]
     }
