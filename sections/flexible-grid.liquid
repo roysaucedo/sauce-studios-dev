@@ -60,7 +60,7 @@
 >
   <div class="section-{{ section.id }}-max-width page-width">
     {% comment %} Section header {% endcomment %}
-    <div class="section-header">
+    <div class="section-{{ section.id }}-header">
       <h2>{{ section.settings.heading }}</h2>
       <div>{{ section.settings.content }}</div>
     </div>
@@ -68,9 +68,12 @@
     {% comment %} GRID DIV  {% endcomment %}
     {% comment %} COLUMN WITH Grid span WIDTH AND HEIGHT CONTROLLED BY SETTINGS. {% endcomment %}
     {% comment %} Each column has image, heading, text, and button {% endcomment %}
-    <div class="grid-container">
+    <div class="section-{{ section.id }}-grid-container">
       {% for block in section.blocks %}
-        <div class="grid-column grid-column-{{ block.id }}" {{ block.shopify_attributes }}>
+        <div
+          class="section-{{ section.id }}-grid-column section-{{ section.id }}-grid-column-{{ block.id }}"
+          {{ block.shopify_attributes }}
+        >
           {% if block.settings.col_image != blank %}
             <img
               src="{{ block.settings.col_image | img_url: 'master' }}"
@@ -80,19 +83,19 @@
 
           <h3>{{ block.settings.col_heading }}</h3>
 
-          <div class="column-content">
+          <div class="section-{{ section.id }}-column-content">
             {{ block.settings.col_content }}
           </div>
 
           {% if block.settings.button_label != blank %}
-            <a href="{{ block.settings.button_link }}" class="column-button">
+            <a href="{{ block.settings.button_link }}" class="section-{{ section.id }}-column-button">
               {{ block.settings.button_label }}
             </a>
           {% endif %}
         </div>
 
         <style>
-          .grid-column-{{ block.id }} {
+          .section-{{ section.id }}-grid-column-{{ block.id }} {
             grid-column: span {{ block.settings.col_span }} / span {{ block.settings.col_span }};
           }
         </style>
@@ -120,10 +123,10 @@
       "default": "<p>Section content goes here.</p>"
     },
     {
-      "type": "color_background",
+      "type": "color",
       "id": "background",
       "label": "Background",
-      "default": "linear-gradient(#ffffff, #000000)"
+      "default": "#fff"
     },
     {
       "type": "range",
