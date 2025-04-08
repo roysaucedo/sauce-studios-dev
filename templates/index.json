@@ -20,6 +20,7 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
+            "button_style": "button",
             "col_span": "6"
           }
         },
@@ -31,6 +32,7 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
+            "button_style": "button",
             "col_span": "6"
           }
         },
@@ -42,6 +44,7 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
+            "button_style": "button",
             "col_span": "3"
           }
         },
@@ -53,6 +56,7 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
+            "button_style": "button",
             "col_span": "3"
           }
         },
@@ -64,6 +68,7 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
+            "button_style": "button",
             "col_span": "3"
           }
         },
@@ -75,6 +80,7 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
+            "button_style": "button",
             "col_span": "3"
           }
         },
@@ -86,6 +92,7 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
+            "button_style": "button",
             "col_span": "4"
           }
         },
@@ -97,6 +104,7 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
+            "button_style": "button",
             "col_span": "4"
           }
         },
@@ -108,6 +116,7 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
+            "button_style": "button",
             "col_span": "4"
           }
         }
@@ -130,9 +139,10 @@
         "heading_size_mobile": 24,
         "background": "#ffffff",
         "max_width": 1500,
+        "column_gap": 36,
+        "row_gap": 32,
         "padding_top": 36,
-        "padding_bottom": 36,
-        "color_scheme": "inverse"
+        "padding_bottom": 36
       }
     },
     "tabs_T98P8p": {
