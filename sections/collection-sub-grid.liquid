@@ -1,0 +1,388 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .section-{{ section.id }}-max-width {
+    max-width: {{ section.settings.max_width }}px;
+    margin: auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-{{ section.id }}-bg-color {
+    background-color: {{ section.settings.background }};
+  }
+
+  .section-{{ section.id }}-columns {
+    display: flex;
+    flex-direction: {% if section.settings.mobile_order == 'reverse' %}column-reverse{% else %}column{% endif %};
+    gap: {{ section.settings.row_gap }}px;
+  }
+
+  .section-{{ section.id }}-column-left {
+    background-color: {{ section.settings.left_column_bg }};
+    color: {{ section.settings.left_column_text_color }};
+    padding: 2rem;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+  }
+
+  .section-{{ section.id }}-left-content {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-{{ section.id }}-left-image {
+    width: 100%;
+    height: 100%;
+    margin-top: 2rem;
+    display: block;
+    object-fit: cover;
+  }
+
+  .section-{{ section.id }}-column-right {
+    display: flex;
+    flex-direction: column;
+    gap: {{ section.settings.block_gap }}px;
+  }
+
+  .section-{{ section.id }}-block {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .section-{{ section.id }}-block-image {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    aspect-ratio: 6 / 4;
+    object-fit: cover;
+  }
+
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .section-{{ section.id }}-max-width {
+      padding: 0 5rem;
+    }
+
+    .section-{{ section.id }}-columns {
+      flex-direction: {% if section.settings.desktop_order == 'reverse' %}row-reverse{% else %}row{% endif %};
+      gap: {{ section.settings.column_gap }}px;
+    }
+
+    .section-{{ section.id }}-column-left {
+      width: 40%;
+    }
+
+    .section-{{ section.id }}-column-right {
+      width: 60%;
+    }
+
+    .section-{{ section.id }}-block {
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .section-{{ section.id }}-block-content {
+      flex: 1;
+    }
+
+    .section-{{ section.id }}-block-image-wrapper {
+      flex: 1;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding section-{{ section.id }}-bg-color">
+  <div class="section-{{ section.id }}-max-width page-width">
+    <div class="section-{{ section.id }}-columns">
+      <!-- Left Column -->
+      <div class="section-{{ section.id }}-column-left">
+        <div class="section-{{ section.id }}-left-content">
+          <h2>{{ section.settings.heading }}</h2>
+          <div>{{ section.settings.content }}</div>
+          {% if section.settings.button_label != blank %}
+            <div style="margin-top: 1.5rem;">
+              <a
+                href="{{ section.settings.button_link }}"
+                class="{% if section.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
+              >
+                {{ section.settings.button_label }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+
+        {% if section.settings.left_column_image != blank %}
+          <img
+            class="section-{{ section.id }}-left-image"
+            src="{{ section.settings.left_column_image | img_url: 'large' }}"
+            alt="{{ section.settings.left_column_image.alt | escape }}"
+          >
+        {% endif %}
+      </div>
+
+      <!-- Right Column -->
+      <div class="section-{{ section.id }}-column-right">
+        {% for block in section.blocks %}
+          <div
+            class="section-{{ section.id }}-block section-{{ section.id }}-block-{{ block.id }}"
+            {{ block.shopify_attributes }}
+            style="background-color: {{ block.settings.block_bg }}; color: {{ block.settings.block_text_color }};"
+          >
+            <div class="section-{{ section.id }}-block-content">
+              <h3 style="color: {{ block.settings.block_text_color }};">{{ block.settings.block_heading }}</h3>
+              {{ block.settings.block_content }}
+            </div>
+
+            {% if block.settings.block_image != blank %}
+              <div class="section-{{ section.id }}-block-image-wrapper">
+                <img
+                  class="section-{{ section.id }}-block-image"
+                  src="{{ block.settings.block_image | img_url: 'large' }}"
+                  alt="{{ block.settings.block_image.alt | escape }}"
+                >
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Sub-Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Left Column Heading",
+      "default": "Feature Highlights"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Left Column Content",
+      "default": "<p>Showcase your product's key features with this section. Add as many feature blocks as you need in the right column.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Button"
+        },
+        {
+          "value": "link",
+          "label": "Text Link"
+        }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_column_image",
+      "label": "Left Column Image"
+    },
+    {
+      "type": "color",
+      "id": "left_column_bg",
+      "label": "Left Column Background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "left_column_text_color",
+      "label": "Left Column Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "select",
+      "id": "desktop_order",
+      "label": "Desktop Column Order",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Left then Right"
+        },
+        {
+          "value": "reverse",
+          "label": "Right then Left"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "mobile_order",
+      "label": "Mobile Column Order",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Left then Right"
+        },
+        {
+          "value": "reverse",
+          "label": "Right then Left"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 3000,
+      "step": 50,
+      "unit": "px",
+      "label": "Section Max Width",
+      "default": 1500
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Gap (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Row Gap (Mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "block_gap",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Block Spacing",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_heading",
+          "label": "Block Heading",
+          "default": "Feature Title"
+        },
+        {
+          "type": "richtext",
+          "id": "block_content",
+          "label": "Block Content",
+          "default": "<p>Describe one of your product's key features here. Add an image to illustrate it.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Block Image"
+        },
+        {
+          "type": "color",
+          "id": "block_bg",
+          "label": "Block Background",
+          "default": "#f9f9f9"
+        },
+        {
+          "type": "color",
+          "id": "block_text_color",
+          "label": "Block Text Color",
+          "default": "#333333"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Sub-Grid",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Easy to Use",
+            "block_content": "<p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Highly Customizable",
+            "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Premium Support",
+            "block_content": "<p>Get assistance whenever you need it with our responsive support team.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
