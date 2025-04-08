@@ -56,7 +56,7 @@
     width: 100%;
     height: auto;
     margin-top: 1rem;
-    aspect-ratio: 6 / 4;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
   }
 
@@ -135,9 +135,9 @@
           <div
             class="section-{{ section.id }}-block section-{{ section.id }}-block-{{ block.id }}"
             {{ block.shopify_attributes }}
-            style="background-color: {{ block.settings.block_bg }};"
+            style="background-color: {{ block.settings.block_bg }}; color: {{ block.settings.block_text_color }};"
           >
-            <div class="section-{{ section.id }}-block-content" style="color: {{ block.settings.block_text_color }};">
+            <div class="section-{{ section.id }}-block-content">
               {{ block.settings.block_content }}
             </div>
 
@@ -323,10 +323,16 @@
       "name": "Feature Block",
       "settings": [
         {
+          "type": "text",
+          "id": "block_heading",
+          "label": "Block Heading",
+          "default": "Feature Title"
+        },
+        {
           "type": "richtext",
           "id": "block_content",
           "label": "Block Content",
-          "default": "<h3>Feature Title</h3><p>Describe one of your product's key features here. Add an image to illustrate it.</p>"
+          "default": "<p>Describe one of your product's key features here. Add an image to illustrate it.</p>"
         },
         {
           "type": "image_picker",
@@ -355,19 +361,22 @@
         {
           "type": "feature",
           "settings": {
-            "block_content": "<h3>Easy to Use</h3><p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>"
+            "block_heading": "Easy to Use",
+            "block_content": "<p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>"
           }
         },
         {
           "type": "feature",
           "settings": {
-            "block_content": "<h3>Highly Customizable</h3><p>Tailor every aspect to your specific needs with our flexible options.</p>"
+            "block_heading": "Highly Customizable",
+            "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>"
           }
         },
         {
           "type": "feature",
           "settings": {
-            "block_content": "<h3>Premium Support</h3><p>Get assistance whenever you need it with our responsive support team.</p>"
+            "block_heading": "Premium Support",
+            "block_content": "<p>Get assistance whenever you need it with our responsive support team.</p>"
           }
         }
       ]
