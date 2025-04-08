@@ -12,10 +12,7 @@
     "tabs_T98P8p": {
       "type": "tabs",
       "settings": {
-        "h1": "Heading",
-        "p": "<p>Add your paragraph here</p>",
-        "btn_text": "Learn More",
-        "link": "",
+        "max_width": 1500,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -264,6 +261,45 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": true
+      }
+    },
+    "flexible_grid_jTAkaw": {
+      "type": "flexible-grid",
+      "blocks": {
+        "grid_col_FLkmPk": {
+          "type": "grid-col",
+          "settings": {
+            "col_heading": "Tab 1",
+            "col_content": "<p>This is the content for the first tab. It's active by default.</p>"
+          }
+        },
+        "grid_col_pPewg6": {
+          "type": "grid-col",
+          "settings": {
+            "col_heading": "Tab 2",
+            "col_content": "<p>This is the content for the second tab.</p><p>It has some additional information.</p>"
+          }
+        },
+        "grid_col_c9MGLe": {
+          "type": "grid-col",
+          "settings": {
+            "col_heading": "Tab 3",
+            "col_content": "<p>Here's the content for the third tablude other components as well.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "grid_col_FLkmPk",
+        "grid_col_pPewg6",
+        "grid_col_c9MGLe"
+      ],
+      "settings": {
+        "col_heading": "Column Heading",
+        "col_content": "<p>Column content goes here.</p>",
+        "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+        "max_width": 1500,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "rich_text_rLHJCd": {
@@ -515,6 +551,7 @@
     }
   },
   "order": [
+    "flexible_grid_jTAkaw",
     "tabs_T98P8p",
     "section_ig_story_bXdHNV",
     "reviews_slider_aNUjDJ",
