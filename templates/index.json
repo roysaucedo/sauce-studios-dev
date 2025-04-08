@@ -17,6 +17,8 @@
           "settings": {
             "col_heading": "Col 1",
             "col_content": "<p>This is the content for the first tab. It's active by default.</p>",
+            "button_label": "",
+            "button_link": "",
             "col_span": "1"
           }
         },
@@ -25,6 +27,8 @@
           "settings": {
             "col_heading": "Col 2",
             "col_content": "<p>This is the content for the second tab.</p><p>It has some additional information.</p>",
+            "button_label": "",
+            "button_link": "",
             "col_span": "1"
           }
         },
@@ -33,6 +37,8 @@
           "settings": {
             "col_heading": "Col 3",
             "col_content": "<p>Here's the content for the third tablude other components as well.</p>",
+            "button_label": "",
+            "button_link": "",
             "col_span": "1"
           }
         }
@@ -45,10 +51,11 @@
       "settings": {
         "heading": "Section Heading",
         "content": "<p>Section content goes here.</p>",
-        "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+        "background": "radial-gradient(rgba(255, 255, 255, 1), rgba(255, 204, 75, 1) 100%)",
         "max_width": 1500,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "color_scheme": "background-1"
       }
     },
     "tabs_T98P8p": {
