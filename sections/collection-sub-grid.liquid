@@ -183,18 +183,18 @@
             <div class="section-{{ section.id }}-main-image" style="background-color: #f4f4f4; height: 100%;"></div>
           {% endif %}
 
-          <div class="section-{{ section.id }}-overlay"></div>
-
-          <div class="section-{{ section.id }}-card-content">
-            <h2 class="section-{{ section.id }}-card-heading">{{ section.settings.card_heading }}</h2>
-            {% if section.settings.card_button_label != blank %}
-              <a
-                href="{{ section.settings.card_button_link }}"
-                class="button button--primary"
-              >
-                {{ section.settings.card_button_label }}
-              </a>
-            {% endif %}
+          <div class="section-{{ section.id }}-overlay">
+            <div class="section-{{ section.id }}-card-content">
+              <h2 class="section-{{ section.id }}-card-heading">{{ section.settings.card_heading }}</h2>
+              {% if section.settings.card_button_label != blank %}
+                <a
+                  href="{{ section.settings.card_button_link }}"
+                  class="button button--primary"
+                >
+                  {{ section.settings.card_button_label }}
+                </a>
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
