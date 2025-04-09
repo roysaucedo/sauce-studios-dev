@@ -58,6 +58,9 @@
       "settings": {
         "main_image": "shopify://shop_images/thin-cloud-pattern-in-sky.jpg",
         "card_heading": "Featured Collection",
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 24,
+        "heading_color": "#ffffff",
         "card_button_label": "Shop Now",
         "card_button_link": "",
         "content_position": "top-left",
@@ -123,6 +126,9 @@
       "settings": {
         "main_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
         "card_heading": "Featured Collection",
+        "heading_size_desktop": 44,
+        "heading_size_mobile": 32,
+        "heading_color": "#ffffff",
         "card_button_label": "Shop Now",
         "card_button_link": "",
         "content_position": "top-left",
