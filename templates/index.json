@@ -107,74 +107,6 @@
         "padding_bottom": 100
       }
     },
-    "collection_sub_grid_wXXy78": {
-      "type": "collection-sub-grid",
-      "blocks": {
-        "collection_item_bbkePR": {
-          "type": "collection-item",
-          "settings": {
-            "grid_image": "shopify://shop_images/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg",
-            "grid_heading": "Collection Title",
-            "link": "",
-            "squiggle_color": "#620000"
-          }
-        },
-        "collection_item_LgiDB7": {
-          "type": "collection-item",
-          "settings": {
-            "grid_image": "shopify://shop_images/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg",
-            "grid_heading": "Collection Title",
-            "link": "",
-            "squiggle_color": "#4556c0"
-          }
-        },
-        "collection_item_937EE4": {
-          "type": "collection-item",
-          "settings": {
-            "grid_image": "shopify://shop_images/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg",
-            "grid_heading": "Collection Title",
-            "link": "",
-            "squiggle_color": "#ff1010"
-          }
-        },
-        "collection_item_hEAaPB": {
-          "type": "collection-item",
-          "settings": {
-            "grid_image": "shopify://shop_images/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg",
-            "grid_heading": "Collection Title",
-            "link": "",
-            "squiggle_color": "#e500ff"
-          }
-        }
-      },
-      "block_order": [
-        "collection_item_bbkePR",
-        "collection_item_LgiDB7",
-        "collection_item_937EE4",
-        "collection_item_hEAaPB"
-      ],
-      "settings": {
-        "main_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-        "card_heading": "Featured Collection",
-        "heading_size_desktop": 44,
-        "heading_size_mobile": 32,
-        "heading_color": "#ffffff",
-        "card_button_label": "Shop Now",
-        "card_button_link": "",
-        "content_position": "top-left",
-        "text_align": "left",
-        "image_border_radius": 8,
-        "desktop_order": "reverse",
-        "mobile_order": "normal",
-        "max_width": 1500,
-        "background": "#ffffff",
-        "column_gap": 40,
-        "row_gap": 40,
-        "grid_gap": 20,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "features_showcase_BViKyN": {
       "type": "features-showcase",
       "blocks": {
@@ -624,7 +556,6 @@
   "order": [
     "rich_text_rLHJCd",
     "collection_sub_grid_MhWVcL",
-    "collection_sub_grid_wXXy78",
     "features_showcase_BViKyN",
     "flexible_grid_HgU9ab",
     "tabs_T98P8p",
