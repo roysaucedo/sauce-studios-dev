@@ -176,7 +176,7 @@
           {% if section.settings.main_image != blank %}
             <img
               class="section-{{ section.id }}-main-image"
-              src="{{ section.settings.main_image | img_url: 'master' }}"
+              src="{{ section.settings.main_image | img_url: 'large' }}"
               alt="{{ section.settings.main_image.alt | escape }}"
             >
           {% else %}
