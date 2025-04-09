@@ -47,7 +47,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 40%;
+    height: 50%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
     z-index: 1;
   }
@@ -98,7 +98,7 @@
 
   .section-{{ section.id }}-card-heading {
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: {{ section.settings.heading_size_mobile }}px;
   }
 
   /* Right column - 2x2 grid */
@@ -162,7 +162,7 @@
     }
 
     .section-{{ section.id }}-card-heading {
-      font-size: 2rem;
+      font-size: {{ section.settings.heading_size_desktop }}px;
     }
   }
 {%- endstyle -%}
@@ -250,6 +250,26 @@
       "id": "card_heading",
       "label": "Card Heading",
       "default": "Featured Collection"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Heading Mobile",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Heading Mobile",
+      "default": 32
     },
     {
       "type": "text",
