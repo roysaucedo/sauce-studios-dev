@@ -74,7 +74,7 @@
         ".header {color: white;}"
       ],
       "settings": {
-        "logo_position": "middle-center",
+        "logo_position": "top-center",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
