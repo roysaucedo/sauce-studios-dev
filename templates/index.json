@@ -247,102 +247,11 @@
             "button_style": "button",
             "col_span": "6"
           }
-        },
-        "grid_col_7MW4NK": {
-          "type": "grid-col",
-          "settings": {
-            "col_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "col_heading": "Col 1",
-            "col_content": "<p>This is the content for the first column.</p>",
-            "button_label": "Button Link",
-            "button_link": "",
-            "button_style": "button",
-            "col_span": "3"
-          }
-        },
-        "grid_col_DUzfDV": {
-          "type": "grid-col",
-          "settings": {
-            "col_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "col_heading": "Col 1",
-            "col_content": "<p>This is the content for the first column.</p>",
-            "button_label": "Button Link",
-            "button_link": "",
-            "button_style": "button",
-            "col_span": "3"
-          }
-        },
-        "grid_col_hY36Ty": {
-          "type": "grid-col",
-          "settings": {
-            "col_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "col_heading": "Col 1",
-            "col_content": "<p>This is the content for the first column.</p>",
-            "button_label": "Button Link",
-            "button_link": "",
-            "button_style": "button",
-            "col_span": "3"
-          }
-        },
-        "grid_col_AcHL3A": {
-          "type": "grid-col",
-          "settings": {
-            "col_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "col_heading": "Col 1",
-            "col_content": "<p>This is the content for the first column.</p>",
-            "button_label": "Button Link",
-            "button_link": "",
-            "button_style": "button",
-            "col_span": "3"
-          }
-        },
-        "grid_col_37GfyW": {
-          "type": "grid-col",
-          "settings": {
-            "col_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "col_heading": "Col 1",
-            "col_content": "<p>This is the content for the first column.</p>",
-            "button_label": "Button Link",
-            "button_link": "",
-            "button_style": "button",
-            "col_span": "4"
-          }
-        },
-        "grid_col_EhMxYE": {
-          "type": "grid-col",
-          "settings": {
-            "col_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "col_heading": "Col 1",
-            "col_content": "<p>This is the content for the first column.</p>",
-            "button_label": "Button Link",
-            "button_link": "",
-            "button_style": "button",
-            "col_span": "4"
-          }
-        },
-        "grid_col_RFH4Xy": {
-          "type": "grid-col",
-          "settings": {
-            "col_image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
-            "col_heading": "Col 1",
-            "col_content": "<p>This is the content for the first column.</p>",
-            "button_label": "Button Link",
-            "button_link": "",
-            "button_style": "button",
-            "col_span": "4"
-          }
         }
       },
       "block_order": [
         "grid_col_QjhYeg",
-        "grid_col_WxcTdU",
-        "grid_col_7MW4NK",
-        "grid_col_DUzfDV",
-        "grid_col_hY36Ty",
-        "grid_col_AcHL3A",
-        "grid_col_37GfyW",
-        "grid_col_EhMxYE",
-        "grid_col_RFH4Xy"
+        "grid_col_WxcTdU"
       ],
       "settings": {
         "heading": "",
