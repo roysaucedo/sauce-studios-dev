@@ -39,13 +39,72 @@
         "padding_bottom": 100
       }
     },
+    "features_showcase_zjY9GC": {
+      "type": "features-showcase",
+      "blocks": {
+        "feature_3UApc6": {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Easy to Use",
+            "block_content": "<p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>",
+            "block_image": "shopify://shop_images/photo-1565299585323-38d6b0865b47_444eba05-2892-4d4e-91d2-e8920800b20f.jpg",
+            "block_bg": "#f9f9f9",
+            "block_text_color": "#333333"
+          }
+        },
+        "feature_cmmCka": {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Highly Customizable",
+            "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>",
+            "block_image": "shopify://shop_images/photo-1599974579688-8dbdd335c77f.jpg",
+            "block_bg": "#f9f9f9",
+            "block_text_color": "#333333"
+          }
+        },
+        "feature_6tW7Be": {
+          "type": "feature",
+          "settings": {
+            "block_heading": "Premium Support",
+            "block_content": "<p>Get assistance whenever you need it with our responsive support team.</p>",
+            "block_image": "shopify://shop_images/photo-1551504734-5ee1c4a1479b_101b33e0-e926-4c39-a7c5-76b15374bcf9.jpg",
+            "block_bg": "#f9f9f9",
+            "block_text_color": "#333333"
+          }
+        }
+      },
+      "block_order": [
+        "feature_3UApc6",
+        "feature_cmmCka",
+        "feature_6tW7Be"
+      ],
+      "settings": {
+        "heading": "Feature Highlights",
+        "content": "<p>Showcase your product's key features with this section. Add as many feature blocks as you need in the right column.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button",
+        "left_column_image": "shopify://shop_images/photo-1586511925558-a4c6376fe65f.jpg",
+        "left_column_bg": "#f4f4f4",
+        "left_column_text_color": "#333333",
+        "desktop_order": "normal",
+        "mobile_order": "normal",
+        "max_width": 1500,
+        "background": "#ffffff",
+        "column_gap": 40,
+        "row_gap": 40,
+        "block_gap": 30,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "collection_sub_grid_MhWVcL": {
       "type": "collection-sub-grid",
       "blocks": {
         "collection_item_Kyxtax": {
           "type": "collection-item",
           "settings": {
-            "grid_image": "shopify://shop_images/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg",
+            "grid_image": "shopify://shop_images/photo-1551504734-5ee1c4a1479b_101b33e0-e926-4c39-a7c5-76b15374bcf9.jpg",
             "grid_heading": "Collection Title",
             "link": "",
             "squiggle_color": "#45c0b6"
@@ -54,7 +113,7 @@
         "collection_item_CXqJj6": {
           "type": "collection-item",
           "settings": {
-            "grid_image": "shopify://shop_images/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg",
+            "grid_image": "shopify://shop_images/photo-1611250188496-e966043a0629_a6b97c47-1296-4426-ba42-1980380d9865.jpg",
             "grid_heading": "Collection Title",
             "link": "",
             "squiggle_color": "#0023ff"
@@ -63,7 +122,7 @@
         "collection_item_VGQLih": {
           "type": "collection-item",
           "settings": {
-            "grid_image": "shopify://shop_images/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg",
+            "grid_image": "shopify://shop_images/photo-1611250188496-e966043a0629_a6b97c47-1296-4426-ba42-1980380d9865.jpg",
             "grid_heading": "Collection Title",
             "link": "",
             "squiggle_color": "#ff0808"
@@ -72,7 +131,7 @@
         "collection_item_ddTGmn": {
           "type": "collection-item",
           "settings": {
-            "grid_image": "shopify://shop_images/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg",
+            "grid_image": "shopify://shop_images/xavier-crook-wIqpmuOloVA-unsplash.jpg",
             "grid_heading": "Collection Title",
             "link": "",
             "squiggle_color": "#038219"
@@ -86,7 +145,7 @@
         "collection_item_ddTGmn"
       ],
       "settings": {
-        "main_image": "shopify://shop_images/thin-cloud-pattern-in-sky.jpg",
+        "main_image": "shopify://shop_images/photo-1613514785940-daed07799d9b.jpg",
         "card_heading": "Featured Collection",
         "heading_size_desktop": 36,
         "heading_size_mobile": 24,
@@ -160,65 +219,6 @@
         "block_gap": 0,
         "padding_top": 100,
         "padding_bottom": 100
-      }
-    },
-    "features_showcase_zjY9GC": {
-      "type": "features-showcase",
-      "blocks": {
-        "feature_3UApc6": {
-          "type": "feature",
-          "settings": {
-            "block_heading": "Easy to Use",
-            "block_content": "<p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>",
-            "block_image": "shopify://shop_images/photo-1565299585323-38d6b0865b47_444eba05-2892-4d4e-91d2-e8920800b20f.jpg",
-            "block_bg": "#f9f9f9",
-            "block_text_color": "#333333"
-          }
-        },
-        "feature_cmmCka": {
-          "type": "feature",
-          "settings": {
-            "block_heading": "Highly Customizable",
-            "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>",
-            "block_image": "shopify://shop_images/photo-1599974579688-8dbdd335c77f.jpg",
-            "block_bg": "#f9f9f9",
-            "block_text_color": "#333333"
-          }
-        },
-        "feature_6tW7Be": {
-          "type": "feature",
-          "settings": {
-            "block_heading": "Premium Support",
-            "block_content": "<p>Get assistance whenever you need it with our responsive support team.</p>",
-            "block_image": "shopify://shop_images/photo-1551504734-5ee1c4a1479b_101b33e0-e926-4c39-a7c5-76b15374bcf9.jpg",
-            "block_bg": "#f9f9f9",
-            "block_text_color": "#333333"
-          }
-        }
-      },
-      "block_order": [
-        "feature_3UApc6",
-        "feature_cmmCka",
-        "feature_6tW7Be"
-      ],
-      "settings": {
-        "heading": "Feature Highlights",
-        "content": "<p>Showcase your product's key features with this section. Add as many feature blocks as you need in the right column.</p>",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "button",
-        "left_column_image": "shopify://shop_images/photo-1586511925558-a4c6376fe65f.jpg",
-        "left_column_bg": "#f4f4f4",
-        "left_column_text_color": "#333333",
-        "desktop_order": "normal",
-        "mobile_order": "normal",
-        "max_width": 1500,
-        "background": "#ffffff",
-        "column_gap": 40,
-        "row_gap": 40,
-        "block_gap": 30,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "flexible_grid_HgU9ab": {
@@ -597,9 +597,9 @@
   },
   "order": [
     "rich_text_rLHJCd",
+    "features_showcase_zjY9GC",
     "collection_sub_grid_MhWVcL",
     "features_showcase_BViKyN",
-    "features_showcase_zjY9GC",
     "flexible_grid_HgU9ab",
     "tabs_T98P8p",
     "section_ig_story_bXdHNV",
