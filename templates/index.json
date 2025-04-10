@@ -374,9 +374,10 @@
       ],
       "settings": {
         "heading": "Comparison Table Section",
-        "column_1_heading": "Heading",
+        "column_1_heading": "Us vs Them",
+        "image": "shopify://shop_images/pinata.png",
         "logo_size": 50,
-        "column_3_heading": "Heading",
+        "column_3_heading": "Other guys",
         "show_table_border": true,
         "check_icon_color": "#209720",
         "x_icon_color": "#DD2222",
