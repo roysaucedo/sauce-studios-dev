@@ -300,7 +300,7 @@
       ],
       "settings": {
         "heading": "",
-        "content": "<h2>Section Heading</h2><p>Section content goes here.</p>",
+        "content": "<h2>Flexible Grid Section</h2><p>Section content goes here.</p>",
         "heading_size_desktop": 36,
         "heading_size_mobile": 24,
         "background": "#ffffff",
