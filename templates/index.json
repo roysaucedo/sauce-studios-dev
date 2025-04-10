@@ -327,14 +327,14 @@
         "hours_label": "Hours",
         "minutes_label": "Minutes",
         "seconds_label": "Seconds",
-        "digit_color": "primary",
+        "digit_color": "accent-1",
         "show_warning_color": true,
         "warning_color": "accent-1",
         "warning_time": 60,
         "expired_message": "Time's Up!",
         "expired_message_color": "accent-1",
         "countdown_message": "<p>Act fast! This special offer won't last long.</p>",
-        "max_width": 600,
+        "max_width": 650,
         "padding_top": 36,
         "padding_bottom": 36
       }
