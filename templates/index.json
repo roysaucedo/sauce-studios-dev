@@ -160,7 +160,7 @@
         "card_button_link": "",
         "content_position": "top-left",
         "text_align": "left",
-        "image_border_radius": 8,
+        "image_border_radius": 0,
         "desktop_order": "normal",
         "mobile_order": "normal",
         "max_width": 1500,
