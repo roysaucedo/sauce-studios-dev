@@ -578,24 +578,22 @@
                                 {% endif %}
                               {%- endcase -%}
                             {%- endfor -%}
-                          <l1 style="order: 6">
+                          <li style="order: 6;">
                             {% if linklists['featured-links'] != blank %}
-                              <ul class="featured-links-menu">
+                              <ul class="list-unstyled" role="list">
                                 {% for link in linklists['featured-links'].links %}
                                   <li>
-                                    <a href="{{ link.url }}">
-                                      {{ link.title }}
-                                      
-                                      {% comment %} If you need to check for active state {% endcomment %}
-                                      {% if link.active %}class="active"{% endif %}
+                                    <a href="{{ link.url }}" class="mega-menu__link link{% if link.active %} mega-menu__link--active{% endif %}"{% if link.active %} aria-current="page"{% endif %}>
+                                      {{ link.title | escape }}
                                     </a>
                                     
-                                    {% comment %} If you need to check for child links {% endcomment %}
                                     {% if link.links.size > 0 %}
-                                      <ul class="submenu">
+                                      <ul class="list-unstyled" role="list">
                                         {% for child_link in link.links %}
                                           <li>
-                                            <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                                            <a href="{{ child_link.url }}" class="mega-menu__link link{% if child_link.active %} mega-menu__link--active{% endif %}"{% if child_link.active %} aria-current="page"{% endif %}>
+                                              {{ child_link.title | escape }}
+                                            </a>
                                           </li>
                                         {% endfor %}
                                       </ul>
@@ -604,7 +602,7 @@
                                 {% endfor %}
                               </ul>
                             {% endif %}
-                          </l1>
+                          </li>
                             
                           
                         </ul>
