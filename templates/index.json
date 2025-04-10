@@ -335,8 +335,8 @@
         "expired_message_color": "accent-1",
         "countdown_message": "<p>Act fast! This special offer won't last long.</p>",
         "max_width": 650,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 92,
+        "padding_bottom": 100
       }
     },
     "tabs_T98P8p": {
