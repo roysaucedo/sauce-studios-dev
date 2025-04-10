@@ -311,6 +311,34 @@
         "padding_bottom": 36
       }
     },
+    "countdown_MmRNnT": {
+      "type": "countdown",
+      "settings": {
+        "title": "Countdown Timer Section",
+        "color_scheme": "background-1",
+        "countdown_type": "duration",
+        "end_date": "2025-12-31",
+        "end_time": "23:59",
+        "duration_hours": 1,
+        "duration_minutes": 0,
+        "duration_seconds": 0,
+        "show_days": false,
+        "days_label": "Days",
+        "hours_label": "Hours",
+        "minutes_label": "Minutes",
+        "seconds_label": "Seconds",
+        "digit_color": "primary",
+        "show_warning_color": true,
+        "warning_color": "accent-1",
+        "warning_time": 60,
+        "expired_message": "Time's Up!",
+        "expired_message_color": "accent-1",
+        "countdown_message": "<p>Act fast! This special offer won't last long.</p>",
+        "max_width": 600,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "tabs_T98P8p": {
       "type": "tabs",
       "settings": {
@@ -555,6 +583,7 @@
     "collection_sub_grid_MhWVcL",
     "features_showcase_BViKyN",
     "flexible_grid_HgU9ab",
+    "countdown_MmRNnT",
     "tabs_T98P8p",
     "section_ig_story_bXdHNV",
     "reviews_slider_aNUjDJ"
