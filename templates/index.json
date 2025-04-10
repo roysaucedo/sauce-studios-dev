@@ -45,6 +45,179 @@
         "show_text_below": true
       }
     },
+    "section_ig_story_bXdHNV": {
+      "type": "section-ig-story",
+      "blocks": {
+        "story_TMgKV4": {
+          "type": "story",
+          "settings": {
+            "collection_link": "shopify://pages/contact",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_TcmbAr": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_ULq6qx": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_N8Nyb6": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_bm9FcA": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_AYjxDK": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_DnfJmy": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_A4GaDE": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_QnUCp4": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_HQzyHf": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_RMFLnW": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_h6adLR": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_K7CDmw": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_L6b8FL": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_kNmUFz": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_KeAi9y": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_YPPtVL": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_whXkHW": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_fx4BJQ": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        }
+      },
+      "block_order": [
+        "story_TMgKV4",
+        "story_TcmbAr",
+        "story_ULq6qx",
+        "story_N8Nyb6",
+        "story_bm9FcA",
+        "story_AYjxDK",
+        "story_DnfJmy",
+        "story_A4GaDE",
+        "story_QnUCp4",
+        "story_HQzyHf",
+        "story_RMFLnW",
+        "story_h6adLR",
+        "story_K7CDmw",
+        "story_L6b8FL",
+        "story_kNmUFz",
+        "story_KeAi9y",
+        "story_YPPtVL",
+        "story_whXkHW",
+        "story_fx4BJQ"
+      ],
+      "custom_css": [],
+      "settings": {
+        "background_color": "#ffffff",
+        "sticky": false,
+        "image_size": 80,
+        "text_size": 9,
+        "text_color": "#000000",
+        "border_width": 1,
+        "border_color": "#000000",
+        "show_desktop": false,
+        "show_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "features_showcase_zjY9GC": {
       "type": "features-showcase",
       "blocks": {
@@ -339,179 +512,6 @@
         "padding_bottom": 100
       }
     },
-    "section_ig_story_bXdHNV": {
-      "type": "section-ig-story",
-      "blocks": {
-        "story_TMgKV4": {
-          "type": "story",
-          "settings": {
-            "collection_link": "shopify://pages/contact",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_TcmbAr": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_ULq6qx": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_N8Nyb6": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_bm9FcA": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_AYjxDK": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_DnfJmy": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_A4GaDE": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_QnUCp4": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_HQzyHf": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_RMFLnW": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_h6adLR": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_K7CDmw": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_L6b8FL": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_kNmUFz": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_KeAi9y": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_YPPtVL": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_whXkHW": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        },
-        "story_fx4BJQ": {
-          "type": "story",
-          "settings": {
-            "collection_link": "",
-            "collection_title": "TITLE GOES HERE"
-          }
-        }
-      },
-      "block_order": [
-        "story_TMgKV4",
-        "story_TcmbAr",
-        "story_ULq6qx",
-        "story_N8Nyb6",
-        "story_bm9FcA",
-        "story_AYjxDK",
-        "story_DnfJmy",
-        "story_A4GaDE",
-        "story_QnUCp4",
-        "story_HQzyHf",
-        "story_RMFLnW",
-        "story_h6adLR",
-        "story_K7CDmw",
-        "story_L6b8FL",
-        "story_kNmUFz",
-        "story_KeAi9y",
-        "story_YPPtVL",
-        "story_whXkHW",
-        "story_fx4BJQ"
-      ],
-      "custom_css": [],
-      "settings": {
-        "background_color": "#ffffff",
-        "sticky": false,
-        "image_size": 80,
-        "text_size": 9,
-        "text_color": "#000000",
-        "border_width": 1,
-        "border_color": "#000000",
-        "show_desktop": false,
-        "show_mobile": true,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "tabs_MihXw8": {
       "type": "tabs",
       "blocks": {
@@ -672,12 +672,12 @@
   },
   "order": [
     "image_banner_anN6pD",
+    "section_ig_story_bXdHNV",
     "features_showcase_zjY9GC",
     "collection_sub_grid_MhWVcL",
     "features_showcase_BViKyN",
     "flexible_grid_HgU9ab",
     "countdown_MmRNnT",
-    "section_ig_story_bXdHNV",
     "tabs_MihXw8",
     "section_comparison_table_6xxTgA",
     "reviews_slider_aNUjDJ"
