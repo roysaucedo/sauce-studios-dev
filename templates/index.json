@@ -247,11 +247,50 @@
             "button_style": "button",
             "col_span": "6"
           }
+        },
+        "grid_col_yFrqJH": {
+          "type": "grid-col",
+          "settings": {
+            "col_image": "shopify://shop_images/photo-1613514785940-daed07799d9b.jpg",
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "Button Link",
+            "button_link": "",
+            "button_style": "button",
+            "col_span": "4"
+          }
+        },
+        "grid_col_PecK9W": {
+          "type": "grid-col",
+          "settings": {
+            "col_image": "shopify://shop_images/photo-1551504734-5ee1c4a1479b.jpg",
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "Button Link",
+            "button_link": "",
+            "button_style": "button",
+            "col_span": "4"
+          }
+        },
+        "grid_col_APPJtj": {
+          "type": "grid-col",
+          "settings": {
+            "col_image": "shopify://shop_images/xavier-crook-wIqpmuOloVA-unsplash.jpg",
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "Button Link",
+            "button_link": "",
+            "button_style": "button",
+            "col_span": "4"
+          }
         }
       },
       "block_order": [
         "grid_col_QjhYeg",
-        "grid_col_WxcTdU"
+        "grid_col_WxcTdU",
+        "grid_col_yFrqJH",
+        "grid_col_PecK9W",
+        "grid_col_APPJtj"
       ],
       "settings": {
         "heading": "",
@@ -434,10 +473,10 @@
     "reviews_slider_aNUjDJ": {
       "type": "reviews-slider",
       "blocks": {
-        "video_a9CMx9": {
-          "type": "video",
+        "image_hdXMUe": {
+          "type": "image",
           "settings": {
-            "video": "shopify://files/videos/Square CMC AD EVERGREEN.mp4",
+            "image": "shopify://shop_images/photo-1565299585323-38d6b0865b47_444eba05-2892-4d4e-91d2-e8920800b20f.jpg",
             "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
             "author": "Roy Sauce",
             "location": "Los Angeles, CA",
@@ -445,10 +484,10 @@
             "cta_text": "Shop now →"
           }
         },
-        "video_hytF7K": {
-          "type": "video",
+        "image_WBaTJY": {
+          "type": "image",
           "settings": {
-            "video": "shopify://files/videos/Square CMC AD EVERGREEN.mp4",
+            "image": "shopify://shop_images/photo-1551504734-5ee1c4a1479b_101b33e0-e926-4c39-a7c5-76b15374bcf9.jpg",
             "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
             "author": "Roy Sauce",
             "location": "Los Angeles, CA",
@@ -456,10 +495,10 @@
             "cta_text": "Shop now →"
           }
         },
-        "video_rLLAk6": {
-          "type": "video",
+        "image_drLMHx": {
+          "type": "image",
           "settings": {
-            "video": "shopify://files/videos/Square CMC AD EVERGREEN.mp4",
+            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water_10d76fe2-f3cf-4daf-9a68-8ad4b311301f.jpg",
             "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
             "author": "Roy Sauce",
             "location": "Los Angeles, CA",
@@ -467,10 +506,10 @@
             "cta_text": "Shop now →"
           }
         },
-        "video_yHcTEX": {
-          "type": "video",
+        "image_E3X7ke": {
+          "type": "image",
           "settings": {
-            "video": "shopify://files/videos/Square CMC AD EVERGREEN.mp4",
+            "image": "shopify://shop_images/photo-1586511925558-a4c6376fe65f.jpg",
             "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
             "author": "Roy Sauce",
             "location": "Los Angeles, CA",
@@ -478,10 +517,10 @@
             "cta_text": "Shop now →"
           }
         },
-        "video_NALFVN": {
-          "type": "video",
+        "image_waPrdp": {
+          "type": "image",
           "settings": {
-            "video": "shopify://files/videos/Square CMC AD EVERGREEN.mp4",
+            "image": "shopify://shop_images/photo-1611250188496-e966043a0629_ba3297d2-bccb-4716-9fb3-d5f74538fc37.jpg",
             "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
             "author": "Roy Sauce",
             "location": "Los Angeles, CA",
@@ -491,11 +530,11 @@
         }
       },
       "block_order": [
-        "video_a9CMx9",
-        "video_hytF7K",
-        "video_rLLAk6",
-        "video_yHcTEX",
-        "video_NALFVN"
+        "image_hdXMUe",
+        "image_WBaTJY",
+        "image_drLMHx",
+        "image_E3X7ke",
+        "image_waPrdp"
       ],
       "settings": {
         "heading": "Customer Reviews",
