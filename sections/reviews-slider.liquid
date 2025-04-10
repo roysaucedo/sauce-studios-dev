@@ -1,291 +1,287 @@
-
 {%- style -%}
-.section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
-  }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
 {%- endstyle -%}
 
 <style>
-.review-slider {
-  position: relative;
-  padding: 40px 0;
-}
-
-.review-slider__heading {
-  text-align: center;
-}
-.review-slider__subheading {
-  text-align: center;
-}
-
-.review-slider__container {
-  position: relative;
-  overflow: hidden;
-  padding: 0 40px;
-}
-
-.review-slider__track {
-  display: flex;
-  transition: transform 0.3s ease-in-out;
-}
-
-.review-slider__slide {
-  flex: 0 0 calc(100% / {{ section.settings.desktop_slides_to_show }});
-  padding: 0 15px;
-  box-sizing: border-box;
-}
-
-.review-slider__content {
-  background: #f7f7f7;
-  padding: 20px;
-  border-radius: 8px;
-  height: 100%;
-}
-
-.review-slider__text {
-  margin-bottom: 15px;
-}
-
-.review-slider__author {
-  font-weight: bold;
-}
-
-.review-slider__location {
-  color: #666;
-  font-size: 0.9em;
-}
-
-.review-slider__button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: white;
-  border: 1px solid #ddd;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-.review-slider__button:hover {
-  background: #f5f5f5;
-}
-
-.review-slider__button--prev {
-  left: 1%;
-}
-
-.review-slider__button--next {
-  right: 1%;
-}
-
-.review-slider__button svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-}
-
-.5-star-rating-icon {
-  max-width: 80px;
-}
-
-.video-wrapper video {
-  width: 100%;
-  max-width: 100%;
-}
-.video-wrapper {
-  margin-bottom: 20px;
-}
-
-.review-image {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2.5;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border-radius: 10px;
-}
-  
-.review-cta {
-  padding-top: 20px;
-  
-}
-
-@media screen and (max-width: 767px) {
-  .review-slider__slide {
-    flex: 0 0 calc(100% / 1);
+  .review-slider {
+    position: relative;
+    padding: 40px 0;
   }
-  
+
+  .review-slider__heading {
+    text-align: center;
+  }
+  .review-slider__subheading {
+    text-align: center;
+  }
+
   .review-slider__container {
-    padding: 0 30px;
+    position: relative;
+    overflow: hidden;
+    padding: 0 40px;
   }
-  
+
+  .review-slider__track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .review-slider__slide {
+    flex: 0 0 calc(100% / {{ section.settings.desktop_slides_to_show }});
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .review-slider__content {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    height: 100%;
+  }
+
+  .review-slider__text {
+    margin-bottom: 15px;
+  }
+
+  .review-slider__author {
+    font-weight: bold;
+  }
+
+  .review-slider__location {
+    color: #666;
+    font-size: 0.9em;
+  }
+
   .review-slider__button {
-    width: 30px;
-    height: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 1px solid #ddd;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
   }
-}
 
-.deferred-media__poster {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  border-radius: calc(var(--border-radius) - var(--border-width));
-}
+  .review-slider__button:hover {
+    background: #f5f5f5;
+  }
 
-.media > .deferred-media__poster {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .review-slider__button--prev {
+    left: 1%;
+  }
 
-.deferred-media__poster img {
-  width: auto;
-  max-width: 100%;
-  height: 100%;
-}
+  .review-slider__button--next {
+    right: 1%;
+  }
 
-.deferred-media {
-  overflow: hidden;
-}
+  .review-slider__button svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
 
-.deferred-media:not([loaded]) template {
-  z-index: -1;
-}
+  .5-star-rating-icon {
+    max-width: 80px;
+  }
 
-.deferred-media[loaded] > .deferred-media__poster {
-  display: none;
-}
+  .video-wrapper video {
+    width: 100%;
+    max-width: 100%;
+  }
+  .video-wrapper {
+    margin-bottom: 20px;
+  }
 
-.deferred-media__poster:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 var(--media-border-width) rgba(var(--color-foreground), var(--media-border-opacity)), 0 0 0 calc(var(--media-border-width) + 0.3rem) rgb(var(--color-background)),0 0 0 calc(var(--media-border-width) + 0.5rem) rgba(var(--color-foreground),.5);
-  border-radius: calc(var(--media-radius) - var(--media-border-width));
-}
+  .review-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2.5;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
 
-.deferred-media__poster:focus {
-  outline: none;
-  box-shadow: 0 0 0 var(--media-border-width) rgba(var(--color-foreground), var(--media-border-opacity)), 0 0 0 calc(var(--media-border-width) + 0.3rem) rgb(var(--color-background)),0 0 0 calc(var(--media-border-width) + 0.5rem) rgba(var(--color-foreground),.5);
-  border-radius: calc(var(--media-radius) - var(--media-border-width));
-}
+  .review-cta {
+    padding-top: 20px;
 
-.global-media-settings--full-width .deferred-media__poster,
-.global-media-settings--full-width .deferred-media__poster:is(:focus, :focus-visible) {
-  border-radius: 0;
-}
+  }
 
-/* outline styling for Windows High Contrast Mode */
-@media (forced-colors: active) {
+  @media screen and (max-width: 767px) {
+    .review-slider__slide {
+      flex: 0 0 calc(100% / 1);
+    }
+
+    .review-slider__container {
+      padding: 0 30px;
+    }
+
+    .review-slider__button {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .deferred-media__poster {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: calc(var(--border-radius) - var(--border-width));
+  }
+
+  .media > .deferred-media__poster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .deferred-media__poster img {
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .deferred-media {
+    overflow: hidden;
+  }
+
+  .deferred-media:not([loaded]) template {
+    z-index: -1;
+  }
+
+  .deferred-media[loaded] > .deferred-media__poster {
+    display: none;
+  }
+
+  .deferred-media__poster:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 var(--media-border-width) rgba(var(--color-foreground), var(--media-border-opacity)), 0 0 0 calc(var(--media-border-width) + 0.3rem) rgb(var(--color-background)),0 0 0 calc(var(--media-border-width) + 0.5rem) rgba(var(--color-foreground),.5);
+    border-radius: calc(var(--media-radius) - var(--media-border-width));
+  }
+
   .deferred-media__poster:focus {
-    outline: transparent solid 1px;
+    outline: none;
+    box-shadow: 0 0 0 var(--media-border-width) rgba(var(--color-foreground), var(--media-border-opacity)), 0 0 0 calc(var(--media-border-width) + 0.3rem) rgb(var(--color-background)),0 0 0 calc(var(--media-border-width) + 0.5rem) rgba(var(--color-foreground),.5);
+    border-radius: calc(var(--media-radius) - var(--media-border-width));
   }
-}
-.deferred-media__poster:focus:not(:focus-visible) {
-  outline: 0;
-  box-shadow: none;
-}
 
-.deferred-media__poster-button {
-  background-color: rgb(var(--color-background));
-  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
-  border-radius: 50%;
-  color: rgb(var(--color-foreground));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 6.2rem;
-  width: 6.2rem;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform var(--duration-short) ease, color var(--duration-short) ease;
-  z-index: 1;
-}
+  .global-media-settings--full-width .deferred-media__poster,
+  .global-media-settings--full-width .deferred-media__poster:is(:focus, :focus-visible) {
+    border-radius: 0;
+  }
 
-.deferred-media__poster-button:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-}
+  /* outline styling for Windows High Contrast Mode */
+  @media (forced-colors: active) {
+    .deferred-media__poster:focus {
+      outline: transparent solid 1px;
+    }
+  }
+  .deferred-media__poster:focus:not(:focus-visible) {
+    outline: 0;
+    box-shadow: none;
+  }
 
-.deferred-media__poster-button .icon {
-  width: 2rem;
-  height: 2rem;
-}
+  .deferred-media__poster-button {
+    background-color: rgb(var(--color-background));
+    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+    border-radius: 50%;
+    color: rgb(var(--color-foreground));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6.2rem;
+    width: 6.2rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform var(--duration-short) ease, color var(--duration-short) ease;
+    z-index: 1;
+  }
 
-.deferred-media__poster-button .icon-play {
-  margin-left: 0.2rem;
-}
-.video-section__media {
-  --ratio-percent: 56.25%;
-  position: relative;
-  padding-bottom: calc(var(--ratio-percent) - var(--media-border-width));
-}
+  .deferred-media__poster-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 
-.video-section__media.global-media-settings--full-width {
-  padding-bottom: var(--ratio-percent);
-}
+  .deferred-media__poster-button .icon {
+    width: 2rem;
+    height: 2rem;
+  }
 
-.video-section__media.deferred-media {
-  box-shadow: var(--media-shadow-horizontal-offset) var(--media-shadow-vertical-offset) var(--media-shadow-blur-radius) rgba(var(--color-shadow), var(--media-shadow-opacity));
-}
+  .deferred-media__poster-button .icon-play {
+    margin-left: 0.2rem;
+  }
+  .video-section__media {
+    --ratio-percent: 56.25%;
+    position: relative;
+    padding-bottom: calc(var(--ratio-percent) - var(--media-border-width));
+  }
 
-.video-section__media.deferred-media:after {
-  content: none;
-}
+  .video-section__media.global-media-settings--full-width {
+    padding-bottom: var(--ratio-percent);
+  }
 
-.video-section__poster.deferred-media__poster:focus {
-  outline-offset: 0.3rem;
-}
+  .video-section__media.deferred-media {
+    box-shadow: var(--media-shadow-horizontal-offset) var(--media-shadow-vertical-offset) var(--media-shadow-blur-radius) rgba(var(--color-shadow), var(--media-shadow-opacity));
+  }
 
-.video-section__media iframe {
-  background-color: rgba(var(--color-foreground), 0.03);
-  border: 0;
-}
+  .video-section__media.deferred-media:after {
+    content: none;
+  }
 
-.video-section__poster,
-.video-section__media iframe,
-.video-section__media video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
+  .video-section__poster.deferred-media__poster:focus {
+    outline-offset: 0.3rem;
+  }
 
-.video-section__media video {
-  background: #000000;
-}
+  .video-section__media iframe {
+    background-color: rgba(var(--color-foreground), 0.03);
+    border: 0;
+  }
 
-.video-section__media.media-fit-cover video {
-  object-fit: cover;
-}
+  .video-section__poster,
+  .video-section__media iframe,
+  .video-section__media video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 
+  .video-section__media video {
+    background: #000000;
+  }
+
+  .video-section__media.media-fit-cover video {
+    object-fit: cover;
+  }
 </style>
 
 <section class="review-slider section-{{ section.id }}-padding" data-review-slider>
   {% if section.settings.heading != blank %}
-  <h2 class="review-slider__heading h1">{{ section.settings.heading }}</h2>
+    <h2 class="review-slider__heading h1">{{ section.settings.heading }}</h2>
   {% endif %}
   {% if section.settings.subheading != blank %}
-  <div class="review-slider__subheading">
-    <p>{{ section.settings.subheading }}</p>
-  </div>
-
+    <div class="review-slider__subheading">
+      <p>{{ section.settings.subheading }}</p>
+    </div>
   {% endif %}
 
   <div class="review-slider__container">
@@ -303,192 +299,207 @@
 
     <div class="review-slider__track" data-slider-track>
       {% for block in section.blocks %}
-      {% case block.type %}
+        {% case block.type %}
+          {% when 'image' %}
+            <div class="review-slider__slide" {{ block.shopify_attributes }}>
+              <div class="review-slider__content">
+                {% if block.settings.image != blank %}
+                  <img
+                    src="{{ block.settings.image | image_url: height: 800 }}"
+                    alt="{{ block.settings.image.alt | escape }}"
+                    loading="lazy"
+                    width="{{ block.settings.image.width }}"
+                    height="{{ block.settings.image.height }}"
+                    class="review-image"
+                  >
+                {% else %}
+                  <div class="review-image">
+                    {{ 'product-1' | placeholder_svg_tag }}
+                  </div>
+                {% endif %}
 
-      {% when 'image' %}
-      <div class="review-slider__slide" {{ block.shopify_attributes }}>
-        <div class="review-slider__content">
-          {% if block.settings.image != blank %}
-          <img src="{{ block.settings.image | image_url: height: 800 }}" alt="{{ block.settings.image.alt | escape }}"
-            loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}"
-            class="review-image">
-          {% else %}
-          <div class="review-image">
-            {{ 'product-1' | placeholder_svg_tag }}
-          </div>
-          {% endif %}
-
-          <img src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402" width="100"
-            height="20">
-          <div class="review-slider__text">
-            {{ block.settings.review_text }}
-          </div>
-
-          {% if block.settings.author != blank %}
-          <div class="review-slider__author">
-            {{ block.settings.author }}
-          </div>
-          {% endif %}
-          {% if block.settings.location != blank %}
-          <div class="review-slider__location">
-            {{ block.settings.location }}
-          </div>
-          {% endif %}
-          {% if block.settings.cta_text != blank %}
-          <div class="review-cta">
-            <a href="{{ block.settings.cta_link }}">
-              {{ block.settings.cta_text }}
-            </a>
-          </div>
-          {% endif %}
-        </div>
-      </div>
-
-      {% when 'video' %}
-        <div class="review-slider__slide" {{ block.shopify_attributes }}>
-          <div class="review-slider__content">
-            <div class="video-wrapper" data-autoplay="{{ block.settings.autoplay }}">
-              {%- liquid 
-                assign video_url = block.settings.video_url
-                assign video = block.settings.video
-                assign poster = block.settings.video.preview_image
-                assign video_id = ""
-                
-                if video_url != blank
-                  if video_url.type == 'youtube'
-                    assign video_id = video_url.id
-                  elsif video_url.type == 'vimeo'
-                    assign video_id = video_url.id
-                  endif
-                endif
-              -%}
-      
-              <noscript>
-                <div class="video-section__media"
-                  {% if poster != blank %}
-                    style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
-                  {% endif %}
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402"
+                  width="100"
+                  height="20"
                 >
-                  {%- if video == null and video_url != blank -%}
-                    <a href="{{ video_url }}" class="video-section__poster media media--transparent">
-                      {%- if poster != blank -%}
-                        {{ poster | image_url: width: 1100 | image_tag: 
-                          loading: 'lazy',
-                          sizes: "100vw",
-                          widths: '375, 750, 1100'
+                <div class="review-slider__text">
+                  {{ block.settings.review_text }}
+                </div>
+
+                {% if block.settings.author != blank %}
+                  <div class="review-slider__author">
+                    {{ block.settings.author }}
+                  </div>
+                {% endif %}
+                {% if block.settings.location != blank %}
+                  <div class="review-slider__location">
+                    {{ block.settings.location }}
+                  </div>
+                {% endif %}
+                {% if block.settings.cta_text != blank %}
+                  <div class="review-cta">
+                    <a href="{{ block.settings.cta_link }}">
+                      {{ block.settings.cta_text }}
+                    </a>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+
+          {% when 'video' %}
+            <div class="review-slider__slide" {{ block.shopify_attributes }}>
+              <div class="review-slider__content">
+                <div class="video-wrapper" data-autoplay="{{ block.settings.autoplay }}">
+                  {%- liquid
+                    assign video_url = block.settings.video_url
+                    assign video = block.settings.video
+                    assign poster = block.settings.video.preview_image
+                    assign video_id = ''
+
+                    if video_url != blank
+                      if video_url.type == 'youtube'
+                        assign video_id = video_url.id
+                      elsif video_url.type == 'vimeo'
+                        assign video_id = video_url.id
+                      endif
+                    endif
+                  -%}
+
+                  <noscript>
+                    <div
+                      class="video-section__media"
+                      {% if poster != blank %}
+                        style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
+                      {% endif %}
+                    >
+                      {%- if video == null and video_url != blank -%}
+                        <a href="{{ video_url }}" class="video-section__poster media media--transparent">
+                          {%- if poster != blank -%}
+                            {{
+                              poster
+                              | image_url: width: 1100
+                              | image_tag: loading: 'lazy', sizes: '100vw', widths: '375, 750, 1100'
+                            }}
+                          {%- endif -%}
+                        </a>
+                      {%- else -%}
+                        {{
+                          video
+                          | video_tag:
+                            image_size: '1100x',
+                            loop: block.settings.enable_video_looping,
+                            controls: true,
+                            muted: false
                         }}
                       {%- endif -%}
-                    </a>
-                  {%- else -%}
-                    {{ video | video_tag:
-                      image_size: "1100x",
-                      loop: block.settings.enable_video_looping,
-                      controls: true,
-                      muted: false
-                    }}
-                  {%- endif -%}
+                    </div>
+                  </noscript>
+
+                  <deferred-media
+                    class="video-section__media deferred-media no-js-hidden"
+                    data-media-id="{{ video_id }}"
+                    {% if poster != blank %}
+                      style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
+                    {% endif %}
+                  >
+                    <button
+                      id="Deferred-Poster-Modal-{{ video_id }}"
+                      class="video-section__poster media deferred-media__poster media--landscape"
+                      type="button"
+                    >
+                      {%- if poster != blank -%}
+                        {{
+                          poster
+                          | image_url: width: 1100
+                          | image_tag: loading: 'lazy', sizes: '100vw', widths: '375, 750, 1100'
+                        }}
+                      {%- endif -%}
+                      <span class="deferred-media__poster-button motion-reduce">
+                        {%- render 'icon-play' -%}
+                      </span>
+                    </button>
+
+                    <template>
+                      {%- if video == null and video_url != blank -%}
+                        {%- liquid
+                          assign loop = ''
+                          if block.settings.enable_video_looping
+                            assign loop = '&loop=1&playlist=' | append: video_id
+                          endif
+                        -%}
+
+                        {%- if video_url.type == 'youtube' -%}
+                          <iframe
+                            src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1{{ loop }}"
+                            class="js-youtube"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen
+                          ></iframe>
+                        {%- else -%}
+                          <iframe
+                            src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1{{ loop }}"
+                            class="js-vimeo"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen
+                          ></iframe>
+                        {%- endif -%}
+                      {%- else -%}
+                        {{
+                          video
+                          | video_tag:
+                            image_size: '1100x',
+                            autoplay: true,
+                            loop: block.settings.enable_video_looping,
+                            controls: true,
+                            muted: false
+                        }}
+                      {%- endif -%}
+                    </template>
+                  </deferred-media>
                 </div>
-              </noscript>
-      
-              <deferred-media class="video-section__media deferred-media no-js-hidden"
-                data-media-id="{{ video_id }}"
-                {% if poster != blank %}
-                  style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
-                {% endif %}
-              >
-                <button
-                  id="Deferred-Poster-Modal-{{ video_id }}"
-                  class="video-section__poster media deferred-media__poster media--landscape"
-                  type="button"
+
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402"
+                  width="100"
+                  height="20"
                 >
-                  {%- if poster != blank -%}
-                    {{ poster | image_url: width: 1100 | image_tag:
-                      loading: 'lazy',
-                      sizes: "100vw",
-                      widths: '375, 750, 1100'
-                    }}
-                  {%- endif -%}
-                  <span class="deferred-media__poster-button motion-reduce">
-                    {%- render 'icon-play' -%}
-                  </span>
-                </button>
-                
-                <template>
-                  {%- if video == null and video_url != blank -%}
-                    {%- liquid
-                      assign loop = ''
-                      if block.settings.enable_video_looping
-                        assign loop = '&loop=1&playlist=' | append: video_id
-                      endif
-                    -%}
-                    
-                    {%- if video_url.type == 'youtube' -%}
-                      <iframe
-                        src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1{{ loop }}"
-                        class="js-youtube"
-                        allow="autoplay; encrypted-media"
-                        allowfullscreen
-                      ></iframe>
-                    {%- else -%}
-                      <iframe
-                        src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1{{ loop }}"
-                        class="js-vimeo"
-                        allow="autoplay; encrypted-media"
-                        allowfullscreen
-                      ></iframe>
-                    {%- endif -%}
-                  {%- else -%}
-                    {{ video | video_tag:
-                      image_size: "1100x",
-                      autoplay: true,
-                      loop: block.settings.enable_video_looping,
-                      controls: true,
-                      muted: false
-                    }}
-                  {%- endif -%}
-                </template>
-              </deferred-media>
+
+                <div class="review-slider__text">
+                  {{ block.settings.review_text }}
+                </div>
+
+                {% if block.settings.author != blank %}
+                  <div class="review-slider__author">
+                    {{ block.settings.author }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.location != blank %}
+                  <div class="review-slider__location">
+                    {{ block.settings.location }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.cta_text != blank %}
+                  <div class="review-cta">
+                    <a href="{{ block.settings.cta_link }}">
+                      {{ block.settings.cta_text }}
+                    </a>
+                  </div>
+                {% endif %}
+              </div>
             </div>
-      
-            <img src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402" width="100" height="20">
-            
-            <div class="review-slider__text">
-              {{ block.settings.review_text }}
-            </div>
-      
-            {% if block.settings.author != blank %}
-              <div class="review-slider__author">
-                {{ block.settings.author }}
-              </div>
-            {% endif %}
-            
-            {% if block.settings.location != blank %}
-              <div class="review-slider__location">
-                {{ block.settings.location }}
-              </div>
-            {% endif %}
-            
-            {% if block.settings.cta_text != blank %}
-              <div class="review-cta">
-                <a href="{{ block.settings.cta_link }}">
-                  {{ block.settings.cta_text }}
-                </a>
-              </div>
-            {% endif %}
-          </div>
-        </div>
 
-      {% else %}
+          {% else %}
 
-      {% endcase %}
+        {% endcase %}
 
-      {% comment %} IMAGE {% endcomment %}
-
+        {% comment %} IMAGE {% endcomment %}
       {% endfor %}
     </div>
   </div>
 </section>
-
 
 <script>
 class ReviewSlider {
@@ -671,8 +682,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-
-
 {% schema %}
 {
   "name": "🔥 Testimonial Slider",
@@ -749,7 +758,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "type": "image",
       "name": "Image",
       "settings": [
-        
+
         {
           "type": "image_picker",
           "id": "image",
