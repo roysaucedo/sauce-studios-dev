@@ -339,6 +339,54 @@
         "padding_bottom": 100
       }
     },
+    "section_comparison_table_6xxTgA": {
+      "type": "section-comparison-table",
+      "blocks": {
+        "row_LFiwDq": {
+          "type": "row",
+          "settings": {
+            "feature": "<p>Feature 1 goes here</p>",
+            "icon_type_1": "check",
+            "icon_type_2": "x"
+          }
+        },
+        "row_XAyGrV": {
+          "type": "row",
+          "settings": {
+            "feature": "<p>Feature 2 goes here</p>",
+            "icon_type_1": "check",
+            "icon_type_2": "x"
+          }
+        },
+        "row_J7B3ca": {
+          "type": "row",
+          "settings": {
+            "feature": "<p>Feature 3 goes here</p>",
+            "icon_type_1": "check",
+            "icon_type_2": "x"
+          }
+        }
+      },
+      "block_order": [
+        "row_LFiwDq",
+        "row_XAyGrV",
+        "row_J7B3ca"
+      ],
+      "settings": {
+        "heading": "Comparison Table Section",
+        "column_1_heading": "Heading",
+        "logo_size": 50,
+        "column_3_heading": "Heading",
+        "show_table_border": true,
+        "check_icon_color": "#209720",
+        "x_icon_color": "#DD2222",
+        "second_column_bg_color": "#fafafa",
+        "table_header_bg_color": "#fafafa",
+        "row_hover_bg_color": "#fafafa",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "tabs_T98P8p": {
       "type": "tabs",
       "settings": {
@@ -584,6 +632,7 @@
     "features_showcase_BViKyN",
     "flexible_grid_HgU9ab",
     "countdown_MmRNnT",
+    "section_comparison_table_6xxTgA",
     "tabs_T98P8p",
     "section_ig_story_bXdHNV",
     "reviews_slider_aNUjDJ"
