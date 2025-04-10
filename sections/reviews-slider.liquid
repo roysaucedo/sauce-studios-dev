@@ -36,6 +36,11 @@
     transition: transform 0.3s ease-in-out;
   }
 
+  .review-slider-{{ section.id }}__track--dragging {
+    transition: none;
+    cursor: grabbing;
+  }
+
   .review-slider-{{ section.id }}__slide {
     flex: 0 0 calc(100% / {{ section.settings.desktop_slides_to_show }});
     padding: 0 15px;
@@ -212,10 +217,10 @@
     class ReviewSlider_{{ section.id }} {
       constructor(element) {
         this.slider = element;
-        this.track = this.slider.querySelector('[data-slider-track-{{ section.id }}]');
+        this.track = element.querySelector('[data-slider-track-{{ section.id }}]');
         this.slides = Array.from(this.track.children);
-        this.prevButton = this.slider.querySelector('[data-slider-prev-{{ section.id }}]');
-        this.nextButton = this.slider.querySelector('[data-slider-next-{{ section.id }}]');
+        this.prevButton = element.querySelector('[data-slider-prev-{{ section.id }}]');
+        this.nextButton = element.querySelector('[data-slider-next-{{ section.id }}]');
         this.currentIndex = 0;
         
         // Drag state variables
@@ -278,11 +283,11 @@
         // Save the current transform position
         const transform = window.getComputedStyle(this.track).transform;
         if (transform !== 'none') {
-          this.prevTranslate = parseInt(transform.split(',')[4].trim());
+          this.prevTranslate = parseInt(transform.split(',')[4].trim()) || 0;
         }
         
         // Add dragging class for visual feedback
-        this.track.classList.add('dragging-{{ section.id }}');
+        this.track.classList.add('review-slider-{{ section.id }}__track--dragging');
       }
       
       drag(event) {
@@ -310,7 +315,7 @@
         this.isDragging = false;
         
         // Remove dragging class
-        this.track.classList.remove('dragging-{{ section.id }}');
+        this.track.classList.remove('review-slider-{{ section.id }}__track--dragging');
         
         // Calculate which slide to snap to
         const slideWidth = this.track.offsetWidth / this.slidesPerView;
@@ -384,8 +389,10 @@
     
     // Initialize all sliders on the page
     document.addEventListener('DOMContentLoaded', () => {
-      const sliders = document.querySelectorAll('[data-review-slider-{{ section.id }}]');
-      sliders.forEach(slider => new ReviewSlider_{{ section.id }}(slider));
+      const slider = document.querySelector('[data-review-slider-{{ section.id }}]');
+      if (slider) {
+        new ReviewSlider_{{ section.id }}(slider);
+      }
     });
 </script>
 
