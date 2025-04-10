@@ -36,7 +36,7 @@
         "image_CUeeVQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/chrome-engine-close-up.jpg",
+            "image": "shopify://shop_images/daniel-Rgj8Fdd5l3o-unsplash_2_1.jpg",
             "menu_text": "Catalog",
             "order": "2",
             "column_span": "1",
@@ -46,9 +46,9 @@
         "image_a9Lwwt": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/snow-boarder-on-snowy-mountain.jpg",
+            "image": "shopify://shop_images/oscar-aragon-uSyy9jljO3s-unsplash.jpg",
             "menu_text": "Catalog",
-            "order": "3",
+            "order": "0",
             "column_span": "1",
             "aspect_ratio": "1 / 1"
           }
@@ -56,7 +56,7 @@
         "image_d87b7p": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water.jpg",
+            "image": "shopify://shop_images/photo-1613514785940-daed07799d9b.jpg",
             "menu_text": "Mega Menu",
             "order": "4",
             "column_span": "3",
