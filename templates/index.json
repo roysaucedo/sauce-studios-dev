@@ -339,63 +339,6 @@
         "padding_bottom": 100
       }
     },
-    "section_comparison_table_6xxTgA": {
-      "type": "section-comparison-table",
-      "blocks": {
-        "row_LFiwDq": {
-          "type": "row",
-          "settings": {
-            "feature": "<p>Feature 1 goes here</p>",
-            "icon_type_1": "check",
-            "icon_type_2": "x"
-          }
-        },
-        "row_XAyGrV": {
-          "type": "row",
-          "settings": {
-            "feature": "<p>Feature 2 goes here</p>",
-            "icon_type_1": "check",
-            "icon_type_2": "x"
-          }
-        },
-        "row_J7B3ca": {
-          "type": "row",
-          "settings": {
-            "feature": "<p>Feature 3 goes here</p>",
-            "icon_type_1": "check",
-            "icon_type_2": "x"
-          }
-        }
-      },
-      "block_order": [
-        "row_LFiwDq",
-        "row_XAyGrV",
-        "row_J7B3ca"
-      ],
-      "settings": {
-        "heading": "Comparison Table Section",
-        "column_1_heading": "Us vs Them",
-        "image": "shopify://shop_images/pinata.png",
-        "logo_size": 50,
-        "column_3_heading": "Other guys",
-        "show_table_border": true,
-        "check_icon_color": "#209720",
-        "x_icon_color": "#DD2222",
-        "second_column_bg_color": "#fafafa",
-        "table_header_bg_color": "#fafafa",
-        "row_hover_bg_color": "#fafafa",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "tabs_T98P8p": {
-      "type": "tabs",
-      "settings": {
-        "max_width": 1500,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "section_ig_story_bXdHNV": {
       "type": "section-ig-story",
       "blocks": {
@@ -441,35 +384,49 @@
             "collection_title": "TITLE GOES HERE"
           }
         },
-        "story_xdVDQd": {
+        "story_DnfJmy": {
           "type": "story",
           "settings": {
             "collection_link": "",
             "collection_title": "TITLE GOES HERE"
           }
         },
-        "story_w9k4DA": {
+        "story_A4GaDE": {
           "type": "story",
           "settings": {
             "collection_link": "",
             "collection_title": "TITLE GOES HERE"
           }
         },
-        "story_37cjDg": {
+        "story_QnUCp4": {
           "type": "story",
           "settings": {
             "collection_link": "",
             "collection_title": "TITLE GOES HERE"
           }
         },
-        "story_jEj9FG": {
+        "story_HQzyHf": {
           "type": "story",
           "settings": {
             "collection_link": "",
             "collection_title": "TITLE GOES HERE"
           }
         },
-        "story_cKPWJe": {
+        "story_RMFLnW": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_h6adLR": {
+          "type": "story",
+          "settings": {
+            "collection_link": "",
+            "collection_title": "TITLE GOES HERE"
+          }
+        },
+        "story_K7CDmw": {
           "type": "story",
           "settings": {
             "collection_link": "",
@@ -526,11 +483,13 @@
         "story_N8Nyb6",
         "story_bm9FcA",
         "story_AYjxDK",
-        "story_xdVDQd",
-        "story_w9k4DA",
-        "story_37cjDg",
-        "story_jEj9FG",
-        "story_cKPWJe",
+        "story_DnfJmy",
+        "story_A4GaDE",
+        "story_QnUCp4",
+        "story_HQzyHf",
+        "story_RMFLnW",
+        "story_h6adLR",
+        "story_K7CDmw",
         "story_L6b8FL",
         "story_kNmUFz",
         "story_KeAi9y",
@@ -541,7 +500,7 @@
       "custom_css": [],
       "settings": {
         "background_color": "#ffffff",
-        "sticky": false,
+        "sticky": true,
         "image_size": 80,
         "text_size": 9,
         "text_color": "#000000",
@@ -549,8 +508,101 @@
         "border_color": "#000000",
         "show_desktop": true,
         "show_mobile": true,
-        "padding_top": 52,
-        "padding_bottom": 48
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "tabs_MihXw8": {
+      "type": "tabs",
+      "blocks": {
+        "tab_zWWGBg": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Feature 1",
+            "tab_content": "<p>This is the content for the first tab. It's active by default.</p>"
+          }
+        },
+        "tab_UWc4jD": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Feature 2",
+            "tab_content": "<p>This is the content for the second tab.</p><p>It has some additional information.</p>"
+          }
+        },
+        "tab_ePaidw": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Feature 3",
+            "tab_content": "<p>Here's the content for the third tablude other components as well.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_zWWGBg",
+        "tab_UWc4jD",
+        "tab_ePaidw"
+      ],
+      "settings": {
+        "max_width": 1500,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "section_comparison_table_6xxTgA": {
+      "type": "section-comparison-table",
+      "blocks": {
+        "row_LFiwDq": {
+          "type": "row",
+          "settings": {
+            "feature": "<p>Feature 1 goes here</p>",
+            "icon_type_1": "check",
+            "icon_type_2": "x"
+          }
+        },
+        "row_XAyGrV": {
+          "type": "row",
+          "settings": {
+            "feature": "<p>Feature 2 goes here</p>",
+            "icon_type_1": "check",
+            "icon_type_2": "x"
+          }
+        },
+        "row_J7B3ca": {
+          "type": "row",
+          "settings": {
+            "feature": "<p>Feature 3 goes here</p>",
+            "icon_type_1": "check",
+            "icon_type_2": "x"
+          }
+        }
+      },
+      "block_order": [
+        "row_LFiwDq",
+        "row_XAyGrV",
+        "row_J7B3ca"
+      ],
+      "settings": {
+        "heading": "Comparison Table Section",
+        "column_1_heading": "Us vs Them",
+        "image": "shopify://shop_images/pinata.png",
+        "logo_size": 50,
+        "column_3_heading": "Other guys",
+        "show_table_border": true,
+        "check_icon_color": "#209720",
+        "x_icon_color": "#DD2222",
+        "second_column_bg_color": "#fafafa",
+        "table_header_bg_color": "#fafafa",
+        "row_hover_bg_color": "#fafafa",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "tabs_T98P8p": {
+      "type": "tabs",
+      "settings": {
+        "max_width": 1500,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "reviews_slider_aNUjDJ": {
@@ -633,9 +685,10 @@
     "features_showcase_BViKyN",
     "flexible_grid_HgU9ab",
     "countdown_MmRNnT",
+    "section_ig_story_bXdHNV",
+    "tabs_MihXw8",
     "section_comparison_table_6xxTgA",
     "tabs_T98P8p",
-    "section_ig_story_bXdHNV",
     "reviews_slider_aNUjDJ"
   ]
 }
