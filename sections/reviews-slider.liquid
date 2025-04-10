@@ -1,73 +1,96 @@
 {%- style -%}
   .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    }
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-    @media screen and (min-width: 750px) {
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-      }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+  }
 {%- endstyle -%}
 
 <style>
-  .review-slider-{{ section.id }} {
+  /* Container and layout */
+  .slider-{{ section.id }} {
     position: relative;
     padding: 40px 0;
   }
 
-  .review-slider-{{ section.id }}__heading {
-    text-align: center;
-  }
-  .review-slider-{{ section.id }}__subheading {
+  .slider-{{ section.id }}__heading,
+  .slider-{{ section.id }}__subheading {
     text-align: center;
   }
 
-  .review-slider-{{ section.id }}__container {
+  .slider-{{ section.id }}__container {
     position: relative;
     overflow: hidden;
     padding: 0 40px;
   }
 
-  .review-slider-{{ section.id }}__track {
+  /* Track and slides */
+  .slider-{{ section.id }}__track {
     display: flex;
     transition: transform 0.3s ease-in-out;
   }
 
-  .review-slider-{{ section.id }}__track--dragging {
+  .slider-{{ section.id }}__track--dragging {
     transition: none;
     cursor: grabbing;
   }
 
-  .review-slider-{{ section.id }}__slide {
+  .slider-{{ section.id }}__slide {
     flex: 0 0 calc(100% / {{ section.settings.desktop_slides_to_show }});
     padding: 0 15px;
     box-sizing: border-box;
   }
 
-  .review-slider-{{ section.id }}__content {
+  /* Content styling */
+  .slider-{{ section.id }}__content {
     background: #f7f7f7;
     padding: 20px;
     border-radius: 8px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
-  .review-slider-{{ section.id }}__text {
+  .slider-{{ section.id }}__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2.5;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  .slider-{{ section.id }}__stars {
+    margin-bottom: 10px;
+  }
+
+  .slider-{{ section.id }}__text {
     margin-bottom: 15px;
   }
 
-  .review-slider-{{ section.id }}__author {
+  .slider-{{ section.id }}__author {
     font-weight: bold;
   }
 
-  .review-slider-{{ section.id }}__location {
+  .slider-{{ section.id }}__location {
     color: #666;
     font-size: 0.9em;
+    margin-bottom: 15px;
   }
 
-  .review-slider-{{ section.id }}__button {
+  .slider-{{ section.id }}__cta {
+    margin-top: auto;
+    padding-top: 15px;
+  }
+
+  /* Navigation buttons */
+  .slider-{{ section.id }}__button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -83,88 +106,69 @@
     z-index: 1;
   }
 
-  .review-slider-{{ section.id }}__button:hover {
+  .slider-{{ section.id }}__button:hover {
     background: #f5f5f5;
   }
 
-  .review-slider-{{ section.id }}__button--prev {
+  .slider-{{ section.id }}__button--prev {
     left: 1%;
   }
 
-  .review-slider-{{ section.id }}__button--next {
+  .slider-{{ section.id }}__button--next {
     right: 1%;
   }
 
-  .review-slider-{{ section.id }}__button svg {
+  .slider-{{ section.id }}__button svg {
     width: 20px;
     height: 20px;
     fill: currentColor;
   }
 
-
-  .review-image-{{ section.id }} {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 2.5;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border-radius: 10px;
-  }
-
-  .review-cta-{{ section.id }} {
-    padding-top: 20px;
-
-  }
-
+  /* Responsive adjustments */
   @media screen and (max-width: 767px) {
-    .review-slider-{{ section.id }}__slide {
+    .slider-{{ section.id }}__slide {
       flex: 0 0 calc(100% / {{ section.settings.mobile_slides_to_show }});
     }
 
-    .review-slider-{{ section.id }}__container {
+    .slider-{{ section.id }}__container {
       padding: 0 30px;
     }
 
-    .review-slider-{{ section.id }}__button {
+    .slider-{{ section.id }}__button {
       width: 30px;
       height: 30px;
     }
   }
 </style>
 
-<section class="review-slider-{{ section.id }} section-{{ section.id }}-padding" data-review-slider-{{ section.id }}>
+<section class="slider-{{ section.id }} section-{{ section.id }}-padding">
   {% if section.settings.heading != blank %}
-    <h2 class="review-slider-{{ section.id }}__heading h1">{{ section.settings.heading }}</h2>
+    <h2 class="slider-{{ section.id }}__heading h1">{{ section.settings.heading }}</h2>
   {% endif %}
+
   {% if section.settings.subheading != blank %}
-    <div class="review-slider-{{ section.id }}__subheading">
+    <div class="slider-{{ section.id }}__subheading">
       <p>{{ section.settings.subheading }}</p>
     </div>
   {% endif %}
 
-  <div class="review-slider-{{ section.id }}__container">
-    <button
-      class="review-slider-{{ section.id }}__button review-slider-{{ section.id }}__button--prev"
-      data-slider-prev-{{ section.id }}
-    >
+  <div class="slider-{{ section.id }}__container">
+    <button class="slider-{{ section.id }}__button slider-{{ section.id }}__button--prev" aria-label="Previous slide">
       <svg viewBox="0 0 24 24">
         <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
       </svg>
     </button>
 
-    <button
-      class="review-slider-{{ section.id }}__button review-slider-{{ section.id }}__button--next"
-      data-slider-next-{{ section.id }}
-    >
+    <button class="slider-{{ section.id }}__button slider-{{ section.id }}__button--next" aria-label="Next slide">
       <svg viewBox="0 0 24 24">
         <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
       </svg>
     </button>
 
-    <div class="review-slider-{{ section.id }}__track" data-slider-track-{{ section.id }}>
+    <div class="slider-{{ section.id }}__track">
       {% for block in section.blocks %}
-        <div class="review-slider-{{ section.id }}__slide" {{ block.shopify_attributes }}>
-          <div class="review-slider-{{ section.id }}__content">
+        <div class="slider-{{ section.id }}__slide" {{ block.shopify_attributes }}>
+          <div class="slider-{{ section.id }}__content">
             {% if block.settings.image != blank %}
               <img
                 src="{{ block.settings.image | image_url: height: 800 }}"
@@ -172,35 +176,41 @@
                 loading="lazy"
                 width="{{ block.settings.image.width }}"
                 height="{{ block.settings.image.height }}"
-                class="review-image-{{ section.id }}"
+                class="slider-{{ section.id }}__image"
               >
             {% else %}
-              <div class="review-image-{{ section.id }}">
+              <div class="slider-{{ section.id }}__image">
                 {{ 'product-1' | placeholder_svg_tag }}
               </div>
             {% endif %}
 
-            <img
-              src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402"
-              width="100"
-              height="20"
-            >
-            <div class="review-slider-{{ section.id }}__text">
+            <div class="slider-{{ section.id }}__stars">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402"
+                width="100"
+                height="20"
+                alt="5 stars"
+              >
+            </div>
+
+            <div class="slider-{{ section.id }}__text">
               {{ block.settings.review_text }}
             </div>
 
             {% if block.settings.author != blank %}
-              <div class="review-slider-{{ section.id }}__author">
+              <div class="slider-{{ section.id }}__author">
                 {{ block.settings.author }}
               </div>
             {% endif %}
+
             {% if block.settings.location != blank %}
-              <div class="review-slider-{{ section.id }}__location">
+              <div class="slider-{{ section.id }}__location">
                 {{ block.settings.location }}
               </div>
             {% endif %}
+
             {% if block.settings.cta_text != blank %}
-              <div class="review-cta-{{ section.id }}">
+              <div class="slider-{{ section.id }}__cta">
                 <a href="{{ block.settings.cta_link }}">
                   {{ block.settings.cta_text }}
                 </a>
@@ -214,186 +224,183 @@
 </section>
 
 <script>
-    class ReviewSlider_{{ section.id }} {
-      constructor(element) {
-        this.slider = element;
-        this.track = element.querySelector('[data-slider-track-{{ section.id }}]');
-        this.slides = Array.from(this.track.children);
-        this.prevButton = element.querySelector('[data-slider-prev-{{ section.id }}]');
-        this.nextButton = element.querySelector('[data-slider-next-{{ section.id }}]');
-        this.currentIndex = 0;
-        
-        // Drag state variables
-        this.isDragging = false;
-        this.startPos = 0;
-        this.currentTranslate = 0;
-        this.prevTranslate = 0;
-        this.dragStartX = 0;
-        this.dragDistance = 0;
-        
-        this.isMobile = window.innerWidth <= 767;
-        this.slidesPerView = this.isMobile ? 
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get elements
+    const section = document.querySelector('.slider-{{ section.id }}');
+    const track = section.querySelector('.slider-{{ section.id }}__track');
+    const slides = Array.from(track.children);
+    const prevButton = section.querySelector('.slider-{{ section.id }}__button--prev');
+    const nextButton = section.querySelector('.slider-{{ section.id }}__button--next');
+    
+    // Configuration
+    let currentIndex = 0;
+    let isMobile = window.innerWidth <= 767;
+    let slidesPerView = isMobile ? 
+      {{ section.settings.mobile_slides_to_show }} : 
+      {{ section.settings.desktop_slides_to_show }};
+    
+    // Drag variables
+    let isDragging = false;
+    let startPosition = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID = 0;
+    let dragDistance = 0;
+    
+    // Initialize slider
+    updateButtonStates();
+    
+    // Event listeners
+    prevButton.addEventListener('click', () => move('prev'));
+    nextButton.addEventListener('click', () => move('next'));
+    
+    // Touch events
+    track.addEventListener('touchstart', dragStart, { passive: false });
+    track.addEventListener('touchmove', drag, { passive: false });
+    track.addEventListener('touchend', dragEnd);
+    
+    // Mouse events
+    track.addEventListener('mousedown', dragStart);
+    track.addEventListener('mousemove', drag);
+    track.addEventListener('mouseup', dragEnd);
+    track.addEventListener('mouseleave', dragEnd);
+    
+    // Prevent context menu on long press
+    track.addEventListener('contextmenu', e => e.preventDefault());
+    
+    // Disable default image drag
+    track.querySelectorAll('img').forEach(img => {
+      img.draggable = false;
+    });
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+      const wasMobile = isMobile;
+      isMobile = window.innerWidth <= 767;
+      
+      if (wasMobile !== isMobile) {
+        slidesPerView = isMobile ? 
           {{ section.settings.mobile_slides_to_show }} : 
           {{ section.settings.desktop_slides_to_show }};
         
-        this.init();
-      }
-      
-      init() {
-        // Original button listeners
-        this.prevButton.addEventListener('click', () => this.slide('prev'));
-        this.nextButton.addEventListener('click', () => this.slide('next'));
-        
-        // Drag event listeners
-        this.track.addEventListener('mousedown', this.dragStart.bind(this));
-        this.track.addEventListener('touchstart', this.dragStart.bind(this));
-        window.addEventListener('mousemove', this.drag.bind(this));
-        window.addEventListener('touchmove', this.drag.bind(this));
-        window.addEventListener('mouseup', this.dragEnd.bind(this));
-        window.addEventListener('touchend', this.dragEnd.bind(this));
-        
-        // Prevent context menu on long press
-        this.track.addEventListener('contextmenu', e => {
-          if (e.cancelable) e.preventDefault();
-        });
-        
-        // Handle resize
-        window.addEventListener('resize', this.handleResize.bind(this));
-        
-        // Disable default image drag
-        this.track.querySelectorAll('img').forEach(img => {
-          img.draggable = false;
-        });
-        
-        // Initial button state
-        this.updateButtonStates();
-      }
-      
-      getPositionX(event) {
-        return event.type.includes('mouse') ? 
-          event.pageX : 
-          event.touches[0].clientX;
-      }
-      
-      dragStart(event) {
-        if (event.cancelable) event.preventDefault();
-        this.isDragging = true;
-        this.dragStartX = this.getPositionX(event);
-        
-        // Save the current transform position
-        const transform = window.getComputedStyle(this.track).transform;
-        if (transform !== 'none') {
-          this.prevTranslate = parseInt(transform.split(',')[4].trim()) || 0;
-        }
-        
-        // Add dragging class for visual feedback
-        this.track.classList.add('review-slider-{{ section.id }}__track--dragging');
-      }
-      
-      drag(event) {
-        if (!this.isDragging) return;
-        
-        const currentPosition = this.getPositionX(event);
-        this.dragDistance = currentPosition - this.dragStartX;
-        
-        // Calculate new position
-        this.currentTranslate = this.prevTranslate + this.dragDistance;
-        
-        // Apply boundaries
-        const slideWidth = this.track.offsetWidth / this.slidesPerView;
-        const maxTranslate = 0;
-        const minTranslate = -slideWidth * (this.slides.length - this.slidesPerView);
-        
-        this.currentTranslate = Math.max(Math.min(this.currentTranslate, maxTranslate), minTranslate);
-        
-        // Apply the transform
-        this.track.style.transform = `translateX(${this.currentTranslate}px)`;
-      }
-      
-      dragEnd() {
-        if (!this.isDragging) return;
-        this.isDragging = false;
-        
-        // Remove dragging class
-        this.track.classList.remove('review-slider-{{ section.id }}__track--dragging');
-        
-        // Calculate which slide to snap to
-        const slideWidth = this.track.offsetWidth / this.slidesPerView;
-        const snapThreshold = slideWidth * 0.2; // 20% threshold for snap
-        
-        if (Math.abs(this.dragDistance) > snapThreshold) {
-          if (this.dragDistance > 0 && this.currentIndex > 0) {
-            this.currentIndex--;
-          } else if (this.dragDistance < 0 && 
-                     this.currentIndex < this.slides.length - this.slidesPerView) {
-            this.currentIndex++;
-          }
-        }
-        
-        // Reset drag distance
-        this.dragDistance = 0;
-        
-        // Snap to the closest slide
-        this.updateSliderPosition();
-        this.updateButtonStates();
-      }
-      
-      handleResize() {
-        const wasMobile = this.isMobile;
-        this.isMobile = window.innerWidth <= 767;
-        
-        if (wasMobile !== this.isMobile) {
-          this.slidesPerView = this.isMobile ? 
-            {{ section.settings.mobile_slides_to_show }} : 
-            {{ section.settings.desktop_slides_to_show }};
-          
-          this.currentIndex = 0;
-          this.updateSliderPosition();
-          this.updateButtonStates();
-        }
-      }
-      
-      slide(direction) {
-        if (direction === 'prev' && this.currentIndex > 0) {
-          this.currentIndex--;
-        } else if (direction === 'next' && 
-                   this.currentIndex < this.slides.length - this.slidesPerView) {
-          this.currentIndex++;
-        }
-        
-        this.updateSliderPosition();
-        this.updateButtonStates();
-      }
-      
-      updateSliderPosition() {
-        const slideWidth = this.track.offsetWidth / this.slidesPerView;
-        const offset = -this.currentIndex * slideWidth;
-        this.track.style.transition = 'transform 0.3s ease-out';
-        this.track.style.transform = `translateX(${offset}px)`;
-        
-        // Reset transition after animation
-        setTimeout(() => {
-          this.track.style.transition = 'none';
-        }, 300);
-      }
-      
-      updateButtonStates() {
-        this.prevButton.disabled = this.currentIndex <= 0;
-        this.nextButton.disabled = 
-          this.currentIndex >= this.slides.length - this.slidesPerView;
-        
-        this.prevButton.style.opacity = this.prevButton.disabled ? '0.5' : '1';
-        this.nextButton.style.opacity = this.nextButton.disabled ? '0.5' : '1';
-      }
-    }
-    
-    // Initialize all sliders on the page
-    document.addEventListener('DOMContentLoaded', () => {
-      const slider = document.querySelector('[data-review-slider-{{ section.id }}]');
-      if (slider) {
-        new ReviewSlider_{{ section.id }}(slider);
+        currentIndex = 0;
+        moveSlider();
+        updateButtonStates();
       }
     });
+    
+    // Move slider to the given direction
+    function move(direction) {
+      if (direction === 'prev' && currentIndex > 0) {
+        currentIndex--;
+      } else if (direction === 'next' && 
+                currentIndex < slides.length - slidesPerView) {
+        currentIndex++;
+      }
+      
+      moveSlider();
+      updateButtonStates();
+    }
+    
+    // Update slider position
+    function moveSlider() {
+      const slideWidth = track.offsetWidth / slidesPerView;
+      const offset = -currentIndex * slideWidth;
+      
+      track.style.transition = 'transform 0.3s ease-out';
+      track.style.transform = `translateX(${offset}px)`;
+      
+      // Reset transition after animation
+      setTimeout(() => {
+        track.style.transition = '';
+      }, 300);
+    }
+    
+    // Update button states
+    function updateButtonStates() {
+      prevButton.disabled = currentIndex <= 0;
+      nextButton.disabled = currentIndex >= slides.length - slidesPerView;
+      
+      prevButton.style.opacity = prevButton.disabled ? '0.5' : '1';
+      nextButton.style.opacity = nextButton.disabled ? '0.5' : '1';
+    }
+    
+    // Drag functions
+    function dragStart(e) {
+      if (e.type === 'touchstart') {
+        startPosition = e.touches[0].clientX;
+      } else {
+        startPosition = e.clientX;
+        e.preventDefault();
+      }
+      
+      isDragging = true;
+      
+      // Get current transform value
+      const transform = window.getComputedStyle(track).getPropertyValue('transform');
+      if (transform !== 'none') {
+        prevTranslate = parseInt(transform.split(',')[4]) || 0;
+      } else {
+        prevTranslate = 0;
+      }
+      
+      track.classList.add('slider-{{ section.id }}__track--dragging');
+      cancelAnimationFrame(animationID);
+    }
+    
+    function drag(e) {
+      if (!isDragging) return;
+      
+      // Calculate move distance
+      let currentPosition = 0;
+      if (e.type === 'touchmove') {
+        currentPosition = e.touches[0].clientX;
+        e.preventDefault();
+      } else {
+        currentPosition = e.clientX;
+      }
+      
+      dragDistance = currentPosition - startPosition;
+      currentTranslate = prevTranslate + dragDistance;
+      
+      // Set boundaries
+      const slideWidth = track.offsetWidth / slidesPerView;
+      const maxTranslate = 0;
+      const minTranslate = -slideWidth * (slides.length - slidesPerView);
+      
+      currentTranslate = Math.max(Math.min(currentTranslate, maxTranslate), minTranslate);
+      
+      // Apply transform
+      track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+    
+    function dragEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      track.classList.remove('slider-{{ section.id }}__track--dragging');
+      
+      // Calculate which slide to snap to
+      const slideWidth = track.offsetWidth / slidesPerView;
+      const moveThreshold = slideWidth * 0.2; // 20% threshold
+      
+      if (Math.abs(dragDistance) > moveThreshold) {
+        if (dragDistance > 0 && currentIndex > 0) {
+          currentIndex--;
+        } else if (dragDistance < 0 && 
+                  currentIndex < slides.length - slidesPerView) {
+          currentIndex++;
+        }
+      }
+      
+      // Reset drag distance
+      dragDistance = 0;
+      
+      // Snap to correct position
+      moveSlider();
+      updateButtonStates();
+    }
+  });
 </script>
 
 {% schema %}
@@ -415,7 +422,7 @@
       "type": "text",
       "id": "subheading",
       "label": "Sub-Heading",
-      "default": "5,000+ Happly Customers!"
+      "default": "5,000+ Happy Customers!"
     },
     {
       "type": "range",
@@ -451,7 +458,7 @@
           "type": "richtext",
           "id": "review_text",
           "label": "Review Text",
-          "default": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>"
+          "default": "<h2>Review Title! (LOVE IT!)</h2><p>Add Review Here</p>"
         },
         {
           "type": "text",
