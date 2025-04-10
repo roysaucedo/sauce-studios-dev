@@ -600,54 +600,54 @@
     "reviews_slider_aNUjDJ": {
       "type": "reviews-slider",
       "blocks": {
-        "image_hdXMUe": {
-          "type": "image",
+        "review_idTD4c": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/daniel-Rgj8Fdd5l3o-unsplash_2_1.jpg",
+            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
+            "author": "Roy Sauce",
+            "location": "Los Angeles, CA",
+            "cta_link": "",
+            "cta_text": "Shop now →"
+          }
+        },
+        "review_fHCakB": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/robertus-benny-murdhani-jAankA6AXwM-unsplash.jpg",
+            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
+            "author": "Roy Sauce",
+            "location": "Los Angeles, CA",
+            "cta_link": "",
+            "cta_text": "Shop now →"
+          }
+        },
+        "review_kccgHm": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/nik-0yTVA0TIq5o-unsplash.jpg",
+            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
+            "author": "Roy Sauce",
+            "location": "Los Angeles, CA",
+            "cta_link": "",
+            "cta_text": "Shop now →"
+          }
+        },
+        "review_BV8dFE": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/oscar-aragon-uSyy9jljO3s-unsplash.jpg",
+            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
+            "author": "Roy Sauce",
+            "location": "Los Angeles, CA",
+            "cta_link": "",
+            "cta_text": "Shop now →"
+          }
+        },
+        "review_zgCTbj": {
+          "type": "review",
           "settings": {
             "image": "shopify://shop_images/photo-1565299585323-38d6b0865b47_444eba05-2892-4d4e-91d2-e8920800b20f.jpg",
-            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
-            "author": "Roy Sauce",
-            "location": "Los Angeles, CA",
-            "cta_link": "",
-            "cta_text": "Shop now →"
-          }
-        },
-        "image_WBaTJY": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/photo-1551504734-5ee1c4a1479b_101b33e0-e926-4c39-a7c5-76b15374bcf9.jpg",
-            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
-            "author": "Roy Sauce",
-            "location": "Los Angeles, CA",
-            "cta_link": "",
-            "cta_text": "Shop now →"
-          }
-        },
-        "image_drLMHx": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/two-people-surfing-in-blue-choppy-water_10d76fe2-f3cf-4daf-9a68-8ad4b311301f.jpg",
-            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
-            "author": "Roy Sauce",
-            "location": "Los Angeles, CA",
-            "cta_link": "",
-            "cta_text": "Shop now →"
-          }
-        },
-        "image_E3X7ke": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/photo-1586511925558-a4c6376fe65f.jpg",
-            "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
-            "author": "Roy Sauce",
-            "location": "Los Angeles, CA",
-            "cta_link": "",
-            "cta_text": "Shop now →"
-          }
-        },
-        "image_waPrdp": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/photo-1611250188496-e966043a0629_ba3297d2-bccb-4716-9fb3-d5f74538fc37.jpg",
             "review_text": "<h2>Review Title!(LOVE IT!)</h2><p>Add Review Here</p>",
             "author": "Roy Sauce",
             "location": "Los Angeles, CA",
@@ -657,16 +657,17 @@
         }
       },
       "block_order": [
-        "image_hdXMUe",
-        "image_WBaTJY",
-        "image_drLMHx",
-        "image_E3X7ke",
-        "image_waPrdp"
+        "review_idTD4c",
+        "review_fHCakB",
+        "review_kccgHm",
+        "review_BV8dFE",
+        "review_zgCTbj"
       ],
       "settings": {
         "heading": "Customer Reviews",
         "subheading": "500+ Reviews",
-        "desktop_slides_to_show": 3
+        "desktop_slides_to_show": 3,
+        "mobile_slides_to_show": 1
       }
     }
   },
