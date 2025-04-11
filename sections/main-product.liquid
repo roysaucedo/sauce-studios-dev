@@ -183,9 +183,9 @@
               {%- endif -%}
 
             {%- when 'richtext' -%}
-              {%- if block.settings.richtext != blank -%}
+              {%- if block.settings.rich_text != blank -%}
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                  {{- block.settings.richtext -}}
+                  {{- block.settings.rich_text -}}
                 </div>
               {%- endif -%}
 
@@ -700,7 +700,7 @@
       "settings": [
         {
           "type": "richtext",
-          "id": "richtext",
+          "id": "rich_text",
           "default": "<p>Rich Text block</p>",
           "label": "Rich Text"
         }
