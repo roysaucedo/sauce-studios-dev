@@ -439,6 +439,54 @@
             "col_span": "4"
           }
         },
+        "grid_col_JxLUck": {
+          "type": "grid-col",
+          "settings": {
+            "col_image": "shopify://shop_images/photo-1613514785940-daed07799d9b.jpg",
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "Button Link",
+            "button_link": "",
+            "button_style": "button",
+            "col_span": "4"
+          }
+        },
+        "grid_col_xjAwx8": {
+          "type": "grid-col",
+          "settings": {
+            "col_image": "shopify://shop_images/photo-1613514785940-daed07799d9b.jpg",
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "Button Link",
+            "button_link": "",
+            "button_style": "button",
+            "col_span": "4"
+          }
+        },
+        "grid_col_fKVfJj": {
+          "type": "grid-col",
+          "settings": {
+            "col_image": "shopify://shop_images/photo-1613514785940-daed07799d9b.jpg",
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "Button Link",
+            "button_link": "",
+            "button_style": "button",
+            "col_span": "3"
+          }
+        },
+        "grid_col_HYiDjN": {
+          "type": "grid-col",
+          "settings": {
+            "col_image": "shopify://shop_images/photo-1613514785940-daed07799d9b.jpg",
+            "col_heading": "Col 1",
+            "col_content": "<p>This is the content for the first column.</p>",
+            "button_label": "Button Link",
+            "button_link": "",
+            "button_style": "button",
+            "col_span": "3"
+          }
+        },
         "grid_col_PecK9W": {
           "type": "grid-col",
           "settings": {
@@ -448,7 +496,7 @@
             "button_label": "Button Link",
             "button_link": "",
             "button_style": "button",
-            "col_span": "4"
+            "col_span": "3"
           }
         },
         "grid_col_APPJtj": {
@@ -460,7 +508,7 @@
             "button_label": "Button Link",
             "button_link": "",
             "button_style": "button",
-            "col_span": "4"
+            "col_span": "3"
           }
         }
       },
@@ -468,6 +516,10 @@
         "grid_col_QjhYeg",
         "grid_col_WxcTdU",
         "grid_col_yFrqJH",
+        "grid_col_JxLUck",
+        "grid_col_xjAwx8",
+        "grid_col_fKVfJj",
+        "grid_col_HYiDjN",
         "grid_col_PecK9W",
         "grid_col_APPJtj"
       ],
