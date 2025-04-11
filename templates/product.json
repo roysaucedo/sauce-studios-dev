@@ -58,7 +58,9 @@
         },
         "richtext_YWkTMX": {
           "type": "richtext",
-          "settings": {}
+          "settings": {
+            "rich_text": "{{ product.metafields.custom.product_description | metafield_tag }}"
+          }
         },
         "share": {
           "type": "share",
