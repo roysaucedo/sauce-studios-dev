@@ -227,7 +227,7 @@
             "block_heading": "Easy to Use",
             "block_content": "<p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>",
             "block_image": "shopify://shop_images/photo-1565299585323-38d6b0865b47_444eba05-2892-4d4e-91d2-e8920800b20f.jpg",
-            "block_bg": "#f9f9f9",
+            "block_bg": "#f4f0ff",
             "block_text_color": "#333333"
           }
         },
@@ -237,7 +237,7 @@
             "block_heading": "Highly Customizable",
             "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>",
             "block_image": "shopify://shop_images/photo-1599974579688-8dbdd335c77f.jpg",
-            "block_bg": "#f9f9f9",
+            "block_bg": "#f4f0ff",
             "block_text_color": "#333333"
           }
         },
@@ -247,7 +247,7 @@
             "block_heading": "Premium Support",
             "block_content": "<p>Get assistance whenever you need it with our responsive support team.</p>",
             "block_image": "shopify://shop_images/photo-1551504734-5ee1c4a1479b_101b33e0-e926-4c39-a7c5-76b15374bcf9.jpg",
-            "block_bg": "#f9f9f9",
+            "block_bg": "#f4f0ff",
             "block_text_color": "#333333"
           }
         }
@@ -264,7 +264,7 @@
         "button_link": "",
         "button_style": "button",
         "left_column_image": "shopify://shop_images/photo-1586511925558-a4c6376fe65f.jpg",
-        "left_column_bg": "#f4f4f4",
+        "left_column_bg": "#f4f0ff",
         "left_column_text_color": "#333333",
         "desktop_order": "normal",
         "mobile_order": "normal",
@@ -362,7 +362,7 @@
           "settings": {
             "block_heading": "Highly Customizable",
             "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>",
-            "block_bg": "#f4f4f4",
+            "block_bg": "#f4f0ff",
             "block_text_color": "#333333"
           }
         },
@@ -387,7 +387,7 @@
         "button_label": "",
         "button_link": "",
         "button_style": "button",
-        "left_column_bg": "#f4f4f4",
+        "left_column_bg": "#f4f0ff",
         "left_column_text_color": "#333333",
         "desktop_order": "normal",
         "mobile_order": "normal",
@@ -590,7 +590,7 @@
         "show_table_border": true,
         "check_icon_color": "#209720",
         "x_icon_color": "#dd2222",
-        "second_column_bg_color": "#fafafa",
+        "second_column_bg_color": "#f4f0ff",
         "table_header_bg_color": "#fafafa",
         "row_hover_bg_color": "#fafafa",
         "padding_top": 36,
