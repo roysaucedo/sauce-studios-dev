@@ -48,6 +48,9 @@
     height: 100%;
     border-radius: {{ section.settings.content_border_radius }}px;
   }
+  .review-slider__text_div {
+    padding: {{ section.settings.text_div_padding }}px;
+  }
 
   .review-slider__text {
     margin-bottom: 15px;
@@ -169,32 +172,34 @@
               </div>
             {% endif %}
 
-            <img
-              src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402"
-              width="100"
-              height="20"
-            >
-            <div class="review-slider__text">
-              {{ block.settings.review_text }}
-            </div>
+            <div class="review-slider__text_div">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0317/8709/0060/files/starsGroup_19.svg?v=1734390402"
+                width="100"
+                height="20"
+              >
+              <div class="review-slider__text">
+                {{ block.settings.review_text }}
+              </div>
 
-            {% if block.settings.author != blank %}
-              <div class="review-slider__author">
-                {{ block.settings.author }}
-              </div>
-            {% endif %}
-            {% if block.settings.location != blank %}
-              <div class="review-slider__location">
-                {{ block.settings.location }}
-              </div>
-            {% endif %}
-            {% if block.settings.cta_text != blank %}
-              <div class="review-cta">
-                <a href="{{ block.settings.cta_link }}">
-                  {{ block.settings.cta_text }}
-                </a>
-              </div>
-            {% endif %}
+              {% if block.settings.author != blank %}
+                <div class="review-slider__author">
+                  {{ block.settings.author }}
+                </div>
+              {% endif %}
+              {% if block.settings.location != blank %}
+                <div class="review-slider__location">
+                  {{ block.settings.location }}
+                </div>
+              {% endif %}
+              {% if block.settings.cta_text != blank %}
+                <div class="review-cta">
+                  <a href="{{ block.settings.cta_link }}">
+                    {{ block.settings.cta_text }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
           </div>
         </div>
       {% endfor %}
@@ -426,6 +431,15 @@
       "max": 40,
       "step": 2,
       "label": "Card Padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "text_div_padding",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "label": "Text Div Padding",
       "default": 20
     },
     {
