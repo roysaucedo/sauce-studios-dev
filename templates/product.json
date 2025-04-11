@@ -49,6 +49,13 @@
           "type": "description",
           "settings": {}
         },
+        "text_mYJzrT": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
         "share": {
           "type": "share",
           "disabled": true,
@@ -65,6 +72,7 @@
         "price",
         "buy_buttons",
         "description",
+        "text_mYJzrT",
         "share"
       ],
       "settings": {
@@ -188,7 +196,10 @@
     },
     "wc_hero_FHnbLG": {
       "type": "wc-hero",
-      "settings": {}
+      "settings": {
+        "heading": "Heading Here",
+        "text": "Add your paragraph text here"
+      }
     },
     "related-products": {
       "type": "related-products",
