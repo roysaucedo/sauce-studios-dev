@@ -46,6 +46,7 @@
     background: {{ section.settings.card_color }};
     padding: 20px;
     height: 100%;
+    border-radius: {{ section.settings.content_border_radius }}px;
   }
 
   .review-slider__text {
@@ -102,6 +103,7 @@
     aspect-ratio: 3 / 2.5;
     object-fit: cover;
     margin-bottom: 20px;
+    border-radius: {{ section.settings.content_border_radius }}px;
   }
 
   .review-cta {
@@ -407,6 +409,15 @@
       "id": "card_color",
       "label": "Card Color",
       "default": "#f7f7f7"
+    },
+    {
+      "type": "range",
+      "id": "content_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "label": "Reviews to show on desktop",
+      "default": 0
     },
     {
       "type": "range",
