@@ -666,6 +666,7 @@
       "settings": {
         "heading": "Customer Reviews",
         "subheading": "500+ Reviews",
+        "card_color": "#f4f0ff",
         "desktop_slides_to_show": 3,
         "mobile_slides_to_show": 1
       }
