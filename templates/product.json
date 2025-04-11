@@ -133,7 +133,7 @@
           "type": "tab",
           "settings": {
             "tab_title": "Description",
-            "tab_content": "{{ product.description }}"
+            "tab_content": "{{ product.metafields.custom.product_description | metafield_tag }}"
           }
         },
         "tab_UFf84W": {
