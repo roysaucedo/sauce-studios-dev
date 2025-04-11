@@ -720,8 +720,8 @@
         "subheading": "500+ Reviews",
         "card_color": "#f4f0ff",
         "content_border_radius": 0,
-        "card_padding": 0,
-        "text_div_padding": 18,
+        "card_padding": 24,
+        "text_div_padding": 0,
         "desktop_slides_to_show": 3,
         "mobile_slides_to_show": 1
       }
