@@ -43,7 +43,7 @@
   }
 
   .review-slider__content {
-    background: #f7f7f7;
+    background: {{ section.settings.card_color }};
     padding: 20px;
     height: 100%;
   }
@@ -401,6 +401,12 @@
       "id": "subheading",
       "label": "Sub-Heading",
       "default": "5,000+ Happly Customers!"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "Card Color",
+      "default": "#f7f7f7"
     },
     {
       "type": "range",
