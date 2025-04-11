@@ -44,7 +44,7 @@
 
   .review-slider__content {
     background: {{ section.settings.card_color }};
-    padding: 20px;
+    padding: {{ section.settings.card_padding }}px;
     height: 100%;
     border-radius: {{ section.settings.content_border_radius }}px;
   }
@@ -418,6 +418,15 @@
       "step": 1,
       "label": "Content Border Radius",
       "default": 0
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "label": "Card Padding",
+      "default": 20
     },
     {
       "type": "range",
