@@ -34,6 +34,12 @@
           "disabled": true,
           "settings": {}
         },
+        "richtext_YWkTMX": {
+          "type": "richtext",
+          "settings": {
+            "rich_text": "<p>{{ product.metafields.custom.product_description | metafield_tag }}</p>"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -69,6 +75,7 @@
         "vendor",
         "variant_picker",
         "quantity_selector",
+        "richtext_YWkTMX",
         "price",
         "buy_buttons",
         "description",
