@@ -168,30 +168,21 @@
         "row_ziYKmi": {
           "type": "row",
           "settings": {
-            "feature": "<p><em><strong>Tastes amazing!!!!</strong></em></p><ul><li><em><strong>1</strong></em></li><li><em><strong>2</strong></em></li><li><em><strong>434</strong></em></li></ul>",
-            "icon_type_1": "x",
-            "icon_type_2": "check"
-          }
-        },
-        "row_KDpqgK": {
-          "type": "row",
-          "settings": {
-            "feature": "<p>wckjbck</p>",
-            "icon_type_1": "x",
+            "feature": "<p>You can hit it</p>",
+            "icon_type_1": "check",
             "icon_type_2": "x"
           }
         }
       },
       "block_order": [
-        "row_ziYKmi",
-        "row_KDpqgK"
+        "row_ziYKmi"
       ],
       "settings": {
         "heading": "WHY WE ROCK...AND THEY DON'T",
-        "column_1_heading": "REASONS WHY",
-        "image": "shopify://shop_images/970581489-A1C1.webp",
+        "column_1_heading": "PINATA VS THE WORLD",
+        "image": "shopify://shop_images/pinata.png",
         "logo_size": 100,
-        "column_3_heading": "H20",
+        "column_3_heading": "Others",
         "show_table_border": true,
         "check_icon_color": "#209720",
         "x_icon_color": "#dd2222",
