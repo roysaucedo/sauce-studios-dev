@@ -9,40 +9,34 @@
  */
 {
   "sections": {
-    "image_banner_anN6pD": {
-      "type": "image-banner",
+    "rich_text_y7t9rc": {
+      "type": "rich-text",
       "blocks": {
-        "heading_gfJacd": {
+        "heading_BAGQEg": {
           "type": "heading",
           "settings": {
             "heading": "Welcome to Piñata! 🎉",
             "heading_size": "h1"
           }
         },
-        "text_XjG3Jx": {
+        "text_wJ4LKq": {
           "type": "text",
           "settings": {
-            "text": "Why is this project called Piñata? Because it is filled with goodies!This is a gallery of sections to add some heat to your store.",
-            "text_style": "body"
+            "text": "<p>Why is this project called Piñata? Because it is filled with goodies!This is a gallery of sections to add some heat to your store.</p>"
           }
         }
       },
       "block_order": [
-        "heading_gfJacd",
-        "text_XjG3Jx"
+        "heading_BAGQEg",
+        "text_wJ4LKq"
       ],
       "settings": {
-        "image": "shopify://shop_images/download.jpg",
-        "image_overlay_opacity": 10,
-        "image_height": "small",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-2",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "inverse",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "section_ig_story_bXdHNV": {
@@ -728,7 +722,7 @@
     }
   },
   "order": [
-    "image_banner_anN6pD",
+    "rich_text_y7t9rc",
     "section_ig_story_bXdHNV",
     "features_showcase_zjY9GC",
     "collection_sub_grid_MhWVcL",
