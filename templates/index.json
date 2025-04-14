@@ -253,6 +253,8 @@
       ],
       "settings": {
         "heading": "Feature Highlights",
+        "heading_size_desktop": 60,
+        "heading_size_mobile": 36,
         "content": "<p>Showcase your product's key features with this section. Add as many feature blocks as you need in the right column.</p>",
         "button_label": "",
         "button_link": "",
@@ -377,6 +379,8 @@
       ],
       "settings": {
         "heading": "Feature Highlights",
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 36,
         "content": "<p>Showcase your product's key features with this section. Add as many feature blocks as you need in the right column.</p>",
         "button_label": "",
         "button_link": "",
