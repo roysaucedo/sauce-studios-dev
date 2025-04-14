@@ -98,10 +98,6 @@
       gap: 2rem;
     }
 
-    .section-{{ section.id }}-block-content {
-      flex: 1;
-    }
-
     .section-{{ section.id }}-block-image-wrapper {
       flex: 1;
     }
@@ -148,7 +144,7 @@
             {{ block.shopify_attributes }}
             style="background-color: {{ block.settings.block_bg }}; color: {{ block.settings.block_text_color }};"
           >
-            <div class="section-{{ section.id }}-block-content">
+            <div class="section-{{ block.id }}-block-content">
               <h3 style="color: {{ block.settings.block_text_color }};">{{ block.settings.block_heading }}</h3>
               {{ block.settings.block_content }}
             </div>
@@ -168,11 +164,14 @@
           </div>
 
           <style>
-            .section-{{ section.id }}-block-content h3 {
+            .section-{{ block.id }}-block-content {
+              flex: 1;
+            }
+            .section-{{ block.id }}-block-content h3 {
               font-size: {{ block.settings.heading_size_mobile }}px;
             }
             @media screen and (min-width: 750px) {
-              .section-{{ section.id }}-block-content h3 {
+              .section-{{ block.id }}-block-content h3 {
               font-size: {{ block.settings.heading_size_desktop }}px;
             }
             }
