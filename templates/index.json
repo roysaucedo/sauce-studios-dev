@@ -219,6 +219,8 @@
           "type": "feature",
           "settings": {
             "block_heading": "Easy to Use",
+            "heading_size_desktop": 28,
+            "heading_size_mobile": 16,
             "block_content": "<p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>",
             "block_image": "shopify://shop_images/photo-1565299585323-38d6b0865b47_444eba05-2892-4d4e-91d2-e8920800b20f.jpg",
             "block_bg": "#f4f0ff",
@@ -229,6 +231,8 @@
           "type": "feature",
           "settings": {
             "block_heading": "Highly Customizable",
+            "heading_size_desktop": 36,
+            "heading_size_mobile": 36,
             "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>",
             "block_image": "shopify://shop_images/photo-1599974579688-8dbdd335c77f.jpg",
             "block_bg": "#f4f0ff",
@@ -239,6 +243,8 @@
           "type": "feature",
           "settings": {
             "block_heading": "Premium Support",
+            "heading_size_desktop": 36,
+            "heading_size_mobile": 36,
             "block_content": "<p>Get assistance whenever you need it with our responsive support team.</p>",
             "block_image": "shopify://shop_images/photo-1551504734-5ee1c4a1479b_101b33e0-e926-4c39-a7c5-76b15374bcf9.jpg",
             "block_bg": "#f4f0ff",
@@ -348,6 +354,8 @@
           "type": "feature",
           "settings": {
             "block_heading": "Easy to Use",
+            "heading_size_desktop": 36,
+            "heading_size_mobile": 36,
             "block_content": "<p>Our product is designed with simplicity in mind, making it accessible for everyone.</p>",
             "block_bg": "#f9f9f9",
             "block_text_color": "#333333"
@@ -357,6 +365,8 @@
           "type": "feature",
           "settings": {
             "block_heading": "Highly Customizable",
+            "heading_size_desktop": 36,
+            "heading_size_mobile": 36,
             "block_content": "<p>Tailor every aspect to your specific needs with our flexible options.</p>",
             "block_bg": "#f4f0ff",
             "block_text_color": "#333333"
@@ -366,6 +376,8 @@
           "type": "feature",
           "settings": {
             "block_heading": "Premium Support",
+            "heading_size_desktop": 36,
+            "heading_size_mobile": 36,
             "block_content": "<p>Get assistance whenever you need it with our responsive support team.</p>",
             "block_bg": "#f9f9f9",
             "block_text_color": "#333333"
