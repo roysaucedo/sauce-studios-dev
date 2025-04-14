@@ -126,8 +126,8 @@
             class="section-{{ section.id }}-left-image"
             src="{{ section.settings.left_column_image | image_url: width: 1000 }}"
             alt="{{ section.settings.left_column_image.alt | escape }}"
-            width="{{ block.settings.left_column_image.width }}"
-            height="{{ block.settings.left_column_image.height }}"
+            width="{{ section.settings.left_column_image.width }}"
+            height="{{ section.settings.left_column_image.height }}"
             loading="lazy"
           >
         {% endif %}
