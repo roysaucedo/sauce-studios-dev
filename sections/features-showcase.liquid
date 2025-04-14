@@ -22,11 +22,13 @@
 
   .section-{{ section.id }}-column-left {
     background-color: {{ section.settings.left_column_bg }};
-    color: {{ section.settings.left_column_text_color }};
     padding: 2rem;
     display: flex;
     justify-content: start;
     flex-direction: column;
+  }
+  .section-{{ section.id }}-column-left h2 {
+    color: {{ section.settings.left_column_text_color }};
   }
 
   .section-{{ section.id }}-left-content {
