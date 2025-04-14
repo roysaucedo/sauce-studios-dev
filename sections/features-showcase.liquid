@@ -29,6 +29,7 @@
   }
   .section-{{ section.id }}-column-left h2 {
     color: {{ section.settings.left_column_text_color }};
+    font-size: {{ section.settings.heading_size_mobile }};
   }
 
   .section-{{ section.id }}-left-content {
@@ -82,6 +83,9 @@
 
     .section-{{ section.id }}-column-left {
       width: 40%;
+    }
+    .section-{{ section.id }}-column-left h2 {
+     font-size: {{ section.settings.heading_size_desktop }};
     }
 
     .section-{{ section.id }}-column-right {
