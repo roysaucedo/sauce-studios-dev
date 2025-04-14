@@ -166,6 +166,17 @@
               </div>
             {% endif %}
           </div>
+
+          <style>
+            .section-{{ section.id }}-block-content h3 {
+              font-size: {{ block.settings.heading_size_mobile }}px;
+            }
+            @media screen and (min-width: 750px) {
+              .section-{{ section.id }}-block-content h3 {
+              font-size: {{ block.settings.heading_size_desktop }}px;
+            }
+            }
+          </style>
         {% endfor %}
       </div>
     </div>
@@ -184,7 +195,6 @@
       "label": "Left Column Heading",
       "default": "Feature Highlights"
     },
-
     {
       "type": "range",
       "id": "heading_size_desktop",
@@ -363,6 +373,26 @@
           "id": "block_heading",
           "label": "Block Heading",
           "default": "Feature Title"
+        },
+        {
+          "type": "range",
+          "id": "heading_size_desktop",
+          "min": 16,
+          "max": 80,
+          "step": 4,
+          "unit": "px",
+          "label": "Heading Size Desktop",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "heading_size_mobile",
+          "min": 16,
+          "max": 80,
+          "step": 4,
+          "unit": "px",
+          "label": "Heading Size Mobile",
+          "default": 36
         },
         {
           "type": "richtext",
