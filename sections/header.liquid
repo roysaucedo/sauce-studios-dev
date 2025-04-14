@@ -563,7 +563,7 @@
                                   {% if menu_match %}
                                   <li style="order: {{ block.settings.order }}; grid-column: span {{ block.settings.column_span }} / span {{ block.settings.column_span }};">
                                       <img
-                                      	src="{{ block.settings.image | image_url: height: 640 }}"
+                                      	src="{{ block.settings.image | image_url: height: 300 }}"
                                       	alt="{{ block.settings.image.alt | escape }}"
                                       	loading="lazy"
                                       	width="{{ block.settings.image.width }}"
