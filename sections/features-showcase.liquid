@@ -128,6 +128,7 @@
             alt="{{ section.settings.left_column_image.alt | escape }}"
             width="{{ block.settings.left_column_image.width }}"
             height="{{ block.settings.left_column_image.height }}"
+            loading="lazy"
           >
         {% endif %}
       </div>
@@ -153,6 +154,7 @@
                   alt="{{ block.settings.block_image.alt | escape }}"
                   width="{{ block.settings.image.width }}"
                   height="{{ block.settings.image.height }}"
+                  loading="lazy"
                 >
               </div>
             {% endif %}
