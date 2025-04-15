@@ -128,14 +128,6 @@
     fill: {{ section.settings.star_color }};
   }
 
-  .star-rating .star-half .star-half-filled {
-    fill: {{ section.settings.star_color }};
-  }
-
-  .star-rating .star-half .star-half-empty {
-    fill: #e0e0e0;
-  }
-
   .star-rating .star-empty {
     fill: #e0e0e0;
   }
@@ -201,28 +193,15 @@
             <div class="review-slider__text_div">
               <!-- Star Rating Display -->
               <div class="star-rating">
-                {% assign rating = block.settings.star_rating | times: 2 | round | divided_by: 2.0 %}
-                {% assign full_stars = rating | floor %}
-                {% assign half_star = rating | minus: full_stars %}
-                {% assign empty_stars = 5 | minus: rating | ceil %}
+                {% assign rating = block.settings.star_rating %}
+                {% assign full_stars = rating %}
+                {% assign empty_stars = 5 | minus: rating %}
 
                 {% for i in (1..full_stars) %}
                   <svg viewBox="0 0 24 24" class="star-full">
                     <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                   </svg>
                 {% endfor %}
-
-                {% if half_star == 0.5 %}
-                  <svg viewBox="0 0 24 24" class="star-half">
-                    <defs>
-                      <clipPath id="half-{{ block.id }}">
-                        <rect x="0" y="0" width="12" height="24" />
-                      </clipPath>
-                    </defs>
-                    <path clip-path="url(#half-{{ block.id }})" class="star-half-filled" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                    <path class="star-half-empty" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                  </svg>
-                {% endif %}
 
                 {% for i in (1..empty_stars) %}
                   <svg viewBox="0 0 24 24" class="star-empty">
@@ -571,7 +550,7 @@
           "id": "star_rating",
           "min": 0,
           "max": 5,
-          "step": 0.5,
+          "step": 1,
           "label": "Star Rating",
           "default": 5
         },
@@ -620,7 +599,7 @@
         {
           "type": "review",
           "settings": {
-            "star_rating": 4.5
+            "star_rating": 4
           }
         },
         {
