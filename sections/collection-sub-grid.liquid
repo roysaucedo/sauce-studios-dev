@@ -20,7 +20,6 @@
     gap: {{ section.settings.row_gap }}px;
   }
 
-  /* Left column - Image card with overlay */
   .section-{{ section.id }}-column-left {
     position: relative;
     border-radius: {{ section.settings.image_border_radius }}px;
@@ -61,48 +60,24 @@
     text-align: {{ section.settings.text_align }};
 
     {% case section.settings.content_position %}
-      {% when 'top-left' %}
-        top: 0;
-        left: 0;
-      {% when 'top-center' %}
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      {% when 'top-right' %}
-        top: 0;
-        right: 0;
-      {% when 'middle-left' %}
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-      {% when 'middle-center' %}
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      {% when 'middle-right' %}
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-      {% when 'bottom-left' %}
-        bottom: 0;
-        left: 0;
-      {% when 'bottom-center' %}
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      {% when 'bottom-right' %}
-        bottom: 0;
-        right: 0;
+      {% when 'top-left' %} top: 0; left: 0;
+      {% when 'top-center' %} top: 0; left: 50%; transform: translateX(-50%);
+      {% when 'top-right' %} top: 0; right: 0;
+      {% when 'middle-left' %} top: 50%; left: 0; transform: translateY(-50%);
+      {% when 'middle-center' %} top: 50%; left: 50%; transform: translate(-50%, -50%);
+      {% when 'middle-right' %} top: 50%; right: 0; transform: translateY(-50%);
+      {% when 'bottom-left' %} bottom: 0; left: 0;
+      {% when 'bottom-center' %} bottom: 0; left: 50%; transform: translateX(-50%);
+      {% when 'bottom-right' %} bottom: 0; right: 0;
     {% endcase %}
   }
 
   .section-{{ section.id }}-card-heading {
     margin-bottom: 1rem;
     font-size: {{ section.settings.heading_size_mobile }}px;
-    color: {{ section.settings.heading_color}};
+    color: {{ section.settings.heading_color }};
   }
 
-  /* Right column - 2x2 grid */
   .section-{{ section.id }}-column-right {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -126,13 +101,10 @@
   }
 
   .section-{{ section.id }}-grid-heading {
-    font-size: 1.25rem;
+    font-size: {{ section.settings.grid_heading_size_mobile }}px;
     margin-bottom: 0.5rem;
     text-align: center;
-
   }
-
-
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -164,6 +136,10 @@
 
     .section-{{ section.id }}-card-heading {
       font-size: {{ section.settings.heading_size_desktop }}px;
+    }
+
+    .section-{{ section.id }}-grid-heading {
+      font-size: {{ section.settings.grid_heading_size_desktop }}px;
     }
   }
 {%- endstyle -%}
@@ -259,7 +235,7 @@
       "max": 80,
       "step": 4,
       "unit": "px",
-      "label": "Section Heading Mobile",
+      "label": "Card Heading Size - Desktop",
       "default": 44
     },
     {
@@ -269,13 +245,33 @@
       "max": 80,
       "step": 4,
       "unit": "px",
-      "label": "Section Heading Mobile",
+      "label": "Card Heading Size - Mobile",
       "default": 32
+    },
+    {
+      "type": "range",
+      "id": "grid_heading_size_desktop",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Grid Heading Size - Desktop",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "grid_heading_size_mobile",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Grid Heading Size - Mobile",
+      "default": 16
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "Heading text",
+      "label": "Heading Text Color",
       "default": "#ffffff"
     },
     {
@@ -294,199 +290,39 @@
       "id": "content_position",
       "label": "Content Position",
       "options": [
-        {
-          "value": "top-left",
-          "label": "Top Left"
-        },
-        {
-          "value": "top-center",
-          "label": "Top Center"
-        },
-        {
-          "value": "top-right",
-          "label": "Top Right"
-        },
-        {
-          "value": "middle-left",
-          "label": "Middle Left"
-        },
-        {
-          "value": "middle-center",
-          "label": "Middle Center"
-        },
-        {
-          "value": "middle-right",
-          "label": "Middle Right"
-        },
-        {
-          "value": "bottom-left",
-          "label": "Bottom Left"
-        },
-        {
-          "value": "bottom-center",
-          "label": "Bottom Center"
-        },
-        {
-          "value": "bottom-right",
-          "label": "Bottom Right"
-        }
+        { "value": "top-left", "label": "Top Left" },
+        { "value": "top-center", "label": "Top Center" },
+        { "value": "top-right", "label": "Top Right" },
+        { "value": "middle-left", "label": "Middle Left" },
+        { "value": "middle-center", "label": "Middle Center" },
+        { "value": "middle-right", "label": "Middle Right" },
+        { "value": "bottom-left", "label": "Bottom Left" },
+        { "value": "bottom-center", "label": "Bottom Center" },
+        { "value": "bottom-right", "label": "Bottom Right" }
       ],
-      "default": "top-left"
-    },
-    {
-      "type": "select",
-      "id": "text_align",
-      "label": "Text Alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ],
-      "default": "left"
-    },
-    {
-      "type": "header",
-      "content": "Layout Settings"
-    },
-    {
-      "type": "range",
-      "id": "image_border_radius",
-      "min": 0,
-      "max": 50,
-      "step": 2,
-      "unit": "px",
-      "label": "Image Border Radius",
-      "default": 8
-    },
-    {
-      "type": "select",
-      "id": "desktop_order",
-      "label": "Desktop Column Order",
-      "options": [
-        {
-          "value": "normal",
-          "label": "Left then Right"
-        },
-        {
-          "value": "reverse",
-          "label": "Right then Left"
-        }
-      ],
-      "default": "normal"
-    },
-    {
-      "type": "select",
-      "id": "mobile_order",
-      "label": "Mobile Column Order",
-      "options": [
-        {
-          "value": "normal",
-          "label": "Top then Bottom"
-        },
-        {
-          "value": "reverse",
-          "label": "Bottom then Top"
-        }
-      ],
-      "default": "normal"
-    },
-    {
-      "type": "range",
-      "id": "max_width",
-      "min": 800,
-      "max": 3000,
-      "step": 50,
-      "unit": "px",
-      "label": "Section Max Width",
-      "default": 1500
-    },
-    {
-      "type": "color",
-      "id": "background",
-      "label": "Section Background",
-      "default": "#ffffff"
-    },
-    {
-      "type": "range",
-      "id": "column_gap",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Column Gap (Desktop)",
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "row_gap",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Row Gap (Mobile)",
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "grid_gap",
-      "min": 0,
-      "max": 50,
-      "step": 2,
-      "unit": "px",
-      "label": "Grid Items Gap",
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Section Padding Top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Section Padding Bottom",
-      "default": 36
+      "default": "middle-center"
     }
   ],
   "blocks": [
     {
-      "type": "collection-item",
-      "name": "Collection Item",
-      "limit": 4,
+      "type": "grid_item",
+      "name": "Grid Item",
       "settings": [
         {
           "type": "image_picker",
           "id": "grid_image",
-          "label": "Collection Image"
+          "label": "Image"
         },
         {
           "type": "text",
           "id": "grid_heading",
-          "label": "Collection Title",
-          "default": "Collection Title"
+          "label": "Heading",
+          "default": "Grid Item"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "Collection Link"
+          "label": "Link"
         },
         {
           "type": "color",
@@ -500,36 +336,7 @@
   "presets": [
     {
       "name": "Collection Feature Grid",
-      "blocks": [
-        {
-          "type": "collection-item",
-          "settings": {
-            "grid_heading": "Women's",
-            "squiggle_color": "#ff6b6b"
-          }
-        },
-        {
-          "type": "collection-item",
-          "settings": {
-            "grid_heading": "Men's",
-            "squiggle_color": "#4ecdc4"
-          }
-        },
-        {
-          "type": "collection-item",
-          "settings": {
-            "grid_heading": "Accessories",
-            "squiggle_color": "#ffd166"
-          }
-        },
-        {
-          "type": "collection-item",
-          "settings": {
-            "grid_heading": "Sale",
-            "squiggle_color": "#6b5b95"
-          }
-        }
-      ]
+      "category": "Custom"
     }
   ]
 }
