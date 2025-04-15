@@ -38,6 +38,41 @@
     object-fit: cover;
   }
 
+  .section-{{ section.id }}-grid-column h3 {
+    font-size: {{ section.settings.grid_heading_size_mobile }}px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .section-{{ section.id }}-column-content {
+    font-size: {{ section.settings.grid_content_size_mobile }}px;
+    margin-bottom: 20px;
+  }
+
+  .section-{{ section.id }}-grid-column .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: {{ section.settings.button_background }};
+    color: {{ section.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, opacity 0.3s;
+  }
+
+  .section-{{ section.id }}-grid-column .button:hover {
+    opacity: 0.8;
+  }
+
+  .section-{{ section.id }}-grid-column .link {
+    display: inline-block;
+    color: {{ section.settings.link_color }};
+    text-decoration: underline;
+    transition: opacity 0.3s;
+  }
+
+  .section-{{ section.id }}-grid-column .link:hover {
+    opacity: 0.8;
+  }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -55,6 +90,14 @@
 
     .section-{{ section.id }}-header h2 {
       font-size: {{ section.settings.heading_size_desktop }}px;
+    }
+
+    .section-{{ section.id }}-grid-column h3 {
+      font-size: {{ section.settings.grid_heading_size_desktop }}px;
+    }
+
+    .section-{{ section.id }}-column-content {
+      font-size: {{ section.settings.grid_content_size_desktop }}px;
     }
   }
 {%- endstyle -%}
@@ -97,7 +140,7 @@
           {% if block.settings.button_label != blank %}
             <a
               href="{{ block.settings.button_link }}"
-              class="{% if block.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
+              class="{% if block.settings.button_style == 'button' %}button{% else %}link{% endif %}"
             >
               {{ block.settings.button_label }}
             </a>
@@ -127,6 +170,10 @@
   "class": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "Content"
+    },
+    {
       "type": "text",
       "id": "heading",
       "label": "Section Heading",
@@ -139,13 +186,17 @@
       "default": "<p>Section content goes here.</p>"
     },
     {
+      "type": "header",
+      "content": "Text Sizing"
+    },
+    {
       "type": "range",
       "id": "heading_size_desktop",
       "min": 32,
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Heading Size Desktop",
+      "label": "Section Heading Size (Desktop)",
       "default": 36
     },
     {
@@ -155,8 +206,74 @@
       "max": 72,
       "step": 4,
       "unit": "px",
-      "label": "Heading Size Mobile",
+      "label": "Section Heading Size (Mobile)",
       "default": 24
+    },
+    {
+      "type": "range",
+      "id": "grid_heading_size_desktop",
+      "min": 18,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Grid Heading Size (Desktop)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "grid_heading_size_mobile",
+      "min": 14,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Grid Heading Size (Mobile)",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "grid_content_size_desktop",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Grid Content Size (Desktop)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "grid_content_size_mobile",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Grid Content Size (Mobile)",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Button/Link Styles"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Text Link Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
     },
     {
       "type": "color",
@@ -238,19 +355,23 @@
           "default": "<p>Column content goes here.</p>"
         },
         {
+          "type": "header",
+          "content": "Button/Link"
+        },
+        {
           "type": "text",
           "id": "button_label",
-          "label": "Button Label"
+          "label": "Button/Link Text"
         },
         {
           "type": "url",
           "id": "button_link",
-          "label": "Button Link"
+          "label": "Button/Link URL"
         },
         {
           "type": "select",
           "id": "button_style",
-          "label": "Button Style",
+          "label": "Button/Link Style",
           "options": [
             {
               "value": "button",
@@ -262,6 +383,10 @@
             }
           ],
           "default": "button"
+        },
+        {
+          "type": "header",
+          "content": "Column Layout"
         },
         {
           "type": "select",
