@@ -423,7 +423,7 @@
             "col_content": "<p>This is the content for the first column.</p>",
             "button_label": "Button Link",
             "button_link": "",
-            "button_style": "button",
+            "button_style": "link",
             "col_span": "6"
           }
         },
@@ -540,6 +540,13 @@
         "content": "<h2>Flexible Grid Section</h2><p>Section content goes here.</p>",
         "heading_size_desktop": 36,
         "heading_size_mobile": 24,
+        "grid_heading_size_desktop": 24,
+        "grid_heading_size_mobile": 18,
+        "grid_content_size_desktop": 16,
+        "grid_content_size_mobile": 14,
+        "button_background": "#000000",
+        "button_text_color": "#ffffff",
+        "link_color": "#000000",
         "background": "#ffffff",
         "max_width": 1500,
         "column_gap": 36,
