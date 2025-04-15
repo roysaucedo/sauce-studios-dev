@@ -180,6 +180,8 @@
               class="section-{{ section.id }}-main-image"
               src="{{ section.settings.main_image | img_url: '1200x' }}"
               alt="{{ section.settings.main_image.alt | escape }}"
+              width="{{ section.settings.main_image.width }}"
+              height="{{ section.settings.main_image.height }}"
             >
           {% else %}
             <div class="section-{{ section.id }}-main-image" style="background-color: #f4f4f4; height: 100%;"></div>
@@ -214,6 +216,8 @@
                 class="section-{{ section.id }}-grid-image"
                 src="{{ block.settings.grid_image | img_url: 'large' }}"
                 alt="{{ block.settings.grid_heading | escape }}"
+                width="{{ block.settings.grid_image.width }}"
+                height="{{ block.settings.grid_image.height }}"
               >
             {% else %}
               <div class="section-{{ section.id }}-grid-image" style="background-color: #f4f4f4;"></div>
