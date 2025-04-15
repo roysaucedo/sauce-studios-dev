@@ -49,19 +49,6 @@
     margin-bottom: 20px;
   }
 
-  .section-{{ section.id }}-grid-column .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: {{ section.settings.button_background }};
-    color: {{ section.settings.button_text_color }};
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s, opacity 0.3s;
-  }
-
-  .section-{{ section.id }}-grid-column .button:hover {
-    opacity: 0.8;
-  }
 
   .section-{{ section.id }}-grid-column .link {
     display: inline-block;
@@ -140,7 +127,7 @@
           {% if block.settings.button_label != blank %}
             <a
               href="{{ block.settings.button_link }}"
-              class="{% if block.settings.button_style == 'button' %}button{% else %}link{% endif %}"
+              class="{% if block.settings.button_style == 'button' %}button button--primary{% else %}link{% endif %}"
             >
               {{ block.settings.button_label }}
             </a>
