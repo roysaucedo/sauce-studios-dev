@@ -126,13 +126,10 @@
   }
 
   .section-{{ section.id }}-grid-heading {
-    font-size: 1.25rem;
+    font-size: {{ section.settings.grid_text_size_mobile }}px;
     margin-bottom: 0.5rem;
     text-align: center;
-
   }
-
-
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -164,6 +161,10 @@
 
     .section-{{ section.id }}-card-heading {
       font-size: {{ section.settings.heading_size_desktop }}px;
+    }
+
+    .section-{{ section.id }}-grid-heading {
+      font-size: {{ section.settings.grid_text_size_desktop }}px;
     }
   }
 {%- endstyle -%}
@@ -253,13 +254,17 @@
       "default": "Featured Collection"
     },
     {
+      "type": "header",
+      "content": "Feature Card Text Sizing"
+    },
+    {
       "type": "range",
       "id": "heading_size_desktop",
       "min": 16,
       "max": 80,
       "step": 4,
       "unit": "px",
-      "label": "Section Heading Mobile",
+      "label": "Card Heading Size (Desktop)",
       "default": 44
     },
     {
@@ -269,7 +274,7 @@
       "max": 80,
       "step": 4,
       "unit": "px",
-      "label": "Section Heading Mobile",
+      "label": "Card Heading Size (Mobile)",
       "default": 32
     },
     {
@@ -352,6 +357,30 @@
         }
       ],
       "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Grid Items Text Sizing"
+    },
+    {
+      "type": "range",
+      "id": "grid_text_size_desktop",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Grid Item Text Size (Desktop)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "grid_text_size_mobile",
+      "min": 12,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "label": "Grid Item Text Size (Mobile)",
+      "default": 16
     },
     {
       "type": "header",
