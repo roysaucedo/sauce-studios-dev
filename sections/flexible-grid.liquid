@@ -115,6 +115,8 @@
             <img
               src="{{ block.settings.col_image | img_url: 'master' }}"
               alt="{{ block.settings.col_heading | escape }}"
+              width="{{ block.settings.col_image.width }}"
+              height="{{ block.settings.col_image.height }}"
             >
           {% endif %}
 
