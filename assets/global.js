@@ -833,51 +833,28 @@ class VariantSelects extends HTMLElement {
 
 
 updateEventDetails() {
-    // Get the container where content will be updated
     const container = document.getElementById('event-details');
     
-    // If container doesn't exist, exit the function
     if (!container) {
       console.error('Container with ID "event-details" not found');
       return;
     }
     
-    // Show loading state if desired
-    container.innerHTML = '<div class="loading">Loading event details...</div>';
+    // Show loading indicator (optional)
+    container.innerHTML = '<div class="loading">Loading...</div>';
     
-    // Construct the URL for the section rendering API
-    const url = `${window.Shopify.routes.root}?section_id=event-details-section`;
-    
-    // Fetch the section content
-    fetch(url)
+    // Fetch the section using Section Rendering API
+    fetch(window.location.pathname + '?section_id=event-details-section')
       .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+        if (!response.ok) throw new Error('Failed to fetch section');
         return response.text();
       })
       .then(html => {
-        // Create a temporary element to parse the HTML
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = html;
-        
-        // Extract just the content we need from the section
-        // This targets the inner content from your section
-        const sectionContent = tempDiv.querySelector('#event-details-content');
-        
-        if (sectionContent) {
-          // Update only the content part
-          container.innerHTML = sectionContent.innerHTML;
-        } else {
-          // If we can't find the specific element, use the entire section
-          container.innerHTML = html;
-        }
-        
-        // Dispatch an event that other code can listen for
-        document.dispatchEvent(new CustomEvent('event-details-section:loaded'));
+        // Replace the entire content
+        container.innerHTML = html;
       })
       .catch(error => {
-        console.error('Error fetching section:', error);
+        console.error('Error updating event details:', error);
         container.innerHTML = '<div class="error">Failed to load event details</div>';
       });
   }
