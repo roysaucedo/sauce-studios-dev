@@ -830,48 +830,7 @@ class VariantSelects extends HTMLElement {
     }
   }
 
-  
- // Original onVariantChange method remains unchanged
-onVariantChange() {
-  this.updateOptions();
-  this.updateMasterId();
-  this.toggleAddButton(true, '', false);
-  this.updatePickupAvailability();
-  this.removeErrorMessage();
-  this.updateVariantStatuses();
-  this.updateEventDetails(); // Your custom function
-  if (!this.currentVariant) {
-    this.toggleAddButton(true, '', true);
-    this.setUnavailable();
-  } else {
-    this.updateMedia();
-    this.updateURL();
-    this.updateVariantInput();
-    this.renderProductInfo();
-    this.updateShareUrl();
-  }
-}
 
-// Original onVariantChange method remains unchanged
-onVariantChange() {
-  this.updateOptions();
-  this.updateMasterId();
-  this.toggleAddButton(true, '', false);
-  this.updatePickupAvailability();
-  this.removeErrorMessage();
-  this.updateVariantStatuses();
-  this.updateEventDetails(); // Your custom function
-  if (!this.currentVariant) {
-    this.toggleAddButton(true, '', true);
-    this.setUnavailable();
-  } else {
-    this.updateMedia();
-    this.updateURL();
-    this.updateVariantInput();
-    this.renderProductInfo();
-    this.updateShareUrl();
-  }
-}
 
 // Improved updateEventDetails method
 updateEventDetails() {
