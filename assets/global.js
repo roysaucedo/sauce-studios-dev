@@ -838,7 +838,7 @@ updateEventDetails() {
   
     
     // Show loading indicator (optional)
-    container.innerHTML = '<div class="loading">Loading...</div>';
+    // container.innerHTML = '<div class="loading">Loading...</div>';
     const url = `${window.location.pathname}?section_id=event-details-section&variant=${this.currentVariant.id}`;
     console.log(url)
     
