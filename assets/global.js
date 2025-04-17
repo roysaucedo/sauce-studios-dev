@@ -849,11 +849,17 @@ updateEventDetails() {
         return response.text();
       })
       .then(html => {
-        // Replace the entire content
-        console.log(html)
-        let htmlContent = stringToHTML(html);
-        // container.innerHTML = html;
-        container.replaceWith(htmlContent);
+         console.log(html);
+        // Convert string to HTML element
+        const htmlContent = stringToHTML(html);
+        
+        if (htmlContent) {
+          // Replace the container with the new HTML element
+          container.replaceWith(htmlContent);
+        } else {
+          // Fallback in case parsing fails
+          container.innerHTML = html;
+        }
       })
       .catch(error => {
         console.error('Error updating event details:', error);
