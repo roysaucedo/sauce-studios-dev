@@ -22,19 +22,6 @@
 
 <div class="section-{{ section.id }}-padding">
   <div class="page-width">
-    {% if section.settings.image != blank %}
-      <img
-        src="{{ section.settings.image | image_url: height: 640 }}"
-        alt="{{ section.settings.image.alt | escape }}"
-        loading="lazy"
-        width="{{ section.settings.image.width }}"
-        height="{{ section.settings.image.height }}"
-        class=""
-      >
-    {% else %}
-      {{ 'product-1' | placeholder_svg_tag }}
-    {% endif %}
-
     <h2 class="rich-text__heading rte inline-richtext h1 scroll-trigger animate--slide-in">
       {{ section.settings.h1 }}
     </h2>
@@ -73,11 +60,6 @@
       "type": "url",
       "id": "link",
       "label": "Button Link"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Image"
     },
     {
       "type": "range",
