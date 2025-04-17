@@ -834,7 +834,7 @@ class VariantSelects extends HTMLElement {
 
 updateEventDetails() {
     // Get the container where content will be updated
-    const container = document.getElementById('event-details-section');
+    const container = document.getElementById('event-details');
     
     // If container doesn't exist, exit the function
     if (!container) {
@@ -857,8 +857,21 @@ updateEventDetails() {
         return response.text();
       })
       .then(html => {
-        // Update the container with the new section content
-        container.innerHTML = html;
+        // Create a temporary element to parse the HTML
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        
+        // Extract just the content we need from the section
+        // This targets the inner content from your section
+        const sectionContent = tempDiv.querySelector('#event-details-content');
+        
+        if (sectionContent) {
+          // Update only the content part
+          container.innerHTML = sectionContent.innerHTML;
+        } else {
+          // If we can't find the specific element, use the entire section
+          container.innerHTML = html;
+        }
         
         // Dispatch an event that other code can listen for
         document.dispatchEvent(new CustomEvent('event-details-section:loaded'));
