@@ -39,18 +39,6 @@
         "padding_bottom": 52
       }
     },
-    "section_rendering_api_cYCADP": {
-      "type": "section-rendering-api",
-      "name": "Section Rendering API",
-      "settings": {
-        "h1": "Heading",
-        "p": "<p>Add your paragraph here</p>",
-        "btn_text": "Learn More",
-        "link": "#",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "section_ig_story_bXdHNV": {
       "type": "section-ig-story",
       "blocks": {
@@ -768,7 +756,6 @@
   },
   "order": [
     "rich_text_y7t9rc",
-    "section_rendering_api_cYCADP",
     "section_ig_story_bXdHNV",
     "features_showcase_zjY9GC",
     "collection_sub_grid_MhWVcL",
