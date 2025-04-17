@@ -833,10 +833,10 @@ class VariantSelects extends HTMLElement {
 
 
 updateEventDetails() {
-    const container = document.getElementById('event-details-section');
+    const container = document.getElementByClass('section-event-details');
     
     if (!container) {
-      console.error('Container with ID "event-details" not found');
+      console.error('Container with Class "section-event-details" not found');
       return;
     }
     
