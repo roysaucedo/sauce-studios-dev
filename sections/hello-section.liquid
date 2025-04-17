@@ -20,7 +20,7 @@
   <div id="event-details-content">
     {% if product.selected_or_first_available_variant.metafields.custom.event_details %}
       <div class="event-details">
-        {{ product.selected_or_first_available_variant.metafields.custom.event_details | richtext }}
+        {{ product.selected_or_first_available_variant.metafields.custom.event_details | metafield_tag }}
       </div>
     {% else %}
       <p>No event details available for the selected variant.</p>
