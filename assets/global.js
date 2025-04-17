@@ -837,7 +837,6 @@ updateEventRichText() {
     
     const container = document.querySelector('#event-rich-text');
     const url = `${window.location.pathname}?section_id=event-rich-text&variant=${this.currentVariant.id}`;
-  console.log(url);
     
     // Fetch the section using Section Rendering API
     fetch(url)
