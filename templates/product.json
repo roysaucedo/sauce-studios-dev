@@ -122,7 +122,7 @@
       "settings": {
         "section_title": "Featured Products",
         "collection": "all-products",
-        "products_to_show": 8,
+        "products_to_show": 16,
         "title_font_weight": "medium",
         "title_color": "#333333",
         "price_color": "#111111",
