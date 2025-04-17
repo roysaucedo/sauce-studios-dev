@@ -850,14 +850,6 @@ updateEventDetails() {
     })
     .then(html => {
       console.log(html);
-      // Convert string to HTML element
-      const htmlContent = stringToHTML(html);
-      
-      if (htmlContent) {
-        // Replace the container with the new HTML element
-        container.replaceWith(htmlContent);
-      } else {
-        // Fallback in case parsing fails
         container.innerHTML = html;
       }
     })
