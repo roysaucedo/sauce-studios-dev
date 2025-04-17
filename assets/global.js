@@ -832,6 +832,25 @@ class VariantSelects extends HTMLElement {
 
   updateEventDetails() {
     console.log("HELLO FROM VAR CHANGE LAND")
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      const sectionRenderDiv = document.getElementById('section-render');
+    
+      if (sectionRenderDiv) {
+        function() {
+    
+          let fetchUrl = `/?section_id=hello-section`;
+          
+    
+          fetch(fetchUrl)
+            .then(response => response.text())
+            .then(html => {
+              sectionRenderDiv.innerHTML = html;
+            })
+            .catch(error => console.error('Error fetching section:', error));
+        }
+      }
+    });
   }
 
   updateOptions() {
