@@ -13,6 +13,10 @@
     border: 1px solid #eee;
     background-color: #fff;
   }
+  .event-image {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
 {%- endstyle -%}
 
 <div id="event-details-section">
@@ -35,7 +39,7 @@
         loading="lazy"
         width="{{ product.selected_or_first_available_variant.metafields.custom.event_image.width }}"
         height="{{ product.selected_or_first_available_variant.metafields.custom.event_image.height }}"
-        class=""
+        class="event-image"
       >
     </div>
   </div>
