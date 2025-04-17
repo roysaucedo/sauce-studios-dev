@@ -833,7 +833,7 @@ class VariantSelects extends HTMLElement {
   
   updateEventDetails() {
     
-    if (this.currentVariant && this.eventDetailsSectionId) {
+    if (this.currentVariant) {
       const variantId = this.currentVariant.id;
       
       console.log(eventDetailsSection);
