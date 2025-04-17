@@ -56,6 +56,12 @@
             "text_style": "body"
           }
         },
+        "custom_liquid_7aNq8p": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div id=\"event-rich-text\">{{ product.selected_or_first_available_variant.metafields.custom.event_details | metafield_tag }}</div>"
+          }
+        },
         "richtext_YWkTMX": {
           "type": "richtext",
           "settings": {
@@ -79,6 +85,7 @@
         "buy_buttons",
         "description",
         "text_mYJzrT",
+        "custom_liquid_7aNq8p",
         "richtext_YWkTMX",
         "share"
       ],
