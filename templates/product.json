@@ -104,6 +104,17 @@
         "padding_bottom": 56
       }
     },
+    "before_after_slider_JacTK7": {
+      "type": "before-after-slider",
+      "settings": {
+        "display_type": "slider",
+        "slider_height": 500,
+        "handle_color": "#ffffff",
+        "show_labels": true,
+        "before_label": "Original",
+        "after_label": "Enhanced"
+      }
+    },
     "event_details_section_cTcciy": {
       "type": "event-details-section",
       "settings": {}
@@ -242,6 +253,7 @@
   },
   "order": [
     "main",
+    "before_after_slider_JacTK7",
     "event_details_section_cTcciy",
     "section_rendering_api_76Y8Lr",
     "countdown_6Vrw4T",
