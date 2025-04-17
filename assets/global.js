@@ -836,7 +836,7 @@ class VariantSelects extends HTMLElement {
     if (this.currentVariant) {
       const variantId = this.currentVariant.id;
       
-      console.log(eventDetailsSection);
+      console.log("CODE IS RUNNING");
       const fetchUrl = `/?section_id=event-details&variant=${variantId}`;
 
       fetch(fetchUrl)
