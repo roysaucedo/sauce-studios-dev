@@ -11,12 +11,12 @@
 
 <div class="hello-section-wrapper">
   <h3 class="hello-section-title">Event Details</h3>
-  {% if variant.metafields.custom.event_details %}
+  {% if product.variants.first.metafields.custom.event_details %}
     <div class="event-details">
-      {{ variant.metafields.custom.event_details }}
+      {{ product.variants.first.metafields.custom.event_details }}
     </div>
   {% else %}
-    <p>No event details available for this variant.</p>
+    <p>No event details available for the first variant of this product.</p>
   {% endif %}
 </div>
 
