@@ -1,6 +1,14 @@
+{{ product.selected_or_first_available_variant.metafields.custom.event_details | metafield_tag }}
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Event Rich Text",
+  "tag": "section",
+  "class": "section",
+  "presets": [
+    {
+      "name": "Event Rich Text"
+    }
+  ]
+}
 {% endschema %}
