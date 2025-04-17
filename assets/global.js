@@ -844,27 +844,27 @@ updateEventDetails() {
     
     // Fetch the section using Section Rendering API
     fetch(url)
-      .then(response => {
-        if (!response.ok) throw new Error('Failed to fetch section');
-        return response.text();
-      })
-      .then(html => {
-         console.log(html);
-        // Convert string to HTML element
-        const htmlContent = stringToHTML(html);
-        
-        if (htmlContent) {
-          // Replace the container with the new HTML element
-          container.replaceWith(htmlContent);
-        } else {
-          // Fallback in case parsing fails
-          container.innerHTML = html;
-        }
-      })
-      .catch(error => {
-        console.error('Error updating event details:', error);
-        container.innerHTML = '<div class="error">Failed to load event details</div>';
-      });
+    .then(response => {
+      if (!response.ok) throw new Error('Failed to fetch section');
+      return response.text();
+    })
+    .then(html => {
+      console.log(html);
+      // Convert string to HTML element
+      const htmlContent = stringToHTML(html);
+      
+      if (htmlContent) {
+        // Replace the container with the new HTML element
+        container.replaceWith(htmlContent);
+      } else {
+        // Fallback in case parsing fails
+        container.innerHTML = html;
+      }
+    })
+    .catch(error => {
+      console.error('Error updating event details:', error);
+      container.innerHTML = '<div class="error">Failed to load event details</div>';
+    });
   }
 
 
