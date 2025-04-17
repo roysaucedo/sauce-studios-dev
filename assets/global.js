@@ -830,28 +830,28 @@ class VariantSelects extends HTMLElement {
     }
   }
 
+  
   updateEventDetails() {
-    console.log("HELLO FROM VAR CHANGE LAND")
-    document.addEventListener('DOMContentLoaded', function() {
-      
-      const sectionRenderDiv = document.getElementById('section-render');
-    
-      if (sectionRenderDiv) {
-        function() {
-    
-          let fetchUrl = `/?section_id=hello-section`;
-          
-    
-          fetch(fetchUrl)
-            .then(response => response.text())
-            .then(html => {
-              sectionRenderDiv.innerHTML = html;
-            })
-            .catch(error => console.error('Error fetching section:', error));
-        }
-      }
-    });
+    if (this.currentVariant && this.eventDetailsSectionId) {
+      const variantId = this.currentVariant.id;
+      const fetchUrl = `/?section_id=event-details&variant=${variantId}`;
+
+      fetch(fetchUrl)
+        .then(response => response.text())
+        .then(html => {
+          const eventDetailsSection = document.getElementById(this.eventDetailsSectionId);
+          if (eventDetailsSection) {
+            eventDetailsSection.innerHTML = html;
+          } else {
+            console.error(`Element with ID '${this.eventDetailsSectionId}' not found.`);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching and updating event details:', error);
+        });
+    }
   }
+
 
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
