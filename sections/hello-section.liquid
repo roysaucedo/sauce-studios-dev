@@ -7,23 +7,74 @@
   .hello-section-title {
     color: blue;
   }
+  .event-details {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    background-color: #fff;
+  }
 {%- endstyle -%}
 
-<div class="hello-section-wrapper">
+<div class="hello-section-wrapper" id="event-details-section">
   <h3 class="hello-section-title">Event Details</h3>
-  {% if product.variants.first.metafields.custom.event_details %}
-    <div class="event-details">
-      {{ product.variants.first.metafields.custom.event_details }}
-    </div>
-  {% else %}
-    <p>No event details available for the first variant of this product.</p>
-  {% endif %}
+  <div id="event-details-content">
+    {% if product.selected_or_first_available_variant.metafields.custom.event_details %}
+      <div class="event-details">
+        {{ product.selected_or_first_available_variant.metafields.custom.event_details }}
+      </div>
+    {% else %}
+      <p>No event details available for the selected variant.</p>
+    {% endif %}
+  </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const eventDetailsSection = document.getElementById('event-details-section');
+    const eventDetailsContent = document.getElementById('event-details-content');
+
+    if (eventDetailsSection && eventDetailsContent) {
+      // Function to fetch and update the event details section
+      function updateEventDetails(variantId) {
+        if (variantId) {
+          const fetchUrl = `/?section_id=event-details&variant=${variantId}`;
+
+          fetch(fetchUrl)
+            .then(response => response.text())
+            .then(html => {
+              // Replace the entire section content to ensure styles and structure are updated
+              eventDetailsSection.innerHTML = html;
+            })
+            .catch(error => console.error('Error fetching event details:', error));
+        } else {
+          console.error('No variant ID provided to update event details.');
+        }
+      }
+
+      // Listen for variant changes on the product page
+      document.addEventListener('variant:change', function(event) {
+        const variant = event.detail.variant;
+        if (variant) {
+          updateEventDetails(variant.id);
+        }
+      });
+
+      // Initial load: Show details for the initially selected variant
+      const initialVariant = document.querySelector('input[name="id"]')?.value;
+      if (initialVariant) {
+        updateEventDetails(initialVariant);
+      }
+    } else {
+      console.error('Event details section or content container not found.');
+    }
+  });
+</script>
 
 {% schema %}
 {
   "name": "Event Details",
   "tag": "section",
+  "class": "section",
   "presets": [
     {
       "name": "Event Details"
