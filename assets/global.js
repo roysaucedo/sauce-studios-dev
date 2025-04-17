@@ -832,18 +832,21 @@ class VariantSelects extends HTMLElement {
 
   
   updateEventDetails() {
+    
     if (this.currentVariant && this.eventDetailsSectionId) {
       const variantId = this.currentVariant.id;
+      
+      console.log(eventDetailsSection);
       const fetchUrl = `/?section_id=event-details&variant=${variantId}`;
 
       fetch(fetchUrl)
         .then(response => response.text())
         .then(html => {
-          const eventDetailsSection = document.getElementById(this.eventDetailsSectionId);
+          const eventDetailsSection = document.getElementById("event-details-section");
           if (eventDetailsSection) {
             eventDetailsSection.innerHTML = html;
           } else {
-            console.error(`Element with ID '${this.eventDetailsSectionId}' not found.`);
+            console.error(`Element with ID event-details-section not found.`);
           }
         })
         .catch(error => {
