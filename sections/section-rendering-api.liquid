@@ -8,16 +8,16 @@
   }
 
   .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    }
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-    @media screen and (min-width: 750px) {
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-      }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+  }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
@@ -35,12 +35,21 @@
 </div>
 
 <script>
-  fetch(`/?section_id=your-single-section-id`)
-  .then(response => response.text())
-  .then(html => {
-    document.getElementById('section-render').innerHTML = html;
-  })
-  .catch(error => console.error('Error fetching section:', error));
+  document.addEventListener('DOMContentLoaded', function() {
+    const showSectionButton = document.getElementById('show-section');
+    const sectionRenderDiv = document.getElementById('section-render');
+
+    if (showSectionButton && sectionRenderDiv) {
+      showSectionButton.addEventListener('click', function() {
+        fetch('/?section_id=hello-section')
+          .then(response => response.text())
+          .then(html => {
+            sectionRenderDiv.innerHTML = html;
+          })
+          .catch(error => console.error('Error fetching section:', error));
+      });
+    }
+  });
 </script>
 
 {% schema %}
@@ -65,7 +74,7 @@
       "type": "text",
       "id": "btn_text",
       "label": "Button Text",
-      "default": "Learn More"
+      "default": "Show Hello Section"
     },
     {
       "type": "url",
