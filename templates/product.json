@@ -106,8 +106,24 @@
     },
     "before_after_slider_JacTK7": {
       "type": "before-after-slider",
+      "blocks": {
+        "before_after_pair_8QwnEV": {
+          "type": "before_after_pair",
+          "settings": {
+            "before_image": "shopify://shop_images/robertus-benny-murdhani-jAankA6AXwM-unsplash.jpg",
+            "after_image": "shopify://shop_images/daniel-Rgj8Fdd5l3o-unsplash_2_1.jpg",
+            "before_label": "Before",
+            "after_label": "After"
+          }
+        }
+      },
+      "block_order": [
+        "before_after_pair_8QwnEV"
+      ],
       "settings": {
         "display_type": "slider",
+        "before_image": "shopify://shop_images/robertus-benny-murdhani-jAankA6AXwM-unsplash.jpg",
+        "after_image": "shopify://shop_images/daniel-Rgj8Fdd5l3o-unsplash_2_1.jpg",
         "slider_height": 500,
         "handle_color": "#ffffff",
         "show_labels": true,
