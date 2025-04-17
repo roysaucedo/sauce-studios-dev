@@ -816,7 +816,7 @@ class VariantSelects extends HTMLElement {
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
-    updateEventDetails();
+    this.updateEventDetails();
 
     if (!this.currentVariant) {
       this.toggleAddButton(true, '', true);
