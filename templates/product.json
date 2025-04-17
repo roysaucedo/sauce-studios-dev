@@ -97,6 +97,18 @@
         "padding_bottom": 0
       }
     },
+    "section_rendering_api_76Y8Lr": {
+      "type": "section-rendering-api",
+      "name": "Section Rendering API",
+      "settings": {
+        "h1": "Heading",
+        "p": "<p>Add your paragraph here</p>",
+        "btn_text": "Show Hello Section",
+        "link": "#",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "countdown_6Vrw4T": {
       "type": "countdown",
       "settings": {
@@ -219,6 +231,7 @@
   },
   "order": [
     "main",
+    "section_rendering_api_76Y8Lr",
     "countdown_6Vrw4T",
     "tabs_bUCQCg",
     "section_comparison_table_A6nQy4",
