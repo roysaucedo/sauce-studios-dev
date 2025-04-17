@@ -1,6 +1,562 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+{{ 'shopdev-before-after-slider.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .shopdev-before-after-slider .before-after-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
   }
+
+  .shopdev-before-after-slider .before-image,
+  .shopdev-before-after-slider .after-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .shopdev-before-after-slider .after-image {
+    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+  }
+
+  .shopdev-before-after-slider .slider-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: white;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: ew-resize;
+    z-index: 10;
+  }
+
+  .shopdev-before-after-slider .slider-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: ew-resize;
+    z-index: 11;
+    transition: opacity 0.3s ease;
+  }
+
+  .shopdev-before-after-slider .slider-button:hover {
+    opacity: 0.9;
+  }
+
+  .shopdev-before-after-slider .slider-button svg {
+    width: 20px;
+    height: 20px;
+    fill: #333;
+  }
+
+  .shopdev-before-after-slider .before-label,
+  .shopdev-before-after-slider .after-label {
+    position: absolute;
+    top: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 9;
+  }
+
+  .shopdev-before-after-slider .before-label {
+    left: 20px;
+  }
+
+  .shopdev-before-after-slider .after-label {
+    right: 20px;
+  }
+
+  .shopdev-before-after-slider .before-after-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+
+  .shopdev-before-after-slider .before-after-grid .before-after-container {
+    margin-bottom: 0;
+  }
+
+  .shopdev-before-after-slider .before-after-slider {
+    position: relative;
+    width: 100%;
+  }
+
+  .shopdev-before-after-slider .slider-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .shopdev-before-after-slider .slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .shopdev-before-after-slider .slider-dot.active {
+    background-color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .shopdev-before-after-slider .slider-button {
+      width: 32px;
+      height: 32px;
+    }
+
+    .shopdev-before-after-slider .slider-button svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .shopdev-before-after-slider .before-label,
+    .shopdev-before-after-slider .after-label {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+
+    .shopdev-before-after-slider .before-after-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{% assign display_type = section.settings.display_type %}
+{% assign block_count = section.blocks.size %}
+
+{% if block_count == 0 %}
+  <div class="before-after-container" style="height: {{ section.settings.slider_height }}px;">
+    {% if section.settings.before_image != blank %}
+      {{
+        section.settings.before_image
+        | image_url: width: 1500
+        | image_tag: class: 'before-image', loading: 'lazy', alt: section.settings.before_label
+        | default: 'Before'
+      }}
+    {% else %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'before-image bg-gray-200' }}
+    {% endif %}
+
+    {% if section.settings.after_image != blank %}
+      {{
+        section.settings.after_image
+        | image_url: width: 1500
+        | image_tag: class: 'after-image', loading: 'lazy', alt: section.settings.after_label
+        | default: 'After'
+      }}
+    {% else %}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'after-image bg-gray-300' }}
+    {% endif %}
+
+    {% if section.settings.show_labels %}
+      <div class="before-label">{{ section.settings.before_label | default: 'Before' }}</div>
+      <div class="after-label">{{ section.settings.after_label | default: 'After' }}</div>
+    {% endif %}
+
+    <div class="slider-handle" style="background-color: {{ section.settings.handle_color }};">
+      <div class="slider-button" style="background-color: {{ section.settings.handle_color }};">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path>
+          <path d="M14.59 16.59L19.17 12 14.59 7.41 16 6l6 6-6 6-1.41-1.41z" style="opacity:0.5"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+{% else %}
+  {% if display_type == 'grid' or block_count > 1 %}
+    <div class="before-after-grid">
+      {% for block in section.blocks %}
+        <div
+          class="before-after-container"
+          style="height: {{ section.settings.slider_height }}px;"
+          data-block-id="{{ block.id }}"
+        >
+          {% if block.settings.before_image != blank %}
+            {{
+              block.settings.before_image
+              | image_url: width: 1500
+              | image_tag: class: 'before-image', loading: 'lazy', alt: block.settings.before_label
+              | default: 'Before'
+            }}
+          {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'before-image bg-gray-200' }}
+          {% endif %}
+
+          {% if block.settings.after_image != blank %}
+            {{
+              block.settings.after_image
+              | image_url: width: 1500
+              | image_tag: class: 'after-image', loading: 'lazy', alt: block.settings.after_label
+              | default: 'After'
+            }}
+          {% else %}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'after-image bg-gray-300' }}
+          {% endif %}
+
+          {% if section.settings.show_labels %}
+            <div class="before-label">{{ block.settings.before_label | default: 'Before' }}</div>
+            <div class="after-label">{{ block.settings.after_label | default: 'After' }}</div>
+          {% endif %}
+
+          <div class="slider-handle" style="background-color: {{ section.settings.handle_color }};">
+            <div class="slider-button" style="background-color: {{ section.settings.handle_color }};">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path>
+                <path d="M14.59 16.59L19.17 12 14.59 7.41 16 6l6 6-6 6-1.41-1.41z" style="opacity:0.5"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="before-after-slider">
+      <div class="slider-container">
+        {% for block in section.blocks %}
+          <div
+            class="before-after-container {% if forloop.first %}active{% endif %}"
+            style="height: {{ section.settings.slider_height }}px; display: {% if forloop.first %}block{% else %}none{% endif %};"
+            data-block-id="{{ block.id }}"
+            data-slide-index="{{ forloop.index0 }}"
+          >
+            {% if block.settings.before_image != blank %}
+              {{
+                block.settings.before_image
+                | image_url: width: 1500
+                | image_tag: class: 'before-image', loading: 'lazy', alt: block.settings.before_label
+                | default: 'Before'
+              }}
+            {% else %}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'before-image bg-gray-200' }}
+            {% endif %}
+
+            {% if block.settings.after_image != blank %}
+              {{
+                block.settings.after_image
+                | image_url: width: 1500
+                | image_tag: class: 'after-image', loading: 'lazy', alt: block.settings.after_label
+                | default: 'After'
+              }}
+            {% else %}
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'after-image bg-gray-300' }}
+            {% endif %}
+
+            {% if section.settings.show_labels %}
+              <div class="before-label">{{ block.settings.before_label | default: 'Before' }}</div>
+              <div class="after-label">{{ block.settings.after_label | default: 'After' }}</div>
+            {% endif %}
+
+            <div class="slider-handle" style="background-color: {{ section.settings.handle_color }};">
+              <div class="slider-button" style="background-color: {{ section.settings.handle_color }};">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path>
+                  <path d="M14.59 16.59L19.17 12 14.59 7.41 16 6l6 6-6 6-1.41-1.41z" style="opacity:0.5"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if block_count > 1 %}
+        <div class="slider-navigation">
+          {% for block in section.blocks %}
+            <div
+              class="slider-dot {% if forloop.first %}active{% endif %}"
+              data-slide-index="{{ forloop.index0 }}"
+            ></div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endif %}
+
+<script>
+  class BeforeAfterSlider {
+    constructor(container) {
+      this.container = container;
+      this.beforeImage = container.querySelector('.before-image');
+      this.afterImage = container.querySelector('.after-image');
+      this.sliderHandle = container.querySelector('.slider-handle');
+      this.sliderButton = container.querySelector('.slider-button');
+      
+      this.isDragging = false;
+      this.containerWidth = this.container.offsetWidth;
+      this.initialPosition = 50; // Start at 50%
+      
+      this.init();
+    }
+    
+    init() {
+      // Set initial position
+      this.updateSliderPosition(this.initialPosition);
+      
+      // Add event listeners
+      this.sliderHandle.addEventListener('mousedown', this.startDrag.bind(this));
+      this.sliderButton.addEventListener('mousedown', this.startDrag.bind(this));
+      this.container.addEventListener('mousemove', this.drag.bind(this));
+      document.addEventListener('mouseup', this.stopDrag.bind(this));
+      
+      // Touch events for mobile
+      this.sliderHandle.addEventListener('touchstart', this.startDrag.bind(this), { passive: true });
+      this.sliderButton.addEventListener('touchstart', this.startDrag.bind(this), { passive: true });
+      this.container.addEventListener('touchmove', this.drag.bind(this), { passive: false });
+      document.addEventListener('touchend', this.stopDrag.bind(this));
+      
+      // Handle window resize
+      window.addEventListener('resize', this.handleResize.bind(this));
+      
+      // Handle container click
+      this.container.addEventListener('click', this.handleClick.bind(this));
+    }
+    
+    startDrag(e) {
+      e.preventDefault();
+      this.isDragging = true;
+      this.sliderButton.style.opacity = '1';
+      this.containerWidth = this.container.offsetWidth;
+    }
+    
+    drag(e) {
+      if (!this.isDragging) return;
+      e.preventDefault();
+      
+      requestAnimationFrame(() => {
+        const containerRect = this.container.getBoundingClientRect();
+        let clientX;
+        
+        if (e.type === 'touchmove') {
+          clientX = e.touches[0].clientX;
+        } else {
+          clientX = e.clientX;
+        }
+        
+        let position = ((clientX - containerRect.left) / this.containerWidth) * 100;
+        position = Math.max(0, Math.min(100, position));
+        
+        this.updateSliderPosition(position);
+      });
+    }
+    
+    stopDrag() {
+      this.isDragging = false;
+      this.sliderButton.style.opacity = '1';
+    }
+    
+    handleClick(e) {
+      requestAnimationFrame(() => {
+        const containerRect = this.container.getBoundingClientRect();
+        const position = ((e.clientX - containerRect.left) / this.containerWidth) * 100;
+        this.updateSliderPosition(position);
+      });
+    }
+    
+    updateSliderPosition(position) {
+      // Update slider handle position
+      this.sliderHandle.style.left = `${position}%`;
+      this.sliderButton.style.left = `${position}%`;
+      
+      // Update clip path for the after image
+      this.afterImage.style.clipPath = `polygon(0% 0%, ${position}% 0%, ${position}% 100%, 0% 100%)`;
+    }
+    
+    handleResize() {
+      this.containerWidth = this.container.offsetWidth;
+    }
+  }
+  
+  class SliderNavigation {
+    constructor() {
+      this.sliderContainer = document.querySelector('.slider-container');
+      this.slides = document.querySelectorAll('.before-after-container[data-slide-index]');
+      this.dots = document.querySelectorAll('.slider-dot');
+      
+      if (this.dots.length > 0) {
+        this.dots.forEach(dot => {
+          dot.addEventListener('click', this.handleDotClick.bind(this));
+        });
+      }
+    }
+    
+    handleDotClick(e) {
+      const dot = e.currentTarget;
+      const slideIndex = dot.getAttribute('data-slide-index');
+      
+      // Update active dot
+      this.dots.forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+      
+      // Show selected slide
+      this.slides.forEach(slide => {
+        if (slide.getAttribute('data-slide-index') === slideIndex) {
+          slide.style.display = 'block';
+        } else {
+          slide.style.display = 'none';
+        }
+      });
+    }
+  }
+  
+  // Initialize all before-after sliders on the page
+  document.addEventListener('DOMContentLoaded', () => {
+    const sliderContainers = document.querySelectorAll('.before-after-container');
+    sliderContainers.forEach(container => {
+      new BeforeAfterSlider(container);
+    });
+    
+    // Initialize slider navigation if it exists
+    if (document.querySelector('.slider-navigation')) {
+      new SliderNavigation();
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Before-After Slider - fin",
+  "class": "shopdev shopdev-before-after-slider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "select",
+      "id": "display_type",
+      "label": "Display Type",
+      "options": [
+        {
+          "value": "slider",
+          "label": "Slider"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ],
+      "default": "slider"
+    },
+    {
+      "type": "header",
+      "content": "Default Images (Used when no blocks are added)"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After Image"
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "range",
+      "id": "slider_height",
+      "min": 200,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Slider Height",
+      "default": 500
+    },
+    {
+      "type": "color",
+      "id": "handle_color",
+      "label": "Slider Handle Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Labels"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_labels",
+      "label": "Show Before/After Labels",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Default Before Label Text",
+      "default": "Before"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "Default After Label Text",
+      "default": "After"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "before_after_pair",
+      "name": "Before/After Pair",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "before_image",
+          "label": "Before Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "after_image",
+          "label": "After Image"
+        },
+        {
+          "type": "text",
+          "id": "before_label",
+          "label": "Before Label Text",
+          "default": "Before"
+        },
+        {
+          "type": "text",
+          "id": "after_label",
+          "label": "After Label Text",
+          "default": "After"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before-After Slider",
+      "settings": {
+        "before_image": "shopify://shop_images/retail-display-in-neutral-colors.jpg",
+        "after_image": "shopify://shop_images/fall-neutral-colors-in-retail-display.jpg",
+        "slider_height": 500,
+        "handle_color": "#ffffff",
+        "show_labels": true,
+        "before_label": "Original",
+        "after_label": "Enhanced"
+      }
+    }
+  ]
+}
 {% endschema %}
