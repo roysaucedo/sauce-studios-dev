@@ -46,7 +46,7 @@
         "h1": "Heading",
         "p": "<p>Add your paragraph here</p>",
         "btn_text": "Learn More",
-        "link": "",
+        "link": "#",
         "padding_top": 36,
         "padding_bottom": 36
       }
