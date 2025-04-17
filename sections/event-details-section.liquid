@@ -22,11 +22,14 @@
     width: 100%;
     height: auto;
   }
+  .column {
+    width: 50%;
+  }
 {%- endstyle -%}
 
 <div id="event-details-section">
   <div class="hello-section-wrapper">
-    <div>
+    <div class="column">
       <h3 class="hello-section-title">Event Details</h3>
       <p>{{ product.selected_or_first_available_variant.title }}</p>
       <div>
@@ -39,7 +42,7 @@
         {% endif %}
       </div>
     </div>
-    <div>
+    <div class="column">
       <img
         class="event-image"
         src="{{  product.selected_or_first_available_variant.metafields.custom.event_image | image_url: width: 800 }}"
