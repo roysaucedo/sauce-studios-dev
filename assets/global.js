@@ -842,8 +842,10 @@ updateEventDetails() {
   const variantId = this.currentVariant.id;
   console.log("Updating event details for variant:", variantId);
   
-  // Use section rendering API with the correct path
-  const fetchUrl = `${window.location.pathname}?section_id=event-details&variant=${variantId}`;
+  // Use section rendering API with the correct path for product page
+  // Shopify's section rendering API format
+  // For theme sections, we need to use the proper API endpoint
+  const fetchUrl = `/sections/render?sections=event-details&section_id=event-details&variant_id=${variantId}`;
   
   fetch(fetchUrl)
     .then(response => {
@@ -852,31 +854,72 @@ updateEventDetails() {
       }
       return response.text();
     })
-    .then(html => {
-      // Find the event details container where content will be updated
-      const eventDetailsContent = document.getElementById("event-details-content");
-      
-      if (!eventDetailsContent) {
-        console.error("Element with ID 'event-details-content' not found.");
-        return;
+    .then(response => {
+      // With /sections/render endpoint, the response is JSON
+      try {
+        // Try parsing as JSON first (for /sections/render endpoint)
+        const jsonResponse = JSON.parse(response);
+        
+        // Find the event details container where content will be updated
+        const eventDetailsContent = document.getElementById("event-details-content");
+        
+        if (!eventDetailsContent) {
+          console.error("Element with ID 'event-details-content' not found.");
+          return;
+        }
+        
+        // The response will have a key matching the section name
+        const sectionHtml = jsonResponse["event-details"];
+        
+        if (!sectionHtml) {
+          console.error("Could not find event-details section in JSON response");
+          return;
+        }
+        
+        // Extract the content from the HTML
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = sectionHtml;
+        
+        // Find the event details content in the returned HTML
+        const newEventDetails = tempDiv.querySelector('#event-details-content');
+        
+        if (!newEventDetails) {
+          console.log("Using entire section content as fallback");
+          // Fallback to using the entire content
+          eventDetailsContent.innerHTML = tempDiv.innerHTML;
+        } else {
+          // Update only the content part, preserving the section wrapper
+          eventDetailsContent.innerHTML = newEventDetails.innerHTML;
+        }
+        
+        console.log("Event details content updated successfully");
+      } catch (e) {
+        // If not JSON (for direct section_id requests), handle as HTML
+        console.log("Response is not JSON, handling as HTML");
+        
+        const eventDetailsContent = document.getElementById("event-details-content");
+        
+        if (!eventDetailsContent) {
+          console.error("Element with ID 'event-details-content' not found.");
+          return;
+        }
+        
+        // Extract the section content from the returned HTML
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = response;
+        
+        // Find the event details content in the returned HTML
+        const newEventDetails = tempDiv.querySelector('#event-details-content');
+        
+        if (!newEventDetails) {
+          console.error("Could not find #event-details-content in returned section HTML");
+          return;
+        }
+        
+        // Update only the content part, preserving the section wrapper
+        eventDetailsContent.innerHTML = newEventDetails.innerHTML;
+        console.log("Event details content updated successfully");
       }
-      
-      // Extract the section content from the returned HTML
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = html;
-      
-      // Find the event details content in the returned HTML
-      // Looking specifically for the content inside #event-details-content
-      const newEventDetails = tempDiv.querySelector('#event-details-content');
-      
-      if (!newEventDetails) {
-        console.error("Could not find #event-details-content in returned section HTML");
-        return;
-      }
-      
-      // Update only the content part, preserving the section wrapper
-      eventDetailsContent.innerHTML = newEventDetails.innerHTML;
-      console.log("Event details content updated successfully");
     })
     .catch(error => {
       console.error('Error fetching and updating event details:', error);
