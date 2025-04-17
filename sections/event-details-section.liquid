@@ -17,6 +17,7 @@
 
 <div class="hello-section-wrapper" id="event-details-section">
   <h3 class="hello-section-title">Event Details</h3>
+  <p>{{ product.selected_or_first_available_variant.title }}</p>
   <div>
     {% if product.selected_or_first_available_variant.metafields.custom.event_details %}
       <div class="event-details">
