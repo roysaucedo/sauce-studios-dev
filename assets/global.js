@@ -852,6 +852,27 @@ onVariantChange() {
   }
 }
 
+// Original onVariantChange method remains unchanged
+onVariantChange() {
+  this.updateOptions();
+  this.updateMasterId();
+  this.toggleAddButton(true, '', false);
+  this.updatePickupAvailability();
+  this.removeErrorMessage();
+  this.updateVariantStatuses();
+  this.updateEventDetails(); // Your custom function
+  if (!this.currentVariant) {
+    this.toggleAddButton(true, '', true);
+    this.setUnavailable();
+  } else {
+    this.updateMedia();
+    this.updateURL();
+    this.updateVariantInput();
+    this.renderProductInfo();
+    this.updateShareUrl();
+  }
+}
+
 // Improved updateEventDetails method
 updateEventDetails() {
   if (!this.currentVariant) {
@@ -873,25 +894,30 @@ updateEventDetails() {
       return response.text();
     })
     .then(html => {
-      // Find the event details section
-      const eventDetailsSection = document.getElementById("event-details-section");
+      // Find the event details container where content will be updated
+      const eventDetailsContent = document.getElementById("event-details-content");
       
-      if (!eventDetailsSection) {
-        console.error("Element with ID 'event-details-section' not found.");
+      if (!eventDetailsContent) {
+        console.error("Element with ID 'event-details-content' not found.");
         return;
       }
       
       // Extract the section content from the returned HTML
-      // The section rendering API returns the entire section, we need to extract just the content
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = html;
       
-      // Look for the actual section content - this may need to be adjusted based on your theme
-      const sectionContent = tempDiv.querySelector('.event-details-content') || tempDiv;
+      // Find the event details content in the returned HTML
+      // Looking specifically for the content inside #event-details-content
+      const newEventDetails = tempDiv.querySelector('#event-details-content');
       
-      // Update the event details section with the new content
-      eventDetailsSection.innerHTML = sectionContent.innerHTML;
-      console.log("Event details section updated successfully");
+      if (!newEventDetails) {
+        console.error("Could not find #event-details-content in returned section HTML");
+        return;
+      }
+      
+      // Update only the content part, preserving the section wrapper
+      eventDetailsContent.innerHTML = newEventDetails.innerHTML;
+      console.log("Event details content updated successfully");
     })
     .catch(error => {
       console.error('Error fetching and updating event details:', error);
