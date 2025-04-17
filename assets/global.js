@@ -843,6 +843,7 @@ class VariantSelects extends HTMLElement {
         .then(response => response.text())
         .then(html => {
           const eventDetailsSection = document.getElementById("event-details-section");
+          console.log(eventDetailsSection);
           if (eventDetailsSection) {
             eventDetailsSection.innerHTML = html;
           } else {
