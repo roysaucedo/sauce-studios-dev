@@ -833,7 +833,7 @@ class VariantSelects extends HTMLElement {
 
 
 updateEventDetails() {
-    console.log("CODE VAR CHANGE");
+    
     const container = document.querySelector('#event-details-section');
   
     
@@ -850,8 +850,6 @@ updateEventDetails() {
       })
       .then(html => {
         // Replace the entire content
-        console.log(html)
-        console.log(typeof html);
         container.innerHTML = html;
       })
       .catch(error => {
