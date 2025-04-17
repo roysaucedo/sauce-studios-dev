@@ -843,7 +843,7 @@ updateEventDetails() {
     console.log(url)
     
     // Fetch the section using Section Rendering API
-    fetchurl)
+    fetch(url)
       .then(response => {
         if (!response.ok) throw new Error('Failed to fetch section');
         return response.text();
