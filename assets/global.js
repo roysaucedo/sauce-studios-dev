@@ -831,30 +831,72 @@ class VariantSelects extends HTMLElement {
   }
 
   
-  updateEventDetails() {
-    
-    if (this.currentVariant) {
-      const variantId = this.currentVariant.id;
-      
-      console.log("CODE IS RUNNING");
-      const fetchUrl = `/?section_id=event-details&variant=${variantId}`;
-
-      fetch(fetchUrl)
-        .then(response => response.text())
-        .then(html => {
-          const eventDetailsSection = document.getElementById("event-details-section");
-          console.log(eventDetailsSection);
-          if (eventDetailsSection) {
-            eventDetailsSection.innerHTML = html;
-          } else {
-            console.error(`Element with ID event-details-section not found.`);
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching and updating event details:', error);
-        });
-    }
+ // Original onVariantChange method remains unchanged
+onVariantChange() {
+  this.updateOptions();
+  this.updateMasterId();
+  this.toggleAddButton(true, '', false);
+  this.updatePickupAvailability();
+  this.removeErrorMessage();
+  this.updateVariantStatuses();
+  this.updateEventDetails(); // Your custom function
+  if (!this.currentVariant) {
+    this.toggleAddButton(true, '', true);
+    this.setUnavailable();
+  } else {
+    this.updateMedia();
+    this.updateURL();
+    this.updateVariantInput();
+    this.renderProductInfo();
+    this.updateShareUrl();
   }
+}
+
+// Improved updateEventDetails method
+updateEventDetails() {
+  if (!this.currentVariant) {
+    console.log("No variant selected, skipping event details update");
+    return;
+  }
+  
+  const variantId = this.currentVariant.id;
+  console.log("Updating event details for variant:", variantId);
+  
+  // Use section rendering API with the correct path
+  const fetchUrl = `${window.location.pathname}?section_id=event-details&variant=${variantId}`;
+  
+  fetch(fetchUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(html => {
+      // Find the event details section
+      const eventDetailsSection = document.getElementById("event-details-section");
+      
+      if (!eventDetailsSection) {
+        console.error("Element with ID 'event-details-section' not found.");
+        return;
+      }
+      
+      // Extract the section content from the returned HTML
+      // The section rendering API returns the entire section, we need to extract just the content
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      
+      // Look for the actual section content - this may need to be adjusted based on your theme
+      const sectionContent = tempDiv.querySelector('.event-details-content') || tempDiv;
+      
+      // Update the event details section with the new content
+      eventDetailsSection.innerHTML = sectionContent.innerHTML;
+      console.log("Event details section updated successfully");
+    })
+    .catch(error => {
+      console.error('Error fetching and updating event details:', error);
+    });
+}
 
 
   updateOptions() {
