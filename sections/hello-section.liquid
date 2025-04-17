@@ -1,8 +1,28 @@
-HELLO THERE
+{%- style -%}
+  .hello-section-wrapper {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  .hello-section-title {
+    color: blue;
+  }
+{%- endstyle -%}
+
+<div class="hello-section-wrapper">
+  <h3 class="hello-section-title">Event Details</h3>
+  {% if variant.metafields.custom.event_details %}
+    <div class="event-details">
+      {{ variant.metafields.custom.event_details }}
+    </div>
+  {% else %}
+    <p>No event details available for this variant.</p>
+  {% endif %}
+</div>
 
 {% schema %}
 {
-  "name": "Hello Section",
-  "settings": []
+  "name": "Event Details",
+  "tag": "section"
 }
 {% endschema %}
