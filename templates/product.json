@@ -97,8 +97,14 @@
         "padding_bottom": 0
       }
     },
+    "hello_section_TFLfk6": {
+      "type": "hello-section",
+      "name": "Event Details",
+      "settings": {}
+    },
     "section_rendering_api_76Y8Lr": {
       "type": "section-rendering-api",
+      "disabled": true,
       "name": "Section Rendering API",
       "settings": {
         "h1": "Heading",
@@ -231,6 +237,7 @@
   },
   "order": [
     "main",
+    "hello_section_TFLfk6",
     "section_rendering_api_76Y8Lr",
     "countdown_6Vrw4T",
     "tabs_bUCQCg",
