@@ -833,7 +833,7 @@ class VariantSelects extends HTMLElement {
 
 
 updateEventDetails() {
-    const container = document.getElementById('event-details');
+    const container = document.getElementById('event-details-section');
     
     if (!container) {
       console.error('Container with ID "event-details" not found');
