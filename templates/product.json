@@ -117,6 +117,20 @@
         "after_label": "Enhanced"
       }
     },
+    "sd_prod_image_carousel_iVcBe4": {
+      "type": "sd-prod-image-carousel",
+      "settings": {
+        "section_title": "Featured Products",
+        "collection": "all-products",
+        "products_to_show": 8,
+        "title_font_weight": "medium",
+        "title_color": "#333333",
+        "price_color": "#111111",
+        "add_to_cart_text": "Add to Cart",
+        "button_text": "Shop Now",
+        "view_all_text": "View All"
+      }
+    },
     "event_details_section_cTcciy": {
       "type": "event-details-section",
       "settings": {}
@@ -256,6 +270,7 @@
   "order": [
     "main",
     "before_after_slider_JacTK7",
+    "sd_prod_image_carousel_iVcBe4",
     "event_details_section_cTcciy",
     "section_rendering_api_76Y8Lr",
     "countdown_6Vrw4T",
