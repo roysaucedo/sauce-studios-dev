@@ -1,0 +1,423 @@
+{{ 'shopdev-product-image-carousel-card.css' | asset_url | stylesheet_tag }}
+
+<div class="w-full my-16">
+  <div class="max-w-[1600px] mx-auto">
+    <div class="section-header flex justify-between items-center px-4 mb-4">
+      <h2 class="section-title text-2xl uppercase tracking-tight">Featured Products</h2>
+      <a
+        href="{{ collections[section.settings.collection].url }}"
+        class="view-all-btn text-xs uppercase tracking-wide px-4 py-2 border border-black hover:bg-black hover:text-white transition-colors duration-300 rounded-full"
+        >View All</a
+      >
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-1">
+      {% for product in collections.all.products limit: 4 %}
+        <a
+          href="{{ product.url }}"
+          class="simple-product-card p-4 border border-transparent hover:bg-[#F2EFE5] transition-all duration-300 flex flex-col items-start text-left"
+        >
+          <div class="product-image-carousel w-full aspect-square overflow-hidden mb-4 relative">
+            {% if product.images.size > 0 %}
+              <div class="carousel-container w-full h-full flex transition-transform duration-300">
+                {% for image in product.images limit: 3 %}
+                  <div class="carousel-slide w-full h-full flex-shrink-0">
+                    <img
+                      src="{{ image | img_url: '400x400', crop: 'center' }}"
+                      alt="{{ product.title }}{% if image.alt != blank %} - {{ image.alt }}{% endif %}"
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                      width="400"
+                      height="400"
+                    >
+                  </div>
+                {% endfor %}
+              </div>
+              <button
+                class="add-to-cart-btn absolute bottom-4 left-0 right-0 mx-auto w-2/5 bg-black text-white py-2 text-xs uppercase font-medium tracking-wide rounded-full transform translate-y-full transition-transform duration-300"
+                data-product-id="{{ product.id }}"
+                data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+              >
+                Add to Cart
+              </button>
+              {% if product.images.size > 1 %}
+                <button class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center bg-black">
+                  <div class="relative text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-4" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                </button>
+                <button class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center shadow-sm bg-black">
+                  <div class="text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                  </div>
+                </button>
+              {% endif %}
+            {% else %}
+              <div class="w-full h-full bg-gray-100 flex items-center justify-center">
+                {{ 'product-1' | placeholder_svg_tag: 'w-3/4 h-3/4 text-gray-400' }}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="flex flex-col gap-0.5">
+            <h3
+              class="product-title text-sm md:text-lg font-{{ section.settings.title_font_weight }}"
+              style="color: {{ section.settings.title_color }}"
+            >
+              {{ product.title }}
+            </h3>
+
+            <div class="product-price text-sm" style="color: {{ section.settings.price_color }}">
+              {% if product.compare_at_price > product.price %}
+                <span class="font-medium">{{ product.price | money }}</span>
+                <span class="line-through text-gray-400 ml-2">{{ product.compare_at_price | money }}</span>
+              {% else %}
+                <span class="font-medium">{{ product.price | money }}</span>
+              {% endif %}
+            </div>
+
+            <div class="product-colors text-xs text-gray-500 mt-1">
+              {% for option in product.options_with_values %}
+                {% if option.name == 'Color'
+                  or option.name contains 'color'
+                  or option.name contains 'Colour'
+                  or option.name contains 'colour'
+                %}
+                  <span
+                    >Available in:
+                    {% for value in option.values %}
+                      {{ value -}}
+                      {%- unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                  </span>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </a>
+      {% else %}
+        <div class="col-span-full text-center py-10">
+          <p>No products found in this collection</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;500;600;700&display=swap');
+
+  .shopdev-product-image-carousel-card .section-title {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  .shopdev-product-image-carousel-card .product-image-carousel .carousel-container {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .shopdev-product-image-carousel-card .simple-product-card:hover .product-image-carousel .carousel-container {
+    transform: translateX(-100%);
+  }
+
+  .shopdev-product-image-carousel-card .product-image-carousel .add-to-cart-btn {
+    opacity: 0;
+    transform: translateY(full);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .shopdev-product-image-carousel-card .simple-product-card:hover .product-image-carousel .add-to-cart-btn {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .shopdev-product-image-carousel-card .product-image-carousel .carousel-prev,
+  .shopdev-product-image-carousel-card .product-image-carousel .carousel-next {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+  }
+  .shopdev-product-image-carousel-card .product-image-carousel:hover .carousel-prev,
+  .shopdev-product-image-carousel-card .product-image-carousel:hover .carousel-next {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add to cart functionality
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const variantId = this.dataset.variantId;
+        
+        // Add the item to the cart
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            items: [{
+              id: variantId,
+              quantity: 1
+            }]
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Update cart count or show confirmation
+          if (data.items) {
+            // Optional: refresh cart drawer or show notification
+            if (typeof window.refreshCart === 'function') {
+              window.refreshCart();
+            } else {
+              // Refresh the page as fallback
+              window.location.href = '/cart';
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Error adding to cart:', error);
+        });
+      });
+    });
+    
+    const carousels = document.querySelectorAll('.product-image-carousel');
+    
+    carousels.forEach(carousel => {
+      const container = carousel.querySelector('.carousel-container');
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const prevBtn = carousel.querySelector('.carousel-prev');
+      const nextBtn = carousel.querySelector('.carousel-next');
+      
+      if (slides.length <= 1) return;
+      
+      let currentIndex = 0;
+      let touchStartX = 0;
+      let touchEndX = 0;
+      let isDragging = false;
+      let startTranslate = 0;
+      let isHovering = false;
+      
+      // Check if the card is being hovered
+      const card = carousel.closest('.simple-product-card');
+      card.addEventListener('mouseenter', () => {
+        isHovering = true;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        isHovering = false;
+      });
+      
+      function goToSlide(index) {
+        // Allow button navigation even during hover
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        
+        currentIndex = index;
+        container.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update button states based on current position
+        if (prevBtn && nextBtn) {
+          prevBtn.classList.toggle('disabled', slides.length <= 1);
+          nextBtn.classList.toggle('disabled', slides.length <= 1);
+        }
+      }
+      
+      // Event listeners for buttons
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          // Force manual navigation even during hover
+          const originalHoverState = isHovering;
+          isHovering = false;
+          goToSlide(currentIndex - 1);
+          isHovering = originalHoverState;
+        });
+      }
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          // Force manual navigation even during hover
+          const originalHoverState = isHovering;
+          isHovering = false;
+          goToSlide(currentIndex + 1);
+          isHovering = originalHoverState;
+        });
+      }
+      
+      // Touch event handlers for swipe functionality
+      container.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        startTranslate = -currentIndex * 100;
+        isDragging = true;
+        container.style.transition = 'none';
+      }, { passive: true });
+      
+      container.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        
+        touchEndX = e.touches[0].clientX;
+        const diffX = touchEndX - touchStartX;
+        const percentMoved = (diffX / carousel.offsetWidth) * 100;
+        
+        // Limit the drag to prevent dragging too far
+        const newTranslate = Math.max(
+          -((slides.length - 1) * 100),
+          Math.min(0, startTranslate + percentMoved)
+        );
+        
+        container.style.transform = `translateX(${newTranslate}%)`;
+      }, { passive: true });
+      
+      container.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        container.style.transition = 'transform 0.3s ease';
+        
+        const diffX = touchEndX - touchStartX;
+        const threshold = carousel.offsetWidth * 0.2; // 20% of carousel width
+        
+        if (Math.abs(diffX) > threshold) {
+          if (diffX > 0) {
+            // Swiped right
+            goToSlide(currentIndex - 1);
+          } else {
+            // Swiped left
+            goToSlide(currentIndex + 1);
+          }
+        } else {
+          // Return to current slide if swipe wasn't far enough
+          goToSlide(currentIndex);
+        }
+      });
+      
+      // We don't initialize the carousel position to allow CSS hover to work
+      // Only set up the button functionality
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "005 — Product Card w/ Sli",
+  "class": "shopdev shopdev-product-image-carousel-card",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Featured Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 16,
+      "step": 4,
+      "default": 8,
+      "label": "Products to show"
+    },
+    {
+      "type": "header",
+      "content": "Product Title"
+    },
+    {
+      "type": "select",
+      "id": "title_font_weight",
+      "label": "Title font weight",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "semibold",
+          "label": "Semibold"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Product Price"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price color",
+      "default": "#111111"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_text",
+      "label": "Add to cart button text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All button text",
+      "default": "View All"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Simple Product Card",
+      "settings": {
+        "products_to_show": 8,
+        "title_font_weight": "medium",
+        "title_color": "#333333",
+        "price_color": "#111111"
+      }
+    }
+  ]
+}
+{% endschema %}
