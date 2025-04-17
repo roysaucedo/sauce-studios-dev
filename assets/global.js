@@ -839,7 +839,7 @@ updateEventDetails() {
     
     // Show loading indicator (optional)
     container.innerHTML = '<div class="loading">Loading...</div>';
-    const url = window.location.pathname + `?variant=${this.currentVariant.id}` + '?section_id=event-details-section';
+    const url = `${window.location.pathname}?section_id=event-details-section&variant=${this.currentVariant.id}`;
     console.log(url)
     
     // Fetch the section using Section Rendering API
