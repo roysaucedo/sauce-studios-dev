@@ -26,9 +26,8 @@
       {{ section.settings.h1 }}
     </h2>
     <span class="rich-text__text rte scroll-trigger animate--slide-in">{{ section.settings.p }}</span>
-    {% if section.settings.link != blank %}
-      <button id="show-section" class="button button--primary">{{ section.settings.btn_text }}</button>
-    {% endif %}
+
+    <button id="show-section" class="button button--primary">{{ section.settings.btn_text }}</button>
   </div>
 
   <div class="page-width" id="section-render"></div>
