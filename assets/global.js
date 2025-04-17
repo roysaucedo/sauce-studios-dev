@@ -829,6 +829,10 @@ class VariantSelects extends HTMLElement {
     }
   }
 
+  updateEventDetails() {
+    console.log("HELLO FROM VAR CHANGE LAND")
+  }
+
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
   }
