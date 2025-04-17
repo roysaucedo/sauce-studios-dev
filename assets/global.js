@@ -817,6 +817,7 @@ class VariantSelects extends HTMLElement {
     this.removeErrorMessage();
     this.updateVariantStatuses();
     this.updateEventDetails();
+    this.updateEventRichText();
 
     if (!this.currentVariant) {
       this.toggleAddButton(true, '', true);
@@ -831,16 +832,35 @@ class VariantSelects extends HTMLElement {
   }
 
 
-
+// PDP Variant Change Updates
+updateEventRichText() {
+    
+    const eventRichText = document.querySelector('#event-rich-text');
+    const url = `${window.location.pathname}?section_id=event-rich-text&variant=${this.currentVariant.id}`;
+    
+    // Fetch the section using Section Rendering API
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to fetch section');
+        return response.text();
+      })
+      .then(html => {
+        // Replace the entire content
+        container.innerHTML = html;
+      })
+      .catch(error => {
+        console.error('Error updating event details:', error);
+        container.innerHTML = '<div class="error">Failed to load event details</div>';
+      });
+  
+  }
+  
 updateEventDetails() {
     
     const container = document.querySelector('#event-details-section');
   
     
-    // Show loading indicator (optional)
-    // container.innerHTML = '<div class="loading">Loading...</div>';
     const url = `${window.location.pathname}?section_id=event-details-section&variant=${this.currentVariant.id}`;
-    console.log(url)
     
     // Fetch the section using Section Rendering API
     fetch(url)
