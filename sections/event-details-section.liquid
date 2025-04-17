@@ -28,6 +28,16 @@
         <p>No event details available for the selected variant.</p>
       {% endif %}
     </div>
+    <div>
+      <img
+        src="{{  product.selected_or_first_available_variant.metafields.custom.event_image | image_url: height: 640 }}"
+        alt="{{ product.selected_or_first_available_variant.metafields.custom.event_image.alt | escape }}"
+        loading="lazy"
+        width="{{ product.selected_or_first_available_variant.metafields.custom.event_image.width }}"
+        height="{{ product.selected_or_first_available_variant.metafields.custom.event_image.height }}"
+        class=""
+      >
+    </div>
   </div>
 </div>
 
