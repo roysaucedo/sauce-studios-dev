@@ -842,9 +842,11 @@ updateEventDetails() {
     
     // Show loading indicator (optional)
     container.innerHTML = '<div class="loading">Loading...</div>';
+    const url = window.location.pathname + '?section_id=event-details-section';
+    console.log(url)
     
     // Fetch the section using Section Rendering API
-    fetch(window.location.pathname + '?section_id=event-details-section')
+    fetchurl)
       .then(response => {
         if (!response.ok) throw new Error('Failed to fetch section');
         return response.text();
