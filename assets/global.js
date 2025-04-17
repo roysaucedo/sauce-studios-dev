@@ -833,7 +833,41 @@ class VariantSelects extends HTMLElement {
 
 
 updateEventDetails() {
-}
+    // Get the container where content will be updated
+    const container = document.getElementById('event-details-section');
+    
+    // If container doesn't exist, exit the function
+    if (!container) {
+      console.error('Container with ID "event-details" not found');
+      return;
+    }
+    
+    // Show loading state if desired
+    container.innerHTML = '<div class="loading">Loading event details...</div>';
+    
+    // Construct the URL for the section rendering API
+    const url = `${window.Shopify.routes.root}?section_id=event-details-section`;
+    
+    // Fetch the section content
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(html => {
+        // Update the container with the new section content
+        container.innerHTML = html;
+        
+        // Dispatch an event that other code can listen for
+        document.dispatchEvent(new CustomEvent('event-details-section:loaded'));
+      })
+      .catch(error => {
+        console.error('Error fetching section:', error);
+        container.innerHTML = '<div class="error">Failed to load event details</div>';
+      });
+  }
 
 
   updateOptions() {
