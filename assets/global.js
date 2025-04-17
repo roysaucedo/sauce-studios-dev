@@ -851,6 +851,7 @@ updateEventDetails() {
       .then(html => {
         // Replace the entire content
         console.log(html)
+        console.log(typeof html);
         container.innerHTML = html;
       })
       .catch(error => {
