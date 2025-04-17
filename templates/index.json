@@ -279,6 +279,73 @@
         "padding_bottom": 36
       }
     },
+    "collection_sub_grid_twR8Yi": {
+      "type": "collection-sub-grid",
+      "blocks": {
+        "collection_item_ndz6Ar": {
+          "type": "collection-item",
+          "settings": {
+            "grid_image": "shopify://shop_images/photo-1599974579688-8dbdd335c77f.jpg",
+            "grid_heading": "Women's",
+            "link": "",
+            "squiggle_color": "#ff6b6b"
+          }
+        },
+        "collection_item_DWiURK": {
+          "type": "collection-item",
+          "settings": {
+            "grid_heading": "Men's",
+            "link": "",
+            "squiggle_color": "#4ecdc4"
+          }
+        },
+        "collection_item_h63Exj": {
+          "type": "collection-item",
+          "settings": {
+            "grid_heading": "Accessories",
+            "link": "",
+            "squiggle_color": "#ffd166"
+          }
+        },
+        "collection_item_9enF9L": {
+          "type": "collection-item",
+          "settings": {
+            "grid_heading": "Sale",
+            "link": "",
+            "squiggle_color": "#6b5b95"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_ndz6Ar",
+        "collection_item_DWiURK",
+        "collection_item_h63Exj",
+        "collection_item_9enF9L"
+      ],
+      "settings": {
+        "main_image": "shopify://shop_images/daniel-Rgj8Fdd5l3o-unsplash_2_1.jpg",
+        "card_heading": "Featured Collection",
+        "heading_size_desktop": 44,
+        "heading_size_mobile": 32,
+        "heading_color": "#ffffff",
+        "card_button_label": "Shop Now",
+        "card_button_link": "",
+        "content_position": "top-left",
+        "text_align": "left",
+        "grid_text_size_desktop": 20,
+        "grid_text_size_mobile": 16,
+        "image_border_radius": 8,
+        "desktop_order": "normal",
+        "mobile_order": "normal",
+        "max_width": 1500,
+        "background": "#ffffff",
+        "column_gap": 40,
+        "row_gap": 40,
+        "grid_gap": 20,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "collection_sub_grid_MhWVcL": {
       "type": "collection-sub-grid",
       "blocks": {
@@ -758,6 +825,7 @@
     "rich_text_y7t9rc",
     "section_ig_story_bXdHNV",
     "features_showcase_zjY9GC",
+    "collection_sub_grid_twR8Yi",
     "collection_sub_grid_MhWVcL",
     "features_showcase_BViKyN",
     "flexible_grid_HgU9ab",
