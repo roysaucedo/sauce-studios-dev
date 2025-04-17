@@ -34,7 +34,14 @@
   <div class="page-width" id="section-render"></div>
 </div>
 
-<script></script>
+<script>
+  fetch(`/?section_id=your-single-section-id`)
+  .then(response => response.text())
+  .then(html => {
+    document.getElementById('section-render').innerHTML = html;
+  })
+  .catch(error => console.error('Error fetching section:', error));
+</script>
 
 {% schema %}
 {
