@@ -22,32 +22,33 @@
   }
 {%- endstyle -%}
 
-<div id="event-details-section">
-  <div class="hello-section-wrapper">
-    <div class="column">
-      <div>
-        {% if product.selected_or_first_available_variant.metafields.custom.event_details %}
-          <div class="event-details">
-            {{ product.selected_or_first_available_variant.metafields.custom.event_details | metafield_tag }}
-          </div>
-        {% else %}
-          <p>No event details available for the selected variant.</p>
-        {% endif %}
+{% if product.selected_or_first_available_variant.metafields.custom.event_details %}
+  <div id="event-details-section">
+    <div class="hello-section-wrapper">
+      <div class="column">
+        <div>
+          {% if product.selected_or_first_available_variant.metafields.custom.event_details %}
+            <div class="event-details">
+              {{ product.selected_or_first_available_variant.metafields.custom.event_details | metafield_tag }}
+            </div>
+          {% else %}
+            <p>No event details available for the selected variant.</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="column">
+        <img
+          class="event-image"
+          src="{{  product.selected_or_first_available_variant.metafields.custom.event_image | image_url: width: 800 }}"
+          alt="{{ product.selected_or_first_available_variant.metafields.custom.event_image.alt | escape }}"
+          loading="lazy"
+          width="{{ product.selected_or_first_available_variant.metafields.custom.event_image.width }}"
+          height="{{ product.selected_or_first_available_variant.metafields.custom.event_image.height }}"
+        >
       </div>
     </div>
-    <div class="column">
-      <img
-        class="event-image"
-        src="{{  product.selected_or_first_available_variant.metafields.custom.event_image | image_url: width: 800 }}"
-        alt="{{ product.selected_or_first_available_variant.metafields.custom.event_image.alt | escape }}"
-        loading="lazy"
-        width="{{ product.selected_or_first_available_variant.metafields.custom.event_image.width }}"
-        height="{{ product.selected_or_first_available_variant.metafields.custom.event_image.height }}"
-      >
-    </div>
   </div>
-</div>
-
+{% endif %}
 <script></script>
 
 {% schema %}
